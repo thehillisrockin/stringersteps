@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Fred Gomberg Dad Joke Hall of Fame</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --page:#E7DECF; --card:#F8F3EA; --oxblood:#8F2211; --oxblood-h:#6E190C;
+    --amber:#E8AC13; --powder:#88B1DB; --cream:#F2EDE4; --charcoal:#221C18;
+    --espresso:#2B1D15; --body:#574E46; --muted:#9A8B7C;
+    --hairline:rgba(143,34,17,.20); --r:24px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,sans-serif; color:var(--body);
+    background:var(--page); line-height:1.55; text-wrap:pretty;
+    position:relative; overflow-x:hidden;
+  }
+  /* warm vintage fade + film grain on the background only */
+  body::before{
+    content:""; position:fixed; inset:0; z-index:-2; pointer-events:none;
+    background:
+      radial-gradient(1200px 700px at 80% -10%, rgba(232,172,19,.16), transparent 60%),
+      radial-gradient(900px 600px at -10% 110%, rgba(143,34,17,.14), transparent 60%),
+      var(--page);
+  }
+  body::after{
+    content:""; position:fixed; inset:0; z-index:-1; pointer-events:none; opacity:.05;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  h1,h2,.anton,.jnum,.stat-num{font-family:'Anton',sans-serif;font-weight:400;letter-spacing:.01em;text-wrap:balance;text-transform:uppercase}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+
+  /* ---------- HERO ---------- */
+  header.hero{padding:64px 0 30px;text-align:center}
+  .kicker{font-size:.82rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--oxblood)}
+  h1{font-size:clamp(2.7rem,8vw,5.8rem);line-height:.94;color:var(--charcoal);margin:14px 0 6px}
+  h1 .amber{color:var(--oxblood)}
+  .sub{font-size:clamp(1.02rem,2.4vw,1.28rem);max-width:640px;margin:14px auto 0;color:var(--body)}
+  .stats{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin:34px 0 6px}
+  .stat{background:var(--card);border:1px solid var(--hairline);border-radius:var(--r);padding:18px 26px;min-width:150px;box-shadow:0 10px 30px rgba(43,29,21,.06)}
+  .stat-num{font-size:2.6rem;color:var(--oxblood);line-height:1}
+  .stat-lab{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:6px;font-weight:600}
+  .banner{margin:30px auto 0;max-width:720px;background:var(--espresso);color:var(--cream);border-radius:var(--r);padding:22px 26px;box-shadow:0 16px 40px rgba(43,29,21,.22)}
+  .banner b{color:var(--amber)}
+
+  /* ---------- DECK ---------- */
+  section.deck{padding:34px 0 20px}
+  .deckhead{text-align:center;margin-bottom:20px}
+  .deckhead h2{font-size:clamp(1.6rem,4vw,2.4rem);color:var(--charcoal)}
+  .card{
+    background:var(--card);border:1px solid var(--hairline);border-radius:var(--r);
+    padding:40px 38px;box-shadow:0 24px 60px rgba(43,29,21,.12);
+    max-width:720px;margin:0 auto;min-height:340px;
+    display:flex;flex-direction:column;position:relative;overflow:hidden;
+  }
+  .card::before{content:"";position:absolute;top:0;left:0;right:0;height:6px;background:linear-gradient(90deg,var(--oxblood),var(--amber))}
+  .cmeta{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:22px}
+  .tag{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 11px;border-radius:999px}
+  .tag.date{background:var(--charcoal);color:var(--cream)}
+  .tag.call{background:transparent;border:1px solid var(--hairline);color:var(--body)}
+  .tag.theme{background:rgba(136,177,219,.28);color:#345b7d}
+  .tag.sig{background:var(--amber);color:var(--espresso)}
+  .tag.bit{background:transparent;border:1px solid var(--hairline);color:var(--body)}
+  .jnum{position:absolute;top:22px;right:26px;font-size:2.4rem;color:rgba(143,34,17,.14)}
+  .slabel{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:8px}
+  .setup{font-size:clamp(1.3rem,3.2vw,1.75rem);color:var(--charcoal);font-weight:600;line-height:1.28}
+  .reveal-wrap{margin-top:auto;padding-top:26px}
+  .punch{font-family:'Anton',sans-serif;font-size:clamp(1.6rem,4.4vw,2.5rem);color:var(--oxblood);line-height:1.02;text-transform:none;letter-spacing:0}
+  .reaction{margin-top:14px;font-style:italic;color:var(--body);font-size:1rem}
+  .reaction span{color:var(--muted);font-style:normal;font-size:.85rem;display:block;margin-top:6px}
+  .hidden{display:none !important}
+
+  .btn{font-family:'Inter',sans-serif;cursor:pointer;border:none;font-weight:700;font-size:1rem;
+    padding:15px 26px;border-radius:999px;transition:.15s;display:inline-flex;align-items:center;gap:9px}
+  .btn-amber{background:var(--amber);color:var(--espresso);box-shadow:0 10px 24px rgba(232,172,19,.4)}
+  .btn-amber:hover{background:#d59f10;transform:translateY(-2px)}
+  .controls{display:flex;gap:12px;justify-content:center;align-items:center;margin:26px 0 6px;flex-wrap:wrap}
+  .btn-ghost{background:var(--card);border:1px solid var(--hairline);color:var(--charcoal);padding:13px 22px}
+  .btn-ghost:hover{background:var(--oxblood);color:var(--cream)}
+  .counter{font-weight:700;color:var(--muted);min-width:84px;text-align:center;font-variant-numeric:tabular-nums}
+
+  /* ---------- WALL ---------- */
+  .walltoggle{text-align:center;margin:38px 0 0}
+  section.wall{padding:26px 0 10px}
+  .yeargroup{margin-top:30px}
+  .yeargroup h3{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;color:var(--oxblood);font-size:1.5rem;letter-spacing:.04em;border-bottom:2px solid var(--hairline);padding-bottom:8px;margin-bottom:16px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+  .wcard{background:var(--card);border:1px solid var(--hairline);border-radius:16px;padding:18px 20px;position:relative}
+  .wcard .wmeta{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:9px}
+  .wcard .ws{color:var(--charcoal);font-weight:600;margin-bottom:8px}
+  .wcard .wp{color:var(--oxblood);font-weight:700}
+  .wcard.issig{border-color:var(--amber);box-shadow:0 8px 22px rgba(232,172,19,.18)}
+  .wcard .sigstar{position:absolute;top:14px;right:16px;color:var(--amber);font-size:1.1rem}
+
+  /* ---------- TRIBUTE ---------- */
+  section.tribute{padding:56px 0 30px}
+  section.tribute h2{text-align:center;font-size:clamp(1.7rem,4.4vw,2.6rem);color:var(--charcoal);margin-bottom:8px}
+  .tsub{text-align:center;color:var(--muted);margin-bottom:34px}
+  .quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+  .quote{background:var(--card);border-left:5px solid var(--oxblood);border-radius:0 16px 16px 0;padding:22px 24px}
+  .quote p{font-size:1.12rem;color:var(--charcoal);font-weight:500}
+  .quote cite{display:block;margin-top:10px;font-style:normal;font-size:.82rem;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;font-weight:600}
+
+  /* ---------- FOOTER ---------- */
+  footer{text-align:center;padding:50px 0 60px;margin-top:30px;border-top:1px solid var(--hairline)}
+  .logo{display:inline-block}
+  .logo img{height:38px;width:auto;display:block}
+  footer p{color:var(--muted);font-size:.86rem;margin-top:12px}
+  @media(max-width:560px){.card{padding:30px 24px;min-height:320px}.jnum{display:none}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker">100 calls. Countless groans. One legend.</div>
+    <h1>The Fred Gomberg<br><span class="amber">Dad Joke Hall of Fame</span></h1>
+    <p class="sub">A collection of dad jokes Fred has dropped on the AI Rundown and Office Hours calls, pulled from the tapes and enshrined here. Read the setup, then brace yourself for the groan.</p>
+    <div class="stats">
+      <div class="stat"><div class="stat-num">100</div><div class="stat-lab">Calls attended</div></div>
+    </div>
+    <div class="banner">Happy <b>100th call</b>, Fred. You have been here since the very first one, and you never once let a call start without a joke. This is for you.</div>
+  </div>
+</header>
+
+<section class="deck">
+  <div class="wrap">
+    <div class="deckhead"><h2>The Groan Machine</h2></div>
+    <div class="card" id="card"></div>
+    <div class="controls">
+      <button class="btn btn-ghost" id="prev">&larr; Prev</button>
+      <span class="counter" id="counter">1 / 50</span>
+      <button class="btn btn-ghost" id="next">Next &rarr;</button>
+      <button class="btn btn-ghost" id="shuffle">Shuffle</button>
+    </div>
+    <div class="walltoggle"><button class="btn btn-amber" id="walltog">See all the jokes at once</button></div>
+  </div>
+</section>
+
+<section class="wall hidden" id="wall">
+  <div class="wrap" id="wallwrap"></div>
+</section>
+
+<section class="tribute">
+  <div class="wrap">
+    <h2>Why we love Fred</h2>
+    <p class="tsub">Straight from the calls.</p>
+    <div class="quotes">
+      <div class="quote"><p>"It's the Fred show. I really tune in to hear him every week, believe it or not."</p><cite>Phil, Office Hours</cite></div>
+      <div class="quote"><p>"I didn't come here for AI. I came here to see Fred."</p><cite>Keith, Office Hours</cite></div>
+      <div class="quote"><p>"This group would not be complete without Fred. I get texts all the time about Fred's jokes from people watching the replay."</p><cite>Phil, AI Rundown</cite></div>
+      <div class="quote"><p>"We need to cut all of these videos and put all of his jokes together. Too funny."</p><cite>Phil, June 2024 (we finally did it)</cite></div>
+      <div class="quote"><p>"Fred's dad jokes help reset our mind. Every time we're on this call, it's the perfect balance."</p><cite>Karina, Office Hours</cite></div>
+      <div class="quote"><p>"Fred, where do you get this stuff?" "He's got a joke AI agent, of course."</p><cite>The running theory</cite></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <a class="logo" href="https://philstringer.com" target="_blank" rel="noopener"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAggAAABOCAYAAABFYu47AAAbVklEQVR4nO2dCbQcVZnH/93v5b0khIQXQgwESAjKJksAUUYGYhQdxgFECDMSBTkyQEYRR0CQYREZBgTUAAJhGRCQfRBRQFnCDgoDQhCiRMKahYRAQvaXvKXnfPAvp+hUd9e9favqVvX3O6dPoM/rqurqW/f+77eWpo7rgqIoiqIoSph2mP3tSABluKEHwEoA/QB6+f8Vi+MMBzDY8DPdAN6peq8E4COG90R4D8CKqvc6eK9MWcj7EGYoXyasBfC2xfmV4lLi2JZXG58ZGadR9AFYzXHUxzEpz6kp8jwNQLos46vZOaIW/Zw/1nDe6uU9MsVmjqhwjpBzJjVHDAQwwuKeLLS8D+ExOZAvGatR372br77Qvbc5n8t1rB6rACyuek/OO8rh+Xu5jobvic2zGonJYrgpgOkAOh2ct8RJR27eLACPA3gIwOt88Ey+4JkADjAQFyWe69Cq92UCuYPf0+RYcv4rqt7fEcCvYM4XAbxQ9d4UAMcaXtNLAPaxfICUYlHiM7sxgM8AmABgWwAb1Vi8S5xslvJ5fBLAAxyXawwWATn2rQC2tBT+Nsi1Xwrg7Kr35f/3dXAdJc5NsiGYA+BZ3punKKhMnredAfzS8Jr6+Vz/per9bwP4N8M5Yh6Az0VsbvYAcK3hdcm42JvjBQbjY30AnwbwWQDjAYwGMIiLZyXivq/mdT8H4EEAfwCwPGJTVY/NuY4lLVxLAG7n3B1GTPb3ULS6GI8y5pYAmA3g9xyPL1uso00LhAG8uS5v7FgAuwA4BMC7vKEXc4EThRuHDTmwTBhZ42ZvbHGsKOXeSaFhStSObgOLa5LJXVGCZ3YKnzHTcbQDgP0AnMqJ5yIAj3EX1wjb56lZ5HmpZqMErkNE1hcAnMiF6lJuMFbHnPgHWl6TqzliFOffFyM2SqbH6jFYS8oUBjIej6YwMGErABMBHAdgBoDLANxEodNv8EyIxSJpNqzx/WVtcOnbH8P7OIlz/918VmdQKFhjYuaoJLwjlZt5JNXdFD5AcbBRSX0OjxX1GRtlWKnxOZffT2kdRKQezOfphCYXyEHcgd8F4FyaoKPMwD6Mw/6Ur6PMXfcNAK6jxSTOvGozR/Q5nCPaKHJcXFdvzM+1cSGTjeA0C3FQzXgKBDneTjEX/aTXsTi/S5LjcRiAyQDu5XO/XjMHS8MPY4qo/QsB/BTAkKwvRlFyKg5O5IIlu0RXdNBkerOlhazoHATgNwB29XRujXJzpIUs3p/n/RGXgkvEVXIn3RxpWAbygAiFs+j+FneGFT4PYvGpnVcnkEpRlHVp587hzAQnS5mQr7cMxC06siu/BcB28B/ZdaeBWJv2pJUlKZfTaB5/j5jWrVZhMoBLbC0JPguEQCRMycF1KooPyMS4P4AzUjjXXgB+bJH10wpswZ1bVw7ETFMm6JhsBuC/m9nJGripr1Lr1jp8BcD3bTYMeVh4ZbLbJuuLUJQcIDv681NctCUT6MCUzpU3/g7Adz3fzW7CgL0kaaM1S2Iz0uCjAH6oroZ1OB7Ap1BAgSAq/CTPHzRF8QGxto1L+ZyS4aCxQtEcQ2uCz7EqSbtCdmPGQpp8FcAnUj6n70ig8Smma34eBILwZbUiKErD4N4jMjivpEL+UwbnRU42N1n8JiZIQGVSlCmS0o4jk/N9SzeV67C3qRUhLwJhfRYIUYpDO9PlhhuktCq12YO+3qyi93UyjmY/z8f3+AR/uw25KGXB3hYVIYtOB2OUCicQwApwSjFoo+nxRAbQHOSoQmcrI0GDWfGJlILd8shWnrsZtnZYhjoqS0LKbWeBFOnaPqNz+8yeJoIwTwJBgk805TH/BMVSrqV5ejir0EmZaRUJ9nw8w3NvzIC3PM8vSdHJuctXRicYqJi1WzjrVNMS/GML1kiIRRrRzitYNrnEBX6w5Y0LGq7ELcGs+CkOdqY4+BiAmSzTKuWqr2Qlzd82Wx60BSkzBsGGvlDTtEGWIm1gjbKyUc1qAkr83U2jzbt53FrHdFUlr4d1/pudt5DhLtokULG6v4Mr4WjLSs71HU1Yp6SctCuWG/Z8KDmex1byeOVQUytbd/1QNhn0QiBcyUYvbRyIk5inavqwDcigM5ySjDiIUvYbcqwcxVriKhLiU7Z8NvpZi/9m1nCXAkj/aGly7owQHmfV2a2UmI5mWjjnfjZCqzV//AlukPvyM86R29F3O8Yyfc7nGATQoieNo1xjaxGULpM3UrRsxyyIkRnf9yu4oTFZt15xeH55Rp9gxtAe7ANiU2ej3cQSn4ZAuJuNXgLu5JfVKmytQyNxEBYJ8iCqJSEd3mQMiDRHA4vMiEg7zMGx+2IsOsdaCATpoPhzJM8bVecJei1E9S/IO2mWXG5EDyuB/iL03nMcl1luEO8C8HCG53+QoglsaHgUC5UlmmKcho+wWkU+xFKkSmsQVxxUiwSNSUie34bEAWjSvSKl9sztlvNPWkWgqq/tGRZta7qFrqeBir4Emb4esT7cTMGWJZ0Znz+865fn83L2tUiUrIKIRBEqrRWQaBIwNMIDkdBGE+UQmsm72FZ3KCfTzgIE4b0T8Z64GrQbaDQPx/Xd5ozRHpUnXhoRZyaWRG1hH23VSJSs6qinsUNRskUW2F0AXGMZTTwig8DFdi7+g9gFcRxrC4zke+BE9RbN87MBLGTQ3Ooc7i7LOYm89oXV/K2T7imQNoPoOpmV9YVw/JWq1ojgPeXDJC6atNGKkpQ42JXioBmfbeBuOCphkdBBy8AODNKbwBQtea8eIg5mALiPwXNvMto5b0JBiUeRFymx9N2R9UUofo1HFQiKazrZ9/2CGA1a4uwMRjB47mQANwFY5ljIjKEgmMzo4MBSEDd97R/4WsiA3FsoGiQSW1Hywif5r1p3lb+hAkFJQhxMjdm9rSdm3rr4/8/hf7sSCeuxAqC0FP+Sg5QoEQvfoFi4hhHvswtuTeih2T3IWVfyHaioheiUD6ECQcnCciAsAfC/zC2eFyPdLRAJFUY1NyMSNmCDodM4MbpkNLumSZnZ/wLwR8MCKz5QaiAGlvPftxhdLvner2ZwnYrbokajHRaaUgqACgTFBR1sjmIiDq5jqo4sNOexL0MckfAjLmC2loQu5vmfnnCw2b6cdOV7PZYzkdDL32UlK6GuqBIDL1MQzONvqeSfQQwmlkqVivI+KhAUF5HwexmKAymCcioXnqDwBwxEgq27QT77dQD/mXSBESKBmhfSjfFETvy7KxlwOUfFQMuxM8eporyPCgTFRZOg82M2pAksB2FxAPrpf0bLwPcM3Q23xsxNl88cDuBMQ3HQy+yJHl7fAMYrxK2BsD3vjwiTv8IvoirTzaWFRcVA67EjgKdRnIj9ImedpIIKBAVN+vJPY4qUjeUgTIUioWLobpBmQLfF+NuvG4gDESyL+JrL3fMyZj0MZ/e7UQxMjNMZbXcA/wHg2/Tf+8KYiJxzCTbUgMPWZFuTTn8p023x7OTJreclKhAUW0psvHWggTg4pYY4CC/MFxtYElbH6GJo6laQa/0z6y48xOIx4eqCHSyctBMzFvZmQaVGFR+l4cw9DLB0TcXSfbE7C0FJ/QZFSbL1s4uqgc8bfkbKYytNoAJBsWUTAMfF6G7XyHJQTeBuQAORMJ+me6m22CggMa44mEuXxWX0vUexln83lwu+1FD4d/5br7BSB5vQTK9R4rgZKhRLpki1yGMAnAvgXcfXpOSPobQi9Fl2rUwKGd9nZ30RrUjea8m7ROvPm3FwjCqJy0OWAxPzYCASzqd5P0ocSCezi+qkZQXi4KyY4mAO4xq+X0ccRI0Z6bI2hcJCAvwaBS1K22DX9LNQkw3fBHA0gC10Pmh52mgZU5T3Kbe49URSe9ZnSd8RnqlmnxkSoyWwLNy3G1gO4oqEsDjodygOpGbBpZZ+S7mmk+iWaCQ0D0uoAdVfmigY9UPGZ+zmUVc/JRukLogG961Lhf+WuHYEjdyGMxZpcwZqb1WkdaRVmzUNZ1GfcJe+uAFnygfpUJK9UI+ZrDXQTFBe2N0gCzBC4qDPoTg4mzUZmmExAzZ3bFB8aTf2eTD1pzbiD7xfti2Uv8ZeFD+hG0TqHigfptQCm6o00n/zyKa0rgzmpnJoaO0Yzk2mvMBsqTSCkQvbiyHrbmi70CTcWSPVS6nPQQ3Ksq7ggu4i+K2fguAVPhB31RGY4+giODRm6eTfAziDef8umEWLyfV1rASDWdrZtUB4hOdvpjnWThRK01ku+j5L609RGR2jgZfiFnmO/sXCsiVzxXMUzi74AeeiwbQ8B2tH9SL9dooWBLFW5F4gVJuBRXFNRLbID6vCwI429jCoxwxWD3RFhcKgOiWvGXHwBE3rrsRBgCyuLzXw5e7W4LvYIMGg/0OrTTPI5LcfUyC3ppAWcdZqVP82g2llURdMuozg4iz335TLHQqEzWP+XW9K66jEDH0ZBRAIXcwZL9OMvy8r7yn5ZH0uHvV4AMCqBM7tShw8TnEgi7lr3uNuvp5A2JI7ENdlbW/iPZDJo1l25I5Z3CHXAni0xer0D+S81ca01s/SdaX++XTZjOO51OLukmEcjx2cP74S6sCZa4FwKAVBGwXCHpa+/n4PYheUD347sQLVQxoUpYWt5SAJcRDwbIxd0ZAEBIJUaryCAYcuLGTiU/0q0yHFbfLrFmpjvTV3rsG8tTuFgg2aIWXPx5oQZUVaLw5kr4xOCoRPWXbfrJh0mE1DIOzDf5tV3pLnrY1EsqejweIjg29BiuLgJENxcEbC4gA1UjOr72Gz7aVr3ftruZhJnIML2ijwA5eDxCa8iOIzlumfLiwGGsdhj+tuq3llAl/Njsc1JjVT0ojILTl6yCTPWwVCPuhNURwc5pk4QIxSxUk+d2+xnoMr32vAGDadOp0xFK2Ai3mrwkwZxdNAvJxQcjQeF7EybCzylLLzfIv5QH2lt4HJtMy4kzTcCocZxBykJQ4Q4/v3JWx2fopuFNed+QazvPYPGKOgxEt/nZ31ReSUATE7xCrx+bNvFgQX9KU4uSv1WRmjYmCSZkGbgMQ0xQEY2FePpTHuYbPcy+/9G8syzLWQXcwX+Rts7PC4ReWZJqpctjpdrD+guGO6SWxGXgTCq47T5hR7lsYoorNXQmPLVhxIVkVatMfI0pmbgkAIJgP5/tMAvOFYJEjQ1De0n0vDjY2kiWpXQft+L0lbI1uJ+dw4oEgCIQi80spufrCGVRLrsScX8ywDEoNUxgca+Dddd6/7OCOM6/GnFCPbn2MzprMpsl2dt5NBfHFafbcqM1h+W7FD3Atar8YdIlZfK5pAeIopVoo/SE58I+V/uMOKYjYxB41SGbdh1cPvMdfaBZKd8K+hkqtRVDKwhklq4tW0JtzgsHOj3Lcj1YoQyTJWAE0ro6eI5DGDod3TWhkvMgW6r0gC4XXuflyaR6Poock3dn5oi/MIK/fVosTFfKIjcXCi4yJIMvGcDOAQmsmPd+Tr3IddLuuxkCWeswgufZCtr6XfwguOjnuABpJFzifSxfQO+MuqGNk2WZMHgdDLe7mY6c2vehhML9b382wauvms/MUM+52EdlvSI+AW/qjv8SWm80s08Cp2QZ7buHust7u8nDt06epog6TTTaXJPs5YvZFWgXpmtL8H8FO2Xi7zuNLyeHsAxzLK14bJfAilqE49rnfUo8KW2RQIsngdwd+wmf4CI1lMqdkSz0Whnx1If0wrgq/M49h3UXXTNRVa43xKp53JDeu7fIXXjvf4W6+gWEgjvsjEengk+6qgKALhHrbffSohX+3LXHjW8tXDAem7ovYF+U2uYhOVoQ12/z8CsBF3VHHLL8vCvT/dCrsaiIPTDMVBwAAGFl5kKRIms3uklCZulIN8jQcV3tZyN/ETCvHjm0xbnEB3klYM/MB6dl8DC5sPLOHC5qNAAJ/5RxjHIff0Cxk3+ZtK6+Sa0LoRrB1B6rePFmgRMg/ZBsq2e7gzvYG7+9kJTjhrIoIe2zyYuPPEDNb+l0C1RqVST2F1P1nEn6zTCrWTQW8HUyBsGdMNFogDMe/VYiLdVdXiICwS9rQQCZNpto8z0V7NMe4L8gz8kl0gj2V997KlKXg4BVCrU2oQg+ILa7krloXXx3vYzc1FEMe0fcYCYQ6fk7zRRdfsqjwKBMnPfoeT8aNUOrNTmGiigkh8DCzxGRFZF7CJjYgANHA3TKJImMnI+tf4O/fxwR/DBkfjGQ8QN70pjjiQ3/YzdcRBQIehJSEQB+NiCqppHqa8iTn0abpmlrJaoildtBKpQPiAjyIfiPXIV/pDsWclzjdZUkI+6WLQuFgSvBQI02pMtGtp4nqLE8simr18NNMotV01ZzA6tlEb3CHMHNiCpv6VoYe+g1X6hhm2dY0jDkDL0A00o0tQXT3iWhIOMRAHS1h9MMvYg3r0U7Cdw3iPXQw/3xGjgVfeeIHjegpTV03IQ9BmO9uS93qwUSzyAu2K67i5OoMt2U2ezc1s+6ekMTDur5GLXuFuSoSCioJ8Irv/Oxmcd2rMnOXOGIF8LsVBWMxITANiiISOBiLhEMYcxBEH3eyueH8OXFhz6DYyFQgoYL76m5yUd7MQCK5rgCRBO0Xh4ia6VCrpIRb2X3E+ahTr5Gw8piEQuj2P5lWaYzmtROLnOiGlhcJUHICL8ywHIsFEHPTQj3qd43LHUburoFd8xeAzS2nFC/MkBXu5xXd4vZy3bGJGNuMuL8nfvFlKFAciElQg+E9PKJVydFourzQEQtEmDmVdxD10IQNhTqCrIKmH5CqmkZmIgzA2IkG+21EAdjYQB2tpWZlm6/8zoMxzme4UJKPiyqr3lubA0oEU561XLD47kr5fnwVCmc/TSzEqfyr+jEdJtfyk4WetM1Xy4HtS8oEUALqMA/j4BErwSsDSxcxwabZ9rqlI2IupfJMMxMG5vF7JQ05j8tiJkd4mSOGkKFQgfHjcmVpUhnGXJ7XvfcdVwSwlHYFgszEaS8uucYC075UUlXzxDv1kR3LX7WKCXMoAwyNoPWhWHFSLhF/H+NsOTvoSqe+bOAg/yyWLl1KfeSyAY/pbuO7xkRQqEPLFbIvPjLIthqYWBMU1kp3wR2an3M3WwHszVz5ufEKFvlEplHIX0yLnJFDCNGxJ+FKMa+r3VBzY7vrVUhBP9C6ymGDzkMkQuFBWMMtI8Z/X+NyaiPsuVgg27sGiAkFJggp3XguZmvMLphjuAGBb1jkYHhIMvbQUzOeiLSk5z/MYCxLOgX6JXSLjiARfxYGSHKspTrcsqECYTzHfqJaJ4gdzGfifSqqjCgQlSXo5Ac2nKbOTrwGsmyADN9wsK0h77U657PUsdmGUjIyvWXx+DXtOXO1ZHXbFjdidzUJbJkgrcd8pUwCJiFeBkA/m06Jl6sISC+7vTE+mAkFJix6+An9uyTNzt5iSj+N/m4gEFQfFx8bvuxmLflmVuE2ZF2ME6yp+sJJWhM3TsGhpkKKSFZWqlw+IMv8uOy62gjiIiqnw5bfwCZtUx41y0pPBt5LLUfOBT3NE1lRCJagTT3VUgaAo0ZaE62OIgxNzLA6EERHvDQ01yFE+nOpowvqsgZ8HZnnUyXZoyPUY0JlgbZVWEaxjI+5rQ1QgFJP+BCL+W4lFFAmSXllLHJzAtMu8igNhnypf+QDGYmj647p+X9NqsCVOynkpK+1Lo62x7OYa5mA2c8uSNci3y+sjNiJLYxCKiWQIHGax67mfmQfK/7sbKqGYhDbGUYg4+HnOxUEwGd/M/gtScvlzAPbL+qI8ZDEzUzYoaFfHpSzAY1rCNwk6WCl1Z5Y3347PX9a9Pvbh/SkZpiQ+kcC1yHFN2YAWLSMhqAKhmMhAmGrxOUnzU4GwriVhIF9ilTnZQ3HQb9lGusz003E8xmCac/O+w0oq1XGrAjZtAkXwTJYVd4ntmJCc/aM5pjtidIqthWRDueKbFs/YHQkJhHmcf9YzXOs3Z/q40YeU4tFGK4LN55R1RcJ3WI1Mgrke90wcgIu7rYm4zYF/tzuFfhNZIyXEUVCBkFRFRalhYsuQjM8fFVNiiq3YbsRCFj1aL+nxqDEIShiNFI4mqOPwoEXZ3bSobkmdJgty0negGaRduCmb0iqTB2Ym8PxLEbIseamg8+lKpjoiaZeXCgRFiUdQxMlXHsvw3M94LJxcUfRUx1csAjEb8XyGVUUXeJa+mctURxUIilIMHrPcVbjg9hawPtmkOg7NUarj2w4boYVThh9ANky36T1QcME6xjTVUQWCohSDRazJkDbierkTxWceo/1NKOUoDmEt3Qwu6WdvEpsA2ma/yyUWgi5P/NXiM5uwcVNsVCAoSnGYZhlM1wzntIB7AdyN2mT45CXVETbNfGLwFIBbkC6Suvs0is1rFp8ZxmDr2KhAUJTisJCln/tSOt+NAG5Da7DG0oWTFwtCUpkMMhZPs1zQbJB6Dqen+AxkadFaYZGxZFRwSgWCohSHCnOvz0zhXE+wRkTa5uMskcWnyAJhVkL1LN5ghc4lSJbFPI9Uhiw6b1vGWBg1bVKBoCjFQoo5nUuRkJQP9mFWt2u1olq2XR1tC/1ksSt1WTsgLFwf4ZhJ4vjCWwAOBfBoCwTMppbqqAJBUYqH7ALPBnC4491UD4O//tkyzaoVI8dH5CjVcbmlCIqDmPzvYylvEQuuBasc994WcC2kWryrnEKlvaQbv5QdfsbVsWy+c6nG59IUcdqkp1giQYK1Pg/ggiZ3bnKs3wHYn30oFjnapbVl/LybfuYNywp8UjDJxbPW5nCOKDssuNVmYN16FsABAI5xEPMgn/8Wj/dcTHFQSrFibDnhdfRVy1oIHUmUWu5ltbTODOth1/I7iXnJhCjfTYUm0wEWqjtqQjW9pkoNf+4yi2PZUuR6+q1IDysAnsyd/0QAEwBswyI+tcZ6H8fd64xCn86iN92Od2g2DZCWpTRHLK5hgp/F+gYmyL12MUf01yjWtdTiWLVKc8vvPcnwWGsMxkU/G4NdCeBWAJ9mk7DxTMMbVGMxrLAnhqxBM1hf4XHOv2sNn4n5KTV/WlLj+8+3WBdX1RBIpr97H8ev1KhoSGnquC4TMTHKQvm+wx82KTa0KGfaHfGAlNgkxFTdvRchEkREjYQ5CyJEwjCLCamZCVtFQjEp8Rlu5xgfUmeSrNDHuZYbg56E4hlGWUzUyyzqEdjMEasjJtESF7GyxUKxwrM5oqeGVWkQ3SImVLhQ2YjH8JgczKZo9ebtVTxPr2VLe9t1zIZVEZvRMteZsoVgXenot1oQ996ZCIS/fcbigpLG5TW5OpbNAHR5LBtaIbhHaTyu0hwHac0nRZgj0rgm18eyoZTROVxTcXj+NNaZdfg/KHAsgRf2FtoAAAAASUVORK5CYII=" alt="Phil Stringer"></a>
+  <p>Built for Fred Gomberg's 100th AI Rundown. INNOVATE. INSPIRE. IMPACT.</p>
+</footer>
+
+<script>
+const JOKES = [
+ {n:1,date:"2024-09-10",call:"AI Rundown",setup:"What do you call a fake noodle?",punch:"An impasta.",theme:"Wordplay",type:"Pun",react:"Phil: \"That's Fred for you, guys.\" It later got auto-clipped as \"Fred's imposter noodle joke goes viral.\""},
+ {n:2,date:"2024-09-17",call:"AI Rundown",setup:"What is the least favorite bread that deer dislike?",punch:"Sourdough.",theme:"Wordplay",type:"Pun",react:"Sour-doe. Get it?"},
+ {n:3,date:"2024-09-17",call:"AI Rundown",setup:"The English teacher asked the math book why it was so sad.",punch:"\"I'm full of problems.\"",theme:"Wordplay",type:"Pun",react:"Fred's requested closing joke."},
+ {n:4,date:"2024-09-23",call:"AI Rundown",setup:"Did you hear about the explosion at the cheese factory in Paris?",punch:"There was de-brie everywhere.",theme:"Wordplay",type:"Pun",react:"Phil: \"Oh, Fred, I knew it was coming.\""},
+ {n:5,date:"2024-09-23",call:"AI Rundown",setup:"There was a big fire at a Pennsylvania shoe factory.",punch:"No sole survived. And with that, you can give me the boot.",theme:"Wordplay",type:"Pun",react:"Phil: \"I love it, Fred.\""},
+ {n:6,date:"2024-09-23",call:"AI Rundown",setup:"On why the course is so good...",punch:"It's so good even the bots are giving it a 5-star review.",theme:"Topical",type:"Pun",react:"His promised day-one closer."},
+ {n:7,date:"2024-09-23",call:"AI Rundown",setup:"Why did the pony ask for a glass of water?",punch:"Because he was a little horse.",theme:"Wordplay",type:"Pun",react:"Phil: \"I always start off with a joke from Fred. I love that.\""},
+ {n:8,date:"2024-09-24",call:"AI Rundown",setup:"Did you hear the orchestra got struck by lightning?",punch:"They had a really good conductor.",theme:"Wordplay",type:"Pun",react:"Phil: \"Your joke made part of my demonstration.\""},
+ {n:9,date:"2024-09-24",call:"AI Rundown",setup:"I went out to buy camouflage pants so I could dress more like Phil.",punch:"But I couldn't find any.",theme:"Observational",type:"Pun",react:"\"Oh, Fred, Fred, Fred. We love you, Fred.\""},
+ {n:10,date:"2024-10-01",call:"AI Rundown",setup:"Why should you never take driving directions from a life coach?",punch:"They keep telling you to go the extra mile.",theme:"Wordplay",type:"Pun",react:"Phil: \"That's a good one, Fred. I love it.\""},
+ {n:11,date:"2024-10-08",call:"AI Rundown",setup:"You're in a 4-wheel-drive SUV making a right turn. Which tire doesn't move?",punch:"The spare tire.",theme:"Riddle",type:"Pun",react:"Told in Fred's \"good news and dad jokes\" slot; Phil was out that day."},
+ {n:12,date:"2024-10-08",call:"AI Rundown",setup:"Are you on the seafood diet?",punch:"I see food and I eat it.",theme:"Wordplay",type:"Pun",react:"Same segment, moments later."},
+ {n:13,date:"2024-10-15",call:"AI Rundown",setup:"Do you know how to make holy water?",punch:"You boil the hell out of it.",theme:"Wordplay",type:"Pun",react:"Fred: \"an old joke my dad used to tell.\" Meredith: \"I laughed at you, Fred.\""},
+ {n:14,date:"2024-10-22",call:"AI Rundown",setup:"What do you call a million rabbits walking backwards?",punch:"A receding hairline.",theme:"Wordplay",type:"Pun",react:"Group groan and eye-rolls. \"We all look forward to it.\""},
+ {n:15,date:"2024-11-05",call:"AI Rundown",setup:"What do a politician and a diaper have in common?",punch:"Both need changing regularly, for the same reason. They're both full of it.",theme:"Topical",type:"Pun",react:"Election Day. Phil: \"What's that, Fred?\""},
+ {n:16,date:"2024-11-12",call:"AI Rundown",setup:"Did you hear about the coffee that was causing so much trouble?",punch:"It got grounded.",theme:"Wordplay",type:"Pun",react:"\"Fred, we know you have a joke.\" Group: \"Love it.\""},
+ {n:17,date:"2024-11-26",call:"AI Rundown",setup:"What did the ocean say to the beach?",punch:"Nothing. It just waved.",theme:"Wordplay",type:"Pun",react:"Fred back after a week out. \"Fred has the dad-joke market cornered.\""},
+ {n:18,date:"2024-12-03",call:"AI Rundown",setup:"If your house is really cold, what should you do?",punch:"Go stand in the corner. It's always 90 degrees there.",theme:"Wordplay",type:"Pun",react:"Phil: \"That's a good one, Fred, I love it.\""},
+ {n:19,date:"2024-12-17",call:"AI Rundown",setup:"What is the Realtor's favorite Christmas song?",punch:"For Lease Navidad.",theme:"Real Estate",type:"Signature",react:"THE signature. Phil: \"That's a good one, Fred. I love it.\""},
+ {n:20,date:"2024-12-17",call:"AI Rundown",setup:"And one more before he goes...",punch:"Police Navidad.",theme:"Holiday",type:"Signature",react:"\"That's what you get with them bad jokes, Fred.\""},
+ {n:21,date:"2025-01-07",call:"AI Rundown",setup:"What is a spider's New Year's resolution?",punch:"To spend less time on the web.",theme:"Holiday",type:"Pun",react:"Emailed in while he was out. He watched the replay to see how it landed."},
+ {n:22,date:"2025-01-07",call:"AI Rundown",setup:"Why is New Year's partying in Times Square so overrated?",punch:"Because they always drop the ball.",theme:"Holiday",type:"Pun",react:"Emailed in."},
+ {n:23,date:"2025-01-07",call:"AI Rundown",setup:"Why did the guy start fixing breakfast at midnight on Dec 31?",punch:"He wanted to make a New Year's toast.",theme:"Holiday",type:"Pun",react:"Emailed in."},
+ {n:24,date:"2025-01-14",call:"AI Rundown",setup:"Why was Cinderella so bad at soccer?",punch:"She kept running away from the ball.",theme:"Wordplay",type:"Pun",react:"\"Oh Fred, we missed you, I love it.\""},
+ {n:25,date:"2025-01-28",call:"AI Rundown",setup:"What did the guy hit in the head with a can of Sprite say?",punch:"He was fine. It was only a soft drink.",theme:"Wordplay",type:"Pun",react:"Phil arrived late: \"Did I miss the Fred joke?\" Fred: \"I waited.\""},
+ {n:26,date:"2025-02-04",call:"AI Rundown",setup:"Did you hear about the guy injured at the upholstery factory?",punch:"He's fully re-covered.",theme:"Wordplay",type:"Pun",react:"Groan: \"Oh, Fred.\""},
+ {n:27,date:"2025-02-11",call:"AI Rundown",setup:"Why didn't the bank officer and the mortgage loan person work out?",punch:"They had different levels of interest.",theme:"Real Estate",type:"Signature",react:"His real-estate lane."},
+ {n:28,date:"2025-02-11",call:"AI Rundown",setup:"What do you call a loan person who becomes a realtor?",punch:"A trans lender.",theme:"Real Estate",type:"Pun",react:"Delivered from a call in Saudi Arabia."},
+ {n:29,date:"2025-02-18",call:"AI Rundown",setup:"Why did the social media manager go to the farmers market?",punch:"To get some organic content.",theme:"Topical",type:"Pun",react:"Emailed in."},
+ {n:30,date:"2025-03-04",call:"AI Rundown",setup:"What is the definition of \"relay\"?",punch:"What chickens do after the farmer takes their eggs.",theme:"Wordplay",type:"Pun",react:"\"That's a good one, Fred. We need that with the price of eggs.\""},
+ {n:31,date:"2026-04-21",call:"AI Rundown",setup:"Have you heard people aren't eating enough salad?",punch:"Top chefs say it's a problem that needs addressing.",theme:"Wordplay",type:"Pun",react:"\"I'll give that one to you, I love it. Good to have Fred back.\""},
+ {n:32,date:"2026-05-05",call:"AI Rundown",setup:"Have you heard about the sale on rowboat paddles?",punch:"They're calling it a big ordeal.",theme:"Wordplay",type:"Pun",react:"Lance graded it a 3 out of 10."},
+ {n:33,date:"2026-06-02",call:"AI Rundown",setup:"Our phones have been collecting data about us for years...",punch:"And our vacuum cleaners have been collecting dirt about us too.",theme:"Topical",type:"Pun",react:"\"That's pretty good. Fred is back, my friends.\""},
+ {n:34,date:"2026-06-09",call:"AI Rundown",setup:"Do you know what Euchre is, Fred?",punch:"Bob Euchre was a catcher for the New York Yankees.",theme:"Deadpan",type:"Pun",react:"Keeping the bit going with a straight face."},
+ {n:35,date:"2026-06-23",call:"AI Rundown",setup:"A new report says never plan a blind date at the gym.",punch:"Because they almost never work out.",theme:"Wordplay",type:"Pun",react:"Phil: \"Oh my gosh, Fred. I'll give you a 10.\""},
+ {n:36,date:"2024-06-11",call:"Office Hours",setup:"Why can't humans hear a dog whistle?",punch:"Because dogs can't whistle.",theme:"Wordplay",type:"Pun",react:"Phil: \"We need to put all his jokes together.\" (Two years later, done.)"},
+ {n:37,date:"2024-10-01",call:"Office Hours",setup:"Why did the shopping cart quit its job?",punch:"It was tired of being pushed around.",theme:"Wordplay",type:"Pun",react:"\"That's a good one, better than the one from earlier today.\""},
+ {n:38,date:"2024-10-01",call:"Office Hours",setup:"What is the difference between roast beef and pea soup?",punch:"Anybody can roast beef.",theme:"Classic",type:"Pun",react:"\"That was a bad one. Oh Fred, you're funny.\""},
+ {n:39,date:"2024-10-08",call:"Office Hours",setup:"What do you call someone who has no kids but tells dad jokes?",punch:"A faux pas.",theme:"Wordplay",type:"Signature",react:"His calling card. He owns it proudly."},
+ {n:40,date:"2024-10-08",call:"Office Hours",setup:"A lady had TGIF on each sneaker.",punch:"Toes Go In First.",theme:"Wordplay",type:"Pun",react:"Group: \"Groaner. Groaner.\""},
+ {n:41,date:"2024-10-15",call:"Office Hours",setup:"What do you call a bull asleep in the field?",punch:"A bulldozer.",theme:"Wordplay",type:"Pun",react:"\"Oh, Fred. I was going to say that. I like it.\""},
+ {n:42,date:"2024-12-03",call:"Office Hours",setup:"What does a baby computer call its father?",punch:"Data.",theme:"Tech",type:"Pun",react:"\"I like it, Fred.\" Kicked off an on-air dad-joke session."},
+ {n:43,date:"2024-12-10",call:"Office Hours",setup:"I looked at a new car and checked the muffler.",punch:"It looked exhausted. Very tired.",theme:"Wordplay",type:"Pun",react:"Phil compared him to comedian Henny Youngman."},
+ {n:44,date:"2025-01-14",call:"Office Hours",setup:"Why did Captain Hook cross the road?",punch:"To get to the second-hand store.",theme:"Wordplay",type:"Pun",react:"From his \"New Year's ones\" joke set."},
+ {n:45,date:"2025-02-04",call:"Office Hours",setup:"Why did the plumber quit his job?",punch:"He said it was too draining.",theme:"Wordplay",type:"Pun",react:"\"That's a good one. I like that.\""},
+ {n:46,date:"2026-04-07",call:"Office Hours",setup:"When the circus comes to town and the clowns attack, how do you stop it?",punch:"Go for the juggler.",theme:"Wordplay",type:"Pun",react:"The room mock-booed him off the stage."},
+ {n:47,date:"2026-06-09",call:"Office Hours",setup:"Patients want to administer their own anesthesia.",punch:"The doctor said, \"go ahead and knock yourself out.\"",theme:"Wordplay",type:"Pun",react:"\"That really knocked me over.\""},
+ {n:48,date:"2026-06-16",call:"Office Hours",setup:"They fired a cross-eyed teacher in Canada.",punch:"He couldn't control his pupils.",theme:"Wordplay",type:"Pun",react:"\"Fred, where do you get this stuff?\""},
+ {n:49,date:"2026-06-23",call:"Office Hours",setup:"How do you weigh a millennial?",punch:"In Instagrams.",theme:"Topical",type:"Pun",react:"Read off his numbered joke list (page 72)."},
+ {n:50,date:"2026-05-12",call:"Office Hours",setup:"Did you hear about the guy who tried to run an AI-instructor business from a blimp?",punch:"He just couldn't get the business off the ground.",theme:"Topical",type:"Pun",react:"Fred's \"Hey Phil, did you hear\" format."},
+ {n:51,date:"2026-06-02",call:"Office Hours",setup:"The gym's weightlifting instructor gave his two weeks' notice.",punch:"He was too weak to lift the weights himself.",theme:"Wordplay",type:"Pun",react:"Opened the call as a groaner."},
+ {n:52,date:"2026-06-23",call:"Office Hours",setup:"Why do milking stools only have three legs?",punch:"Because the cow has the udder.",theme:"Wordplay",type:"Pun",react:"Fred's signature format."},
+ {n:53,date:"2024-05-21",call:"Office Hours",setup:"Fred, sorry to keep you. Where were you?",punch:"I had to hang up with Bill and Hillary to get back to you.",theme:"Deadpan",type:"Bit",react:"A witty aside, pure Fred."},
+ {n:54,date:"2024-06-11",call:"Office Hours",setup:"What's it going to cost her for that, Fred?",punch:"$19.95 plus shipping and handling. And some Ginsu knives.",theme:"Infomercial",type:"Bit",react:"Phil teed him up by name."},
+ {n:55,date:"2024-06-25",call:"Office Hours",setup:"On Phil's new hat...",punch:"It has an AI brim that auto-adjusts to the optimum angle for teaching AI.",theme:"Deadpan",type:"Bit",react:"Phil: \"An AI-enabled hat. We should take it to market.\""}
+];
+
+const fmt = d => { const [y,m,day]=d.split("-"); const M=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]; return M[+m-1]+" "+(+day)+", "+y; };
+
+let filtered = JOKES.slice(), idx = 0, revealed = false;
+
+function render(){
+  const j = filtered[idx];
+  if(!j) return;
+  revealed=false;
+  const isSig = j.type==="Signature";
+  const isBit = j.type==="Bit";
+  document.getElementById('card').innerHTML = `
+    <span class="jnum">#${String(j.n).padStart(2,'0')}</span>
+    <div class="cmeta">
+      <span class="tag date">${fmt(j.date)}</span>
+      <span class="tag call">${j.call}</span>
+      <span class="tag theme">${j.theme}</span>
+      ${isSig?'<span class="tag sig">Signature</span>':''}
+      ${isBit?'<span class="tag bit">One-liner</span>':''}
+    </div>
+    <div class="slabel">The setup</div>
+    <div class="setup">${j.setup}</div>
+    <div class="reveal-wrap">
+      <button class="btn btn-amber" id="revealbtn">Reveal the groan &#127908;</button>
+      <div id="punchbox" class="hidden">
+        <div class="slabel">The groan</div>
+        <div class="punch">${j.punch}</div>
+        <div class="reaction">${j.react}</div>
+      </div>
+    </div>`;
+  document.getElementById('counter').textContent = (idx+1)+" / "+filtered.length;
+  document.getElementById('revealbtn').addEventListener('click', doReveal);
+}
+function doReveal(){
+  revealed=true;
+  document.getElementById('revealbtn').classList.add('hidden');
+  document.getElementById('punchbox').classList.remove('hidden');
+}
+function go(d){ idx=(idx+d+filtered.length)%filtered.length; render(); }
+
+document.getElementById('next').onclick=()=>{ if(!revealed){doReveal();return;} go(1); };
+document.getElementById('prev').onclick=()=>go(-1);
+document.getElementById('shuffle').onclick=()=>{ idx=Math.floor(Math.random()*filtered.length); render(); };
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'){ if(!revealed){doReveal();}else{go(1);} }
+  if(e.key==='ArrowLeft') go(-1);
+  if(e.key===' '){ e.preventDefault(); if(!revealed)doReveal(); }
+});
+
+// wall
+function buildWall(){
+  const years={};
+  JOKES.forEach(j=>{ const y=j.date.slice(0,4); (years[y]=years[y]||[]).push(j); });
+  let html='';
+  Object.keys(years).sort().forEach(y=>{
+    html+=`<div class="yeargroup"><h3>${y}</h3><div class="grid">`;
+    years[y].forEach(j=>{
+      const sig=j.type==="Signature";
+      html+=`<div class="wcard ${sig?'issig':''}">${sig?'<span class="sigstar">&#9733;</span>':''}
+        <div class="wmeta">${fmt(j.date)} &middot; ${j.call}</div>
+        <div class="ws">${j.setup}</div>
+        <div class="wp">${j.punch}</div></div>`;
+    });
+    html+='</div></div>';
+  });
+  document.getElementById('wallwrap').innerHTML=html;
+}
+buildWall();
+document.getElementById('walltog').onclick=function(){
+  const w=document.getElementById('wall');
+  w.classList.toggle('hidden');
+  this.textContent = w.classList.contains('hidden') ? 'See all the jokes at once' : 'Hide the full wall';
+  if(!w.classList.contains('hidden')) w.scrollIntoView({behavior:'smooth'});
+};
+
+render();
+</script>
+</body>
+</html>
