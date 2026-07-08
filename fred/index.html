@@ -107,6 +107,13 @@
   .quote p{font-size:1.12rem;color:var(--charcoal);font-weight:500}
   .quote cite{display:block;margin-top:10px;font-style:normal;font-size:.82rem;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;font-weight:600}
 
+  /* ---------- VIDEO ---------- */
+  section.video{padding:44px 0 10px;text-align:center}
+  section.video h2{font-size:clamp(1.6rem,4vw,2.4rem);color:var(--charcoal);margin-bottom:6px}
+  .video-sub{color:var(--muted);margin-bottom:20px}
+  .video-frame{max-width:720px;margin:0 auto;border-radius:var(--r);overflow:hidden;box-shadow:0 24px 60px rgba(43,29,21,.18);border:1px solid var(--hairline)}
+  .video-frame video{display:block;width:100%;height:auto;background:#000}
+
   /* ---------- FOOTER ---------- */
   footer{text-align:center;padding:50px 0 60px;margin-top:30px;border-top:1px solid var(--hairline)}
   .logo{display:inline-block}
@@ -128,6 +135,18 @@
     <div class="banner">Happy <b>100th call</b>, Fred. You have been here since the very first one, and you never once let a call start without a joke. This is for you.</div>
   </div>
 </header>
+
+<section class="video">
+  <div class="wrap">
+    <h2>The Supercut</h2>
+    <p class="video-sub">The best of it, cut together.</p>
+    <div class="video-frame">
+      <video controls preload="metadata" poster="supercut-poster.jpg">
+        <source src="supercut.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</section>
 
 <section class="deck">
   <div class="wrap">
