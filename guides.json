@@ -1,0 +1,77 @@
+{
+  "site": "https://stringersteps.com",
+  "brand": "Stringer Steps",
+  "tagline": "Free step-by-step guides that actually get you unstuck.",
+  "pillars": [
+    { "key": "found-by-ai", "label": "Getting Found by AI", "blurb": "Show up when people ask ChatGPT, Perplexity, or Google's AI for someone like you. This is the AEO stuff, in plain words." },
+    { "key": "ai-beginners", "label": "AI for Beginners", "blurb": "Never really used it? Start here. The basics, the way I wish someone showed me." },
+    { "key": "more-customers", "label": "Get More Customers", "blurb": "Guides for filling your calendar: reviews, referrals, follow-up, showing up local." },
+    { "key": "content", "label": "Content Without the Grind", "blurb": "Make posts, emails, and videos faster so you can stay consistent without burning out." },
+    { "key": "save-time", "label": "Save Time with AI", "blurb": "Little systems that hand the boring work to a robot so you get your hours back." },
+    { "key": "look-legit", "label": "Look Legit Online", "blurb": "Clean up your website, profiles, and first impression so people trust you fast." },
+    { "key": "sell", "label": "Sell Without Being Sleazy", "blurb": "Offers, pricing, and simple sales steps that feel like you, not a pushy guru." },
+    { "key": "run-smarter", "label": "Run Your Business Smarter", "blurb": "Tools, workflows, and habits to keep the whole thing from living in your head." }
+  ],
+  "guides": [
+    {
+      "keyword": "claudeworkshop",
+      "title": "Claude Workshop Homework",
+      "topic": "ai-beginners",
+      "visibility": "private",
+      "flagship": false,
+      "featured": false,
+      "url": "https://stringersteps.com/claudeworkshop",
+      "kitTag": null,
+      "updated": "2026-07-02",
+      "oneLineOutcome": "Get your machine set up right before the live workshop."
+    },
+    {
+      "keyword": "fable5",
+      "title": "Use Fable 5 Before It's Gone",
+      "topic": "ai-beginners",
+      "visibility": "private",
+      "flagship": false,
+      "featured": false,
+      "url": "https://stringersteps.com/fable5",
+      "kitTag": null,
+      "updated": "2026-07-07",
+      "oneLineOutcome": "Get real work out of the smartest AI model before it's retired."
+    },
+    {
+      "keyword": "fred",
+      "title": "The Fred Gomberg Dad Joke Hall of Fame",
+      "topic": "run-smarter",
+      "visibility": "private",
+      "flagship": false,
+      "featured": false,
+      "url": "https://stringersteps.com/fred",
+      "kitTag": null,
+      "updated": "2026-07-02",
+      "oneLineOutcome": "A tribute page. Private, not part of the public library."
+    },
+    {
+      "keyword": "secondbrain",
+      "title": "Second Brain Workshop Pre-Work",
+      "topic": "save-time",
+      "visibility": "private",
+      "flagship": false,
+      "featured": false,
+      "url": "https://portableaibrain.com",
+      "kitTag": null,
+      "updated": "2026-07-02",
+      "oneLineOutcome": "The follow-along homework for the paid Second Brain workshop."
+    },
+    {
+      "keyword": "secondbrainguide",
+      "title": "Build Your Second Brain (Full Guide)",
+      "topic": "save-time",
+      "visibility": "private",
+      "flagship": false,
+      "featured": false,
+      "url": "https://build.portableaibrain.com",
+      "kitTag": null,
+      "updated": "2026-07-02",
+      "oneLineOutcome": "The full step-by-step Second Brain build, for paid attendees."
+    }
+  ]
+}

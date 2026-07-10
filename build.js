@@ -1,20 +1,112 @@
-<!doctype html>
+#!/usr/bin/env node
+/*
+ * Stringer Steps hub build.
+ * Reads guides.json, writes index.html + sitemap.xml + llms.txt.
+ * Only visibility:"public" guides are ever emitted. Private guides
+ * (workshop homework, fred, etc.) stay direct-link folders and never
+ * appear on the hub, the sitemap, or llms.txt.
+ * Zero dependencies. Run: node build.js
+ */
+const fs = require('fs');
+const path = require('path');
+const ROOT = __dirname;
+
+const data = JSON.parse(fs.readFileSync(path.join(ROOT, 'guides.json'), 'utf8'));
+const SITE = data.site || 'https://stringersteps.com';
+const esc = (s) => String(s == null ? '' : s)
+  .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+  .replace(/"/g, '&quot;');
+
+const pub = data.guides.filter((g) => g.visibility === 'public');
+const flagships = pub.filter((g) => g.flagship);
+let featured = pub.filter((g) => g.featured).sort((a, b) => (b.updated || '').localeCompare(a.updated || ''));
+if (featured.length > 1) console.warn('WARN: more than one featured guide, using most recent: ' + featured[0].keyword);
+let featuredGuide = featured[0] || [...pub].sort((a, b) => (b.updated || '').localeCompare(a.updated || ''))[0] || null;
+
+// ---------- fragments ----------
+function card(g) {
+  return `<a class="card" href="/${esc(g.keyword)}">
+        <span class="kw">${esc(String(g.keyword).toUpperCase())}</span>
+        <h3>${esc(g.title)}</h3>
+        <p>${esc(g.oneLineOutcome)}</p>
+        <span class="go">Open guide &rarr;</span>
+      </a>`;
+}
+
+const startHereSection = flagships.length ? `
+  <section class="band" id="start-here" aria-labelledby="sh-h">
+    <div class="wrap">
+      <p class="eyebrow">Start Here</p>
+      <h2 id="sh-h">New to this? These are the ones I'd hand you first.</h2>
+      <div class="cards">
+        ${flagships.map(card).join('\n        ')}
+      </div>
+    </div>
+  </section>` : '';
+
+const featuredSection = featuredGuide ? `
+  <section class="band featured" id="new-this-week" aria-labelledby="ntw-h">
+    <div class="wrap">
+      <p class="eyebrow amber">New This Week</p>
+      <a class="feature-card" href="/${esc(featuredGuide.keyword)}">
+        <span class="kw big">${esc(String(featuredGuide.keyword).toUpperCase())}</span>
+        <h2 id="ntw-h">${esc(featuredGuide.title)}</h2>
+        <p class="lead">${esc(featuredGuide.oneLineOutcome)}</p>
+        <span class="btn">Open this week's guide &rarr;</span>
+        <span class="feature-note">Heard me say "${esc(String(featuredGuide.keyword).toUpperCase())}" on a video or live? This is it.</span>
+      </a>
+    </div>
+  </section>` : `
+  <section class="band featured" id="new-this-week" aria-labelledby="ntw-h">
+    <div class="wrap">
+      <p class="eyebrow amber">New This Week</p>
+      <div class="feature-card empty">
+        <h2 id="ntw-h">The first guides drop this week.</h2>
+        <p class="lead">I'm building these one at a time, and the newest one lands right here every week. Grab the weekly email so you catch them the day they go live.</p>
+        <a class="btn" href="#weekly">Get the weekly email &rarr;</a>
+      </div>
+    </div>
+  </section>`;
+
+const topicsSection = `
+  <section class="band" id="topics" aria-labelledby="topics-h">
+    <div class="wrap">
+      <p class="eyebrow">Browse by Topic</p>
+      <h2 id="topics-h">Pick what you're trying to figure out.</h2>
+      <div class="pillars">
+        ${data.pillars.map((p) => {
+          const gs = pub.filter((g) => g.topic === p.key);
+          const body = gs.length
+            ? `<div class="cards small">${gs.map(card).join('')}</div>`
+            : `<p class="soon">More coming here soon. I add guides for this every week. <a href="#weekly">Get the weekly email</a> and I'll send the new ones as they drop.</p>`;
+          return `<div class="pillar">
+          <h3>${esc(p.label)}</h3>
+          <p class="blurb">${esc(p.blurb)}</p>
+          ${body}
+        </div>`;
+        }).join('\n        ')}
+      </div>
+    </div>
+  </section>`;
+
+// ---------- page ----------
+const html = `<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Stringer Steps &middot; Free step-by-step guides that get you unstuck</title>
 <meta name="description" content="A free, growing library of dead-simple interactive walkthroughs by Phil Stringer. Using AI, getting found online, and running your business smarter, one small step at a time. New guides every week.">
-<link rel="canonical" href="https://stringersteps.com/">
+<link rel="canonical" href="${SITE}/">
 <meta property="og:title" content="Stringer Steps">
 <meta property="og:description" content="Free step-by-step guides that actually get you unstuck. New ones every week.">
-<meta property="og:url" content="https://stringersteps.com/">
+<meta property="og:url" content="${SITE}/">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"CollectionPage","name":"Stringer Steps","url":"https://stringersteps.com/","description":"A free, growing library of step-by-step interactive guides by Phil Stringer.","author":{"@type":"Person","name":"Phil Stringer","url":"https://philstringer.com"}}
+{"@context":"https://schema.org","@type":"CollectionPage","name":"Stringer Steps","url":"${SITE}/","description":"A free, growing library of step-by-step interactive guides by Phil Stringer.","author":{"@type":"Person","name":"Phil Stringer","url":"https://philstringer.com"}}
 </script>
 <style>
 :root{
@@ -152,72 +244,14 @@ footer .fine{margin-top:18px; font-size:.85rem; color:#a99c8a}
       <p class="what">This is my growing library of dead-simple guides. Each one takes something that feels hard, using AI, getting found online, running your business smarter, and breaks it into small steps you just follow.</p>
       <p class="what rhythm">New ones drop every week. Pick one and go.</p>
       <div class="cta-row">
-        <a class="btn" href="#topics">Start Here</a>
+        <a class="btn" href="#${flagships.length ? 'start-here' : 'topics'}">Start Here</a>
         <a class="textlink" href="#topics">or browse everything below</a>
       </div>
     </div>
   </section>
-
-
-  <section class="band featured" id="new-this-week" aria-labelledby="ntw-h">
-    <div class="wrap">
-      <p class="eyebrow amber">New This Week</p>
-      <div class="feature-card empty">
-        <h2 id="ntw-h">The first guides drop this week.</h2>
-        <p class="lead">I'm building these one at a time, and the newest one lands right here every week. Grab the weekly email so you catch them the day they go live.</p>
-        <a class="btn" href="#weekly">Get the weekly email &rarr;</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="band" id="topics" aria-labelledby="topics-h">
-    <div class="wrap">
-      <p class="eyebrow">Browse by Topic</p>
-      <h2 id="topics-h">Pick what you're trying to figure out.</h2>
-      <div class="pillars">
-        <div class="pillar">
-          <h3>Getting Found by AI</h3>
-          <p class="blurb">Show up when people ask ChatGPT, Perplexity, or Google's AI for someone like you. This is the AEO stuff, in plain words.</p>
-          <p class="soon">More coming here soon. I add guides for this every week. <a href="#weekly">Get the weekly email</a> and I'll send the new ones as they drop.</p>
-        </div>
-        <div class="pillar">
-          <h3>AI for Beginners</h3>
-          <p class="blurb">Never really used it? Start here. The basics, the way I wish someone showed me.</p>
-          <p class="soon">More coming here soon. I add guides for this every week. <a href="#weekly">Get the weekly email</a> and I'll send the new ones as they drop.</p>
-        </div>
-        <div class="pillar">
-          <h3>Get More Customers</h3>
-          <p class="blurb">Guides for filling your calendar: reviews, referrals, follow-up, showing up local.</p>
-          <p class="soon">More coming here soon. I add guides for this every week. <a href="#weekly">Get the weekly email</a> and I'll send the new ones as they drop.</p>
-        </div>
-        <div class="pillar">
-          <h3>Content Without the Grind</h3>
-          <p class="blurb">Make posts, emails, and videos faster so you can stay consistent without burning out.</p>
-          <p class="soon">More coming here soon. I add guides for this every week. <a href="#weekly">Get the weekly email</a> and I'll send the new ones as they drop.</p>
-        </div>
-        <div class="pillar">
-          <h3>Save Time with AI</h3>
-          <p class="blurb">Little systems that hand the boring work to a robot so you get your hours back.</p>
-          <p class="soon">More coming here soon. I add guides for this every week. <a href="#weekly">Get the weekly email</a> and I'll send the new ones as they drop.</p>
-        </div>
-        <div class="pillar">
-          <h3>Look Legit Online</h3>
-          <p class="blurb">Clean up your website, profiles, and first impression so people trust you fast.</p>
-          <p class="soon">More coming here soon. I add guides for this every week. <a href="#weekly">Get the weekly email</a> and I'll send the new ones as they drop.</p>
-        </div>
-        <div class="pillar">
-          <h3>Sell Without Being Sleazy</h3>
-          <p class="blurb">Offers, pricing, and simple sales steps that feel like you, not a pushy guru.</p>
-          <p class="soon">More coming here soon. I add guides for this every week. <a href="#weekly">Get the weekly email</a> and I'll send the new ones as they drop.</p>
-        </div>
-        <div class="pillar">
-          <h3>Run Your Business Smarter</h3>
-          <p class="blurb">Tools, workflows, and habits to keep the whole thing from living in your head.</p>
-          <p class="soon">More coming here soon. I add guides for this every week. <a href="#weekly">Get the weekly email</a> and I'll send the new ones as they drop.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+${startHereSection}
+${featuredSection}
+${topicsSection}
 
   <section class="band how" aria-labelledby="how-h">
     <div class="wrap">
@@ -271,3 +305,28 @@ function ssCap(e){
 </script>
 </body>
 </html>
+`;
+
+fs.writeFileSync(path.join(ROOT, 'index.html'), html);
+
+// sitemap.xml (root + public guides only)
+const urls = [SITE + '/'].concat(pub.map((g) => g.url || (SITE + '/' + g.keyword)));
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urls.map((u) => '  <url><loc>' + esc(u) + '</loc></url>').join('\n')}
+</urlset>
+`;
+fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), sitemap);
+
+// llms.txt (public guides only)
+const llms = `# Stringer Steps
+Free step-by-step walkthroughs by Phil Stringer. Public library at ${SITE}. New guides every week.
+
+## Guides
+${pub.length ? pub.map((g) => `- ${g.title} — ${g.oneLineOutcome} — ${g.url || (SITE + '/' + g.keyword)}`).join('\n') : '- New guides are being published weekly. Check back or subscribe at ' + SITE + ' .'}
+`;
+fs.writeFileSync(path.join(ROOT, 'llms.txt'), llms);
+
+console.log('Built index.html, sitemap.xml, llms.txt');
+console.log('  public guides: ' + pub.length + '  |  flagships: ' + flagships.length + '  |  featured: ' + (featuredGuide ? featuredGuide.keyword : 'none (empty-state)'));
+console.log('  private (kept off hub/sitemap): ' + data.guides.filter((g) => g.visibility === 'private').map((g) => g.keyword).join(', '));
