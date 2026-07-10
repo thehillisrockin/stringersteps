@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Build Your AI Operating System</title>
+<title>Use Fable 5 Before It's Gone</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -165,7 +165,18 @@
   .tg::after{content:"";position:absolute;top:2px;right:2px;width:19px;height:19px;border-radius:50%;background:#fff}
   .menu-div{font-size:10.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);padding:16px 11px 7px;border-top:1px dashed rgba(143,34,17,.3);margin-top:8px}
   .stepjump .sj-star{flex:none;width:24px;height:24px;display:flex;align-items:center;justify-content:center;color:var(--amber);font-size:16px}
-  @media(max-width:560px){.card{padding:24px 20px 20px;border-radius:22px;min-height:auto}h1{font-size:29px}h1.big{font-size:37px}.bignum{font-size:46px}.next{padding:13px 24px;font-size:15px}}
+  /* countdown clock (welcome moment card) */
+  .countdown{margin:18px 0 2px;background:rgba(0,0,0,.24);border:1px solid rgba(232,172,19,.55);border-radius:16px;padding:14px 12px;text-align:center}
+  .cd-label{font-size:11.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-bottom:10px;text-wrap:balance}
+  .cd-row{display:flex;justify-content:center;gap:9px}
+  .cd-unit{display:flex;flex-direction:column;align-items:center;min-width:54px;background:rgba(255,255,255,.07);border-radius:11px;padding:9px 6px}
+  .cd-n{font-family:'Anton',sans-serif;font-size:31px;line-height:1;color:#fff;font-variant-numeric:tabular-nums}
+  .cd-u{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#E7CFC0;margin-top:5px}
+  .cd-when{font-size:12px;color:#E7CFC0;margin-top:11px;font-weight:600;text-wrap:balance}
+  .countdown.done .cd-row,.countdown.done .cd-when{display:none}
+  .cd-expired{display:none;font-family:'Anton',sans-serif;font-size:23px;color:#fff;text-transform:uppercase;letter-spacing:.01em;padding:4px 0}
+  .countdown.done .cd-expired{display:block}
+  @media(max-width:560px){.card{padding:24px 20px 20px;border-radius:22px;min-height:auto}h1{font-size:29px}h1.big{font-size:37px}.bignum{font-size:46px}.next{padding:13px 24px;font-size:15px}.cd-unit{min-width:46px}.cd-n{font-size:26px}}
 </style>
 </head>
 <body>
@@ -174,131 +185,158 @@
   <div class="card">
     <button class="menubtn" id="menuBtn" aria-label="Jump to a step"><svg viewBox="0 0 24 24"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
     <div class="top">
-      <div class="cardlabel">AI Operating System</div>
-      <div style="flex:1;max-width:200px"><div class="plabel" id="plabel">Let's build your system</div><div class="pbar"><div class="pfill" id="pfill"></div></div></div>
+      <div class="cardlabel">Last Days of Fable 5</div>
+      <div style="flex:1;max-width:200px"><div class="plabel" id="plabel">Your last-days plan</div><div class="pbar"><div class="pfill" id="pfill"></div></div></div>
     </div>
-    <div class="body" id="screens">
+        <div class="body" id="screens">
 
       <!-- WELCOME -->
-      <section class="screen active" data-next="Start &rarr;" data-noback>
-        <div class="eyebrow">Build your AI operating system</div>
-        <h1 class="big">Turn how you use Claude into a system</h1>
-        <p class="lead">Use the smartest model once, while it is free, to write reusable Skills and instructions. Then run those forever on a cheaper model.</p>
-        <p class="sub">I'll walk you through it one step at a time. Your progress saves as you go.</p>
-        <div class="note">A prompt is a one-time favor. A Skill, a template, or a system-instructions block is an asset that keeps paying off.</div>
+      <section class="screen active" data-next="Show me &rarr;" data-noback>
+        <div class="eyebrow">Fable 5 leaves soon</div>
+        <h1 class="big">Don't waste the smartest AI on Earth</h1>
+        <p class="lead">Fable 5 is the most powerful model in the world. It's free for a few more days, then it goes pay-per-use. Most people burn it on tiny questions.</p>
+        <p class="sub">This guide hands you the exact prompts to get everything out of it first. One step at a time.</p>
+        <div class="countdown" id="cd">
+          <div class="cd-label">Fable 5 goes pay-per-use in</div>
+          <div class="cd-row">
+            <div class="cd-unit"><span class="cd-n" id="cdD">--</span><span class="cd-u">days</span></div>
+            <div class="cd-unit"><span class="cd-n" id="cdH">--</span><span class="cd-u">hrs</span></div>
+            <div class="cd-unit"><span class="cd-n" id="cdM">--</span><span class="cd-u">min</span></div>
+            <div class="cd-unit"><span class="cd-n" id="cdS">--</span><span class="cd-u">sec</span></div>
+          </div>
+          <div class="cd-when">Ends July 12, 2026 at 11:59 PM PT</div>
+          <div class="cd-expired">Fable 5 is now pay-per-use</div>
+        </div>
+        <div class="note">The move: don't ask Fable to do small tasks. Ask it for the plans. Then a cheaper model builds them for months after it's gone.</div>
       </section>
 
       <!-- STEP 1 -->
       <section class="screen" data-next="Continue &rarr;">
         <div class="bignum">(1)</div>
-        <div class="eyebrow">Step 1 of 6</div>
-        <h1>Open a session it can learn from</h1>
-        <p class="lead">Run this where Fable 5 can actually read your real setup: your projects, your <b>CLAUDE.md</b>, your saved prompts and docs, your skills folder.</p>
-        <p class="sub">It only sees what you give it, so give it the real materials.</p>
-        <div class="note">A tool like Claude Code works well here. It reads the files you point it at.</div>
-        <label class="confirm"><input type="checkbox" class="cfm"><span class="cb"><svg viewBox="0 0 18 18"><path d="M3.5 9.5l3.3 3.3 7.7-8"/></svg></span><span class="ctxt">I've opened a session with my real setup</span></label>
+        <div class="eyebrow">Step 1 of 8</div>
+        <h1>Think of it like 30 minutes with a genius</h1>
+        <p class="lead">Picture paying to sit with the smartest business mind alive for 30 minutes. You wouldn't ask them to send emails. You'd ask for the plan.</p>
+        <p class="sub">Fable 5 is that genius. It won't build everything for you. It hands you the roadmap. Then cheaper models like Opus do the building after Fable is gone.</p>
+        <label class="confirm"><input type="checkbox" class="cfm"><span class="cb"><svg viewBox="0 0 18 18"><path d="M3.5 9.5l3.3 3.3 7.7-8"/></svg></span><span class="ctxt">I get it: Fable plans, cheaper models build</span></label>
       </section>
 
       <!-- STEP 2 -->
       <section class="screen" data-next="Continue &rarr;">
         <div class="bignum">(2)</div>
-        <div class="eyebrow">Step 2 of 6</div>
-        <h1>Run the audit prompt</h1>
-        <p class="lead">This maps how you already use Claude, with real examples pulled from what it sees. Paste it in and run it.</p>
-        <div class="prompt-box"><button class="copy">Copy</button><pre>You are my AI systems analyst. Study how I already use Claude so we can turn it into reusable systems.
-
-Look at everything I can give you: my projects, my CLAUDE.md files, my saved prompts and docs, my skills folder, and the recent work in this workspace.
-
-Then answer, specifically and with real examples pulled from what you see:
-1. What do I use Claude for most?
-2. What tasks do I repeat again and again?
-3. What instructions do I keep rewriting by hand every time?
-4. Which of these workflows should become reusable Claude Skills?
-5. What should my everyday model (Opus) know about me and my standards so it can give me most of the Fable 5 experience at a lower cost?
-
-Be concrete. Quote the actual patterns. Rank them by how much time each one would save me.</pre></div>
-        <div class="note">Make sure your real materials are in the session first, or it has nothing to read.</div>
-        <label class="confirm"><input type="checkbox" class="cfm"><span class="cb"><svg viewBox="0 0 18 18"><path d="M3.5 9.5l3.3 3.3 7.7-8"/></svg></span><span class="ctxt">I ran the audit and got my answers</span></label>
+        <div class="eyebrow">Step 2 of 8</div>
+        <h1>Open Fable 5 and tell it about you</h1>
+        <p class="lead">Start a new chat. Set the model to Fable 5. Then give it the real picture of you and your business, so its ideas actually fit.</p>
+        <div class="ui chips" style="margin-top:14px"><span class="chip">Sonnet</span><span class="chip">Opus</span><span class="chip hl">Fable 5 &#10022;</span></div>
+        <span class="cuehint">Tap the model name at the top, then choose Fable 5.</span>
+        <div class="note">Power user? In Claude Code, point it at your files so it already knows everything about you.</div>
+        <label class="confirm"><input type="checkbox" class="cfm"><span class="cb"><svg viewBox="0 0 18 18"><path d="M3.5 9.5l3.3 3.3 7.7-8"/></svg></span><span class="ctxt">Fable 5 is open and knows my context</span></label>
       </section>
 
       <!-- STEP 3 -->
       <section class="screen" data-next="Continue &rarr;">
         <div class="bignum">(3)</div>
-        <div class="eyebrow">Step 3 of 6</div>
-        <h1>Push back and go deeper</h1>
-        <p class="lead">Don't convert anything yet. First ask it to go deeper on your top two or three time sinks.</p>
-        <div class="prompt-box"><button class="copy">Copy</button><pre>Go deeper on my top 2-3 time sinks before I convert anything. For each one, show me exactly where the time goes and what a reusable version would look like.</pre></div>
-        <label class="confirm"><input type="checkbox" class="cfm"><span class="cb"><svg viewBox="0 0 18 18"><path d="M3.5 9.5l3.3 3.3 7.7-8"/></svg></span><span class="ctxt">I pushed back and got the deeper version</span></label>
+        <div class="eyebrow">Step 3 of 8</div>
+        <h1>Ask for your 10 big ideas</h1>
+        <p class="lead">Have it brainstorm 5 things for your business and 5 for your life that would change everything if you built them.</p>
+        <div class="prompt-box"><button class="copy">Copy</button><pre>Based on everything you know about me, my business, and my life, brainstorm 10 ideas I could build with AI.
+
+5 for my business: automations, skills, apps, or workflows that would help it grow or run itself.
+5 for my personal life: things that would save me time, lower my stress, or make my life better.
+
+For each idea give it a short name and one sentence on why it would matter to me. Rank them by impact.</pre></div>
+        <label class="confirm"><input type="checkbox" class="cfm"><span class="cb"><svg viewBox="0 0 18 18"><path d="M3.5 9.5l3.3 3.3 7.7-8"/></svg></span><span class="ctxt">I got my 10 ideas</span></label>
       </section>
 
       <!-- STEP 4 -->
       <section class="screen" data-next="Continue &rarr;">
         <div class="bignum">(4)</div>
-        <div class="eyebrow">Step 4 of 6</div>
-        <h1>Turn it into Skills and instructions</h1>
-        <p class="lead">Feed the audit back in and have Fable 5 write the actual assets, in full, so you can save them and use them right away.</p>
-        <div class="prompt-box"><button class="copy">Copy</button><pre>Now turn that audit into real, reusable assets. Produce:
+        <div class="eyebrow">Step 4 of 8</div>
+        <h1>Turn your favorites into full plans</h1>
+        <p class="lead">Pick your top 2 or 3. Have Fable write the complete step-by-step plan for each, detailed enough that a cheaper model can build it later.</p>
+        <div class="prompt-box"><button class="copy">Copy</button><pre>Take these ideas: [paste your top 2-3].
 
-1. Claude Skills: for each of my top repeated workflows, write the full SKILL.md (name, description, and instructions).
-2. Workflow templates: paste-and-reuse templates for the tasks I do most often.
-3. A system-instructions / CLAUDE.md block for Opus that captures everything it should know about me, my preferences, and my standards, so my cheaper everyday model gives me close to Fable 5 quality.
+For each one, write a complete, step-by-step build plan. Assume a less powerful AI will follow the plan later without my help, so leave nothing out. Include:
+- what we are building and the end result
+- every step in order
+- the exact prompt to run at each step
+- what "done" looks like
 
-Write them out in full. Optimize for reuse: the goal is that these keep working after Fable 5 goes pay-per-use.</pre></div>
-        <label class="confirm"><input type="checkbox" class="cfm"><span class="cb"><svg viewBox="0 0 18 18"><path d="M3.5 9.5l3.3 3.3 7.7-8"/></svg></span><span class="ctxt">It wrote out my Skills and instructions</span></label>
+Write one full plan per idea.</pre></div>
+        <div class="note">Power tip: in Claude Code, turn on Planning Mode first. It maps the whole build before writing a word.</div>
+        <label class="confirm"><input type="checkbox" class="cfm"><span class="cb"><svg viewBox="0 0 18 18"><path d="M3.5 9.5l3.3 3.3 7.7-8"/></svg></span><span class="ctxt">My full plans are saved</span></label>
       </section>
 
       <!-- STEP 5 -->
       <section class="screen" data-next="Continue &rarr;">
         <div class="bignum">(5)</div>
-        <div class="eyebrow">Step 5 of 6</div>
-        <h1>Save everything</h1>
-        <p class="lead">Save each <b>SKILL.md</b> into your skills folder. Paste the system-instructions block into your Opus <b>CLAUDE.md</b>.</p>
-        <div class="note">These are the assets that keep working after the free window closes.</div>
-        <label class="confirm"><input type="checkbox" class="cfm"><span class="cb"><svg viewBox="0 0 18 18"><path d="M3.5 9.5l3.3 3.3 7.7-8"/></svg></span><span class="ctxt">Everything is saved where I can reuse it</span></label>
+        <div class="eyebrow">Step 5 of 8</div>
+        <h1>Have it audit how you use AI</h1>
+        <p class="lead">Let Fable find the tasks you repeat and the instructions you retype, then tell you what to turn into a saved shortcut.</p>
+        <div class="prompt-box"><button class="copy">Copy</button><pre>Act as my AI systems analyst. Based on everything you can see about how I work, tell me:
+
+1. What do I use AI for the most?
+2. What tasks do I repeat over and over?
+3. What instructions do I keep typing by hand every time?
+4. Which of these should become a saved, reusable Skill?
+5. What should a cheaper everyday model know about me and my standards to give me most of your quality for less?
+
+Be specific and use real examples. Rank them by how much time each would save me.</pre></div>
+        <label class="confirm"><input type="checkbox" class="cfm"><span class="cb"><svg viewBox="0 0 18 18"><path d="M3.5 9.5l3.3 3.3 7.7-8"/></svg></span><span class="ctxt">I ran the audit</span></label>
       </section>
 
       <!-- STEP 6 -->
       <section class="screen" data-next="Continue &rarr;">
         <div class="bignum">(6)</div>
-        <div class="eyebrow">Step 6 of 6</div>
-        <h1>Switch your daily work to the cheaper model</h1>
-        <p class="lead">With the Skills and instructions in place, run your day-to-day on <b>Opus</b>. Save the expensive model for the rare hard problem.</p>
-        <p class="sub">What Fable 5 wrote down survives the sunset. Now the cheaper model runs it.</p>
-        <label class="confirm"><input type="checkbox" class="cfm"><span class="cb"><svg viewBox="0 0 18 18"><path d="M3.5 9.5l3.3 3.3 7.7-8"/></svg></span><span class="ctxt">I'm running my day-to-day on the cheaper model</span></label>
+        <div class="eyebrow">Step 6 of 8</div>
+        <h1>Turn that into reusable shortcuts</h1>
+        <p class="lead">Now have Fable write the actual assets, in full, so they keep working after it's gone.</p>
+        <div class="prompt-box"><button class="copy">Copy</button><pre>Now turn that audit into real, reusable assets. Write out, in full:
+
+1. A saved Skill for each task I repeat most (name, when to use it, and the full instructions).
+2. Copy-and-reuse templates for the work I do most often.
+3. An instructions block I can give a cheaper everyday model that captures who I am, my preferences, and my standards, so it gives me close to your quality for less.
+
+Write everything out completely. The goal is that these keep working after you go pay-per-use.</pre></div>
+        <label class="confirm"><input type="checkbox" class="cfm"><span class="cb"><svg viewBox="0 0 18 18"><path d="M3.5 9.5l3.3 3.3 7.7-8"/></svg></span><span class="ctxt">It wrote out my Skills and instructions</span></label>
       </section>
 
-      <!-- BONUS: durable asset -->
-      <section class="screen" data-bonus data-label="Bonus" data-next="Continue &rarr;">
-        <div class="eyebrow">Bonus</div>
-        <h1>Build one durable asset</h1>
-        <p class="lead">While you have the best model, have it write one big plan you can run for months on a cheaper model. A plan written by the smartest model is an asset you run long after it is gone.</p>
-        <div class="prompt-box"><button class="copy">Copy</button><pre>Use your full reasoning to build me one durable asset I can run for months on a cheaper model: a [90-day content plan / project roadmap / launch plan] for [my goal].
+      <!-- STEP 7 -->
+      <section class="screen" data-next="Continue &rarr;">
+        <div class="bignum">(7)</div>
+        <div class="eyebrow">Step 7 of 8</div>
+        <h1>Point it at your hardest thing</h1>
+        <p class="lead">The project you keep avoiding. While you've got the best model, have it write one big plan you can run for months.</p>
+        <div class="prompt-box"><button class="copy">Copy</button><pre>Here is the hardest thing on my list, the one I keep avoiding: [describe it].
 
-Make it detailed enough that a less powerful model can execute each step without needing you again. Include the milestones, the weekly breakdown, and the exact prompt to run each part.</pre></div>
-        <div class="note">Swap the brackets for your own goal before you run it.</div>
+Use your full brainpower to build me one durable plan I can run for months on a cheaper model. Make it so detailed that a less powerful AI can execute each step without asking you again. Include the milestones, a week-by-week breakdown, and the exact prompt to run each part.</pre></div>
+        <div class="note">Swap the brackets for your real project before you run it.</div>
+        <label class="confirm"><input type="checkbox" class="cfm"><span class="cb"><svg viewBox="0 0 18 18"><path d="M3.5 9.5l3.3 3.3 7.7-8"/></svg></span><span class="ctxt">I built my durable asset</span></label>
       </section>
 
-      <!-- INFO: the fine print -->
-      <section class="screen" data-bonus data-label="Good to know" data-next="Continue &rarr;">
-        <div class="eyebrow">The fine print</div>
-        <h1>What Fable 5 can and cannot read</h1>
-        <p class="lead">Fable 5 only reads the materials you give it: your files, projects, <b>CLAUDE.md</b>, and skills folder in a tool like Claude Code.</p>
-        <p class="sub">It does not automatically read your web chat history unless you export or paste it, so point it at your real setup.</p>
-        <div class="note">Results depend on how good the Skills and instructions you save are. The free window is real but short: free on Pro, Max, and Team through July 7, then pay-per-use. So do this while it is free.</div>
+      <!-- STEP 8 -->
+      <section class="screen" data-next="Finish &rarr;">
+        <div class="bignum">(8)</div>
+        <div class="eyebrow">Step 8 of 8</div>
+        <h1>Save it all before the clock runs out</h1>
+        <p class="lead">Copy every idea, plan, Skill, and instruction into a doc or your files. This is what a cheaper model runs long after Fable is gone.</p>
+        <div class="note">A plan from the smartest model is an asset. Prompts are one-time favors. Assets pay you back for months.</div>
+        <label class="confirm"><input type="checkbox" class="cfm"><span class="cb"><svg viewBox="0 0 18 18"><path d="M3.5 9.5l3.3 3.3 7.7-8"/></svg></span><span class="ctxt">Everything is saved where I can reuse it</span></label>
       </section>
 
       <!-- FINISH -->
       <section class="screen" data-final data-noback>
         <div class="done-ic">&#10003;</div>
-        <h1 class="big" style="text-align:center">Your system is built</h1>
-        <p class="lead" style="text-align:center">You turned how you use Claude into assets that keep working.</p>
+        <h1 class="big" style="text-align:center">You beat the clock</h1>
+        <p class="lead" style="text-align:center">You pulled the plans, maps, and Skills out of the smartest AI while it was free. Now a cheaper model runs them for months.</p>
         <div class="recap" id="recap">
-          <div><span class="c">&#10003;</span> Opened a session with your real setup</div>
-          <div><span class="c">&#10003;</span> Ran the audit prompt</div>
-          <div><span class="c">&#10003;</span> Pushed back and went deeper</div>
-          <div><span class="c">&#10003;</span> Turned it into Skills and instructions</div>
-          <div><span class="c">&#10003;</span> Saved everything for reuse</div>
-          <div><span class="c">&#10003;</span> Switched your day-to-day to the cheaper model</div>
+          <div><span class="c">&#10003;</span> Got the game plan: Fable plans, cheaper models build</div>
+          <div><span class="c">&#10003;</span> Opened Fable 5 with your context</div>
+          <div><span class="c">&#10003;</span> Brainstormed your 10 big ideas</div>
+          <div><span class="c">&#10003;</span> Turned favorites into full plans</div>
+          <div><span class="c">&#10003;</span> Audited how you use AI</div>
+          <div><span class="c">&#10003;</span> Built reusable Skills and instructions</div>
+          <div><span class="c">&#10003;</span> Wrote one durable asset</div>
+          <div><span class="c">&#10003;</span> Saved it all to reuse</div>
         </div>
       </section>
 
@@ -325,7 +363,7 @@ Make it detailed enough that a less powerful model can execute each step without
   const HW=screens.filter((s,n)=>n>0&&!s.hasAttribute('data-final')&&!s.hasAttribute('data-bonus')).length;
   let i=0,confirms={};
 
-  const KEY='fable5-os-v1';
+  const KEY='fable5-v2';
   try{const s=JSON.parse(localStorage.getItem(KEY)||'{}');if(typeof s.i==='number')i=Math.min(Math.max(s.i,0),screens.length-1);confirms=s.confirms||{};}catch(e){}
   function save(){localStorage.setItem(KEY,JSON.stringify({i,confirms}))}
 
@@ -339,7 +377,7 @@ Make it detailed enough that a less powerful model can execute each step without
     screens.forEach((s,n)=>s.classList.toggle('active',n===i));const sc=screens[i];
     card.classList.toggle('moment',(i===0)||sc.hasAttribute('data-final'));
     pfill.style.width=Math.round((i/(screens.length-1))*100)+'%';
-    if(i===0)plabel.textContent="Let's build your system";
+    if(i===0)plabel.textContent="Your last-days plan";
     else if(sc.hasAttribute('data-final')){plabel.textContent="All done!";if(!window._rained){window._rained=true;setTimeout(rainConfetti,250);}}
     else if(sc.hasAttribute('data-bonus'))plabel.textContent=sc.dataset.label||"Bonus";
     else plabel.textContent="Step "+i+" of "+HW;
@@ -371,6 +409,23 @@ Make it detailed enough that a less powerful model can execute each step without
   function doReset(){localStorage.removeItem(KEY);confirms={};i=0;document.querySelectorAll('.cfm').forEach(cb=>{cb.checked=false;cb.closest('.confirm').classList.remove('checked');});window._rained=false;closeMenu();render();}
   if(startOver)startOver.onclick=function(){const b=this;if(!resetArm){resetArm=true;b.classList.add('arm');b.textContent='Tap again to clear';resetT=setTimeout(()=>{resetArm=false;b.classList.remove('arm');b.innerHTML='\u21ba Start over';},2600);return;}clearTimeout(resetT);resetArm=false;b.classList.remove('arm');b.innerHTML='\u21ba Start over';doReset();};
   buildMenu();applyState();render();
+  // live countdown to Jul 12, 2026 11:59:59 PM PT (UTC-7) = Jul 13, 2026 06:59:59 UTC
+  (function(){
+    var cd=document.getElementById('cd');if(!cd)return;
+    var target=Date.UTC(2026,6,13,6,59,59,0);
+    var dEl=document.getElementById('cdD'),hEl=document.getElementById('cdH'),mEl=document.getElementById('cdM'),sEl=document.getElementById('cdS');
+    function p(n){return n<10?'0'+n:''+n;}
+    function tick(){
+      var diff=target-Date.now();
+      if(diff<=0){cd.classList.add('done');clearInterval(t);return;}
+      var s=Math.floor(diff/1000);
+      var d=Math.floor(s/86400);s-=d*86400;
+      var h=Math.floor(s/3600);s-=h*3600;
+      var m=Math.floor(s/60);s-=m*60;
+      dEl.textContent=p(d);hEl.textContent=p(h);mEl.textContent=p(m);sEl.textContent=p(s);
+    }
+    tick();var t=setInterval(tick,1000);
+  })();
 </script>
 </body>
 </html>
