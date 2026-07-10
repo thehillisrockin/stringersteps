@@ -165,6 +165,21 @@
   .tg::after{content:"";position:absolute;top:2px;right:2px;width:19px;height:19px;border-radius:50%;background:#fff}
   .menu-div{font-size:10.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);padding:16px 11px 7px;border-top:1px dashed rgba(143,34,17,.3);margin-top:8px}
   .stepjump .sj-star{flex:none;width:24px;height:24px;display:flex;align-items:center;justify-content:center;color:var(--amber);font-size:16px}
+  /* Claude Code menu mockups */
+  .ccmenu{margin-top:14px;background:#201f1d;border:1px solid #35342f;border-radius:12px;padding:9px 8px;max-width:344px;box-shadow:0 12px 28px rgba(0,0,0,.26)}
+  .ccm-head{font-size:11px;font-weight:700;letter-spacing:.09em;color:#8b867d;padding:5px 9px 8px}
+  .ccm-row{display:flex;align-items:center;gap:9px;padding:8px 9px;border-radius:8px;color:#e9e5dd;font-size:14px}
+  .ccm-row.on{background:#34332f}
+  .ccm-name{font-weight:600}
+  .ccm-pill{font-size:10.5px;font-weight:700;color:#E8AC13;background:rgba(232,172,19,.15);border:1px solid rgba(232,172,19,.4);border-radius:99px;padding:2px 8px;white-space:nowrap}
+  .ccm-right{margin-left:auto;display:flex;align-items:center;gap:11px}
+  .ccm-check{color:#E8AC13;font-weight:800;font-size:14px}
+  .ccm-k{color:#726d64;font-size:13px;font-weight:600;min-width:12px;text-align:right}
+  .ccm-div{height:1px;background:#35342f;margin:6px 9px}
+  .ccmcap{font-size:12.5px;color:var(--amber);font-weight:700;margin-top:9px;display:block;text-wrap:balance}
+  /* finish CTA */
+  .fcta{display:inline-flex;align-items:center;gap:8px;margin-top:14px;background:var(--paper);color:var(--red);font-weight:800;font-size:15.5px;text-decoration:none;padding:14px 26px;border-radius:99px;box-shadow:0 8px 20px rgba(0,0,0,.3);transition:.16s}
+  .fcta:hover{background:#fff;transform:translateY(-1px)}
   /* countdown clock (welcome moment card) */
   .countdown{margin:18px 0 2px;background:rgba(0,0,0,.24);border:1px solid rgba(232,172,19,.55);border-radius:16px;padding:14px 12px;text-align:center}
   .cd-label{font-size:11.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-bottom:10px;text-wrap:balance}
@@ -216,7 +231,7 @@
         <div class="eyebrow">Step 1 of 8</div>
         <h1>Think of it like 30 minutes with a genius</h1>
         <p class="lead">Picture paying to sit with the smartest business mind alive for 30 minutes. You wouldn't ask them to send emails. You'd ask for the plan.</p>
-        <p class="sub">Fable 5 is that genius. It won't build everything for you. It hands you the roadmap. Then cheaper models like Opus do the building after Fable is gone.</p>
+        <p class="sub">Fable 5 is that genius. It can build the whole thing, but that eats your limited tokens fast. So spend them on the thinking: the plans and the roadmaps. Then a cheaper model like Opus does the building.</p>
         <label class="confirm"><input type="checkbox" class="cfm"><span class="cb"><svg viewBox="0 0 18 18"><path d="M3.5 9.5l3.3 3.3 7.7-8"/></svg></span><span class="ctxt">I get it: Fable plans, cheaper models build</span></label>
       </section>
 
@@ -226,9 +241,17 @@
         <div class="eyebrow">Step 2 of 8</div>
         <h1>Open Fable 5 and tell it about you</h1>
         <p class="lead">Start a new chat. Set the model to Fable 5. Then give it the real picture of you and your business, so its ideas actually fit.</p>
-        <div class="ui chips" style="margin-top:14px"><span class="chip">Sonnet</span><span class="chip">Opus</span><span class="chip hl">Fable 5 &#10022;</span></div>
-        <span class="cuehint">Tap the model name at the top, then choose Fable 5.</span>
-        <div class="note">Power user? In Claude Code, point it at your files so it already knows everything about you.</div>
+        <div class="ccmenu">
+          <div class="ccm-head">Models</div>
+          <div class="ccm-row on"><span class="ccm-name">Fable 5</span><span class="ccm-pill">Included until July 12</span><span class="ccm-right"><span class="ccm-check">&#10003;</span><span class="ccm-k">1</span></span></div>
+          <div class="ccm-row"><span class="ccm-name">Opus 4.8</span><span class="ccm-right"><span class="ccm-k">2</span></span></div>
+          <div class="ccm-row"><span class="ccm-name">Sonnet 5</span><span class="ccm-right"><span class="ccm-k">3</span></span></div>
+          <div class="ccm-row"><span class="ccm-name">Haiku 4.5</span><span class="ccm-right"><span class="ccm-k">4</span></span></div>
+          <div class="ccm-div"></div>
+          <div class="ccm-row"><span class="ccm-name">More models</span><span class="ccm-right"><span class="ccm-k">&rsaquo;</span></span></div>
+        </div>
+        <span class="ccmcap">Pick Fable 5 from the model menu.</span>
+        <div class="note">In Claude Code, point it at your files so it already knows everything about you.</div>
         <label class="confirm"><input type="checkbox" class="cfm"><span class="cb"><svg viewBox="0 0 18 18"><path d="M3.5 9.5l3.3 3.3 7.7-8"/></svg></span><span class="ctxt">Fable 5 is open and knows my context</span></label>
       </section>
 
@@ -238,12 +261,26 @@
         <div class="eyebrow">Step 3 of 8</div>
         <h1>Ask for your 10 big ideas</h1>
         <p class="lead">Have it brainstorm 5 things for your business and 5 for your life that would change everything if you built them.</p>
-        <div class="prompt-box"><button class="copy">Copy</button><pre>Based on everything you know about me, my business, and my life, brainstorm 10 ideas I could build with AI.
+        <div class="prompt-box"><button class="copy">Copy</button><pre>You are the sharpest business strategist and systems thinker I have ever worked with, and you understand me better than anyone because you can see how I actually work.
 
-5 for my business: automations, skills, apps, or workflows that would help it grow or run itself.
-5 for my personal life: things that would save me time, lower my stress, or make my life better.
+Your job: find the highest-leverage things I could build with AI that I am NOT building yet.
 
-For each idea give it a short name and one sentence on why it would matter to me. Rank them by impact.</pre></div>
+First, study everything you can see about me: my work, my goals, my strengths, and where I lose time, money, or energy.
+
+Then give me 10 ideas, split evenly:
+- 5 for my business: automations, skills, apps, agents, or workflows that would grow revenue, save hours, or run something for me.
+- 5 for my personal life: things that would give me back time, lower my stress, or make my life meaningfully better.
+
+For each idea, give me:
+1. A short, punchy name
+2. The exact problem it solves for me (point to something real you see about me)
+3. What it looks like once it is built
+4. The honest payoff: hours saved, money made, or stress removed
+5. Difficulty: easy, medium, or hard
+
+Then rank all 10 from highest to lowest leverage. End by telling me the ONE you would build first if you were me, and why.
+
+No generic ideas. Every one should be something only someone who truly gets my situation would suggest.</pre></div>
         <label class="confirm"><input type="checkbox" class="cfm"><span class="cb"><svg viewBox="0 0 18 18"><path d="M3.5 9.5l3.3 3.3 7.7-8"/></svg></span><span class="ctxt">I got my 10 ideas</span></label>
       </section>
 
@@ -253,16 +290,32 @@ For each idea give it a short name and one sentence on why it would matter to me
         <div class="eyebrow">Step 4 of 8</div>
         <h1>Turn your favorites into full plans</h1>
         <p class="lead">Pick your top 2 or 3. Have Fable write the complete step-by-step plan for each, detailed enough that a cheaper model can build it later.</p>
-        <div class="prompt-box"><button class="copy">Copy</button><pre>Take these ideas: [paste your top 2-3].
+        <div class="prompt-box"><button class="copy">Copy</button><pre>We are going to turn my favorite ideas into complete build plans that a cheaper, less capable AI can execute later without you.
 
-For each one, write a complete, step-by-step build plan. Assume a less powerful AI will follow the plan later without my help, so leave nothing out. Include:
-- what we are building and the end result
-- every step in order
-- the exact prompt to run at each step
-- what "done" looks like
+Here are the ideas I picked: [paste your top 2-3].
 
-Write one full plan per idea.</pre></div>
-        <div class="note">Power tip: in Claude Code, turn on Planning Mode first. It maps the whole build before writing a word.</div>
+For EACH idea, write a full build plan I can hand to another AI. Assume that model is not as smart as you, so leave zero ambiguity. Include:
+
+1. The goal in one sentence, and exactly what "finished" looks like
+2. Everything needed before starting: tools, accounts, files, access
+3. The full build, step by step, in order, with nothing skipped
+4. For each step, the exact prompt or command to run, written out word for word
+5. The mistakes or dead ends most likely to trip it up, and how to avoid them
+6. A quick test after each step to confirm it actually worked
+
+Write it so clearly that if I paste any single step into a basic AI, it does the right thing on the first try. Number every step.
+
+Do the plans one at a time. Finish one completely, then stop and wait for me to say "next" before the following idea, so each plan gets your full attention.</pre></div>
+        <div class="ccmenu">
+          <div class="ccm-head">Mode</div>
+          <div class="ccm-row"><span class="ccm-name">Manual</span><span class="ccm-right"><span class="ccm-k">1</span></span></div>
+          <div class="ccm-row"><span class="ccm-name">Accept edits</span><span class="ccm-right"><span class="ccm-k">2</span></span></div>
+          <div class="ccm-row on"><span class="ccm-name">Plan</span><span class="ccm-right"><span class="ccm-check">&#10003;</span><span class="ccm-k">3</span></span></div>
+          <div class="ccm-row"><span class="ccm-name">Auto</span><span class="ccm-right"><span class="ccm-k">4</span></span></div>
+          <div class="ccm-row"><span class="ccm-name">Bypass permissions</span><span class="ccm-right"><span class="ccm-k">5</span></span></div>
+        </div>
+        <span class="ccmcap">In Claude Code, turn on Plan mode first. It maps the whole build before writing anything.</span>
+        <div class="note">Got your plan? Switch out of Plan mode so it can actually build. I use Bypass permissions so I am not stuck clicking Allow the whole time.</div>
         <label class="confirm"><input type="checkbox" class="cfm"><span class="cb"><svg viewBox="0 0 18 18"><path d="M3.5 9.5l3.3 3.3 7.7-8"/></svg></span><span class="ctxt">My full plans are saved</span></label>
       </section>
 
@@ -272,15 +325,20 @@ Write one full plan per idea.</pre></div>
         <div class="eyebrow">Step 5 of 8</div>
         <h1>Have it audit how you use AI</h1>
         <p class="lead">Let Fable find the tasks you repeat and the instructions you retype, then tell you what to turn into a saved shortcut.</p>
-        <div class="prompt-box"><button class="copy">Copy</button><pre>Act as my AI systems analyst. Based on everything you can see about how I work, tell me:
+        <div class="prompt-box"><button class="copy">Copy</button><pre>Act as my personal AI systems analyst. Your job is to find every place I waste time or leave value on the table in how I use AI, then turn it into a system.
 
-1. What do I use AI for the most?
-2. What tasks do I repeat over and over?
-3. What instructions do I keep typing by hand every time?
-4. Which of these should become a saved, reusable Skill?
-5. What should a cheaper everyday model know about me and my standards to give me most of your quality for less?
+Study everything you can see about how I actually work: my past chats, my files, my projects, my instructions, my repeated requests.
 
-Be specific and use real examples. Rank them by how much time each would save me.</pre></div>
+Then write me a clear audit:
+1. The tasks I do with AI most often, ranked by frequency
+2. The tasks I repeat that should become a saved, reusable Skill
+3. The context and preferences I retype by hand every time, which should live in a saved file instead
+4. Where I use a slow or expensive approach when a faster one exists
+5. What I am not using AI for yet, but clearly should be, based on my work
+
+For each finding, give me the fix and estimate how much time per week it saves. Finish with the top 3 changes that would make the biggest difference, in priority order.
+
+Quote the real patterns you see. No generic advice.</pre></div>
         <label class="confirm"><input type="checkbox" class="cfm"><span class="cb"><svg viewBox="0 0 18 18"><path d="M3.5 9.5l3.3 3.3 7.7-8"/></svg></span><span class="ctxt">I ran the audit</span></label>
       </section>
 
@@ -290,13 +348,17 @@ Be specific and use real examples. Rank them by how much time each would save me
         <div class="eyebrow">Step 6 of 8</div>
         <h1>Turn that into reusable shortcuts</h1>
         <p class="lead">Now have Fable write the actual assets, in full, so they keep working after it's gone.</p>
-        <div class="prompt-box"><button class="copy">Copy</button><pre>Now turn that audit into real, reusable assets. Write out, in full:
+        <div class="prompt-box"><button class="copy">Copy</button><pre>Now build the actual assets from that audit, written out in full so they keep working long after this chat ends.
 
-1. A saved Skill for each task I repeat most (name, when to use it, and the full instructions).
-2. Copy-and-reuse templates for the work I do most often.
-3. An instructions block I can give a cheaper everyday model that captures who I am, my preferences, and my standards, so it gives me close to your quality for less.
+Give me three things:
 
-Write everything out completely. The goal is that these keep working after you go pay-per-use.</pre></div>
+1. SKILLS. For each repeated workflow, write a complete, reusable Skill: a clear name, a one-line "use this when..." description, and full step-by-step instructions detailed enough that a cheaper AI runs it perfectly every time. Put the exact prompts inside it.
+
+2. TEMPLATES. For the tasks I do most, write copy-and-paste templates with the parts I change marked in [brackets], so I just fill in the blanks.
+
+3. MY OPERATING INSTRUCTIONS. Write one master instruction block I can paste into any cheaper model (or save as my CLAUDE.md) that captures who I am, what I do, my goals, my voice, my standards, and my preferences, so an everyday model gives me close to your quality.
+
+Write everything out completely and ready to use. Do not summarize or describe them. Hand me the finished assets.</pre></div>
         <label class="confirm"><input type="checkbox" class="cfm"><span class="cb"><svg viewBox="0 0 18 18"><path d="M3.5 9.5l3.3 3.3 7.7-8"/></svg></span><span class="ctxt">It wrote out my Skills and instructions</span></label>
       </section>
 
@@ -306,9 +368,19 @@ Write everything out completely. The goal is that these keep working after you g
         <div class="eyebrow">Step 7 of 8</div>
         <h1>Point it at your hardest thing</h1>
         <p class="lead">The project you keep avoiding. While you've got the best model, have it write one big plan you can run for months.</p>
-        <div class="prompt-box"><button class="copy">Copy</button><pre>Here is the hardest thing on my list, the one I keep avoiding: [describe it].
+        <div class="prompt-box"><button class="copy">Copy</button><pre>I want your full intelligence on the hardest, highest-stakes thing on my plate, the one I keep putting off: [describe it in a sentence or two].
 
-Use your full brainpower to build me one durable plan I can run for months on a cheaper model. Make it so detailed that a less powerful AI can execute each step without asking you again. Include the milestones, a week-by-week breakdown, and the exact prompt to run each part.</pre></div>
+Do not just answer it. Build me a complete plan of attack I can run over the coming weeks and months on a cheaper AI model.
+
+Include:
+1. The real goal underneath this, and what success actually looks like
+2. The strategy: the smartest path from where I am now to done
+3. A week-by-week breakdown of exactly what to do, in order
+4. For each phase, the exact prompt I can paste into a cheaper model to get it done
+5. The obstacles most likely to stop me, and how to handle each one
+6. How I will know it is working, and how I will know it is finished
+
+Make it so thorough and so clear that I never need to bring this back to the smartest model again. This plan is the asset. Write the whole thing out now.</pre></div>
         <div class="note">Swap the brackets for your real project before you run it.</div>
         <label class="confirm"><input type="checkbox" class="cfm"><span class="cb"><svg viewBox="0 0 18 18"><path d="M3.5 9.5l3.3 3.3 7.7-8"/></svg></span><span class="ctxt">I built my durable asset</span></label>
       </section>
@@ -317,10 +389,18 @@ Use your full brainpower to build me one durable plan I can run for months on a 
       <section class="screen" data-next="Finish &rarr;">
         <div class="bignum">(8)</div>
         <div class="eyebrow">Step 8 of 8</div>
-        <h1>Save it all before the clock runs out</h1>
-        <p class="lead">Copy every idea, plan, Skill, and instruction into a doc or your files. This is what a cheaper model runs long after Fable is gone.</p>
-        <div class="note">A plan from the smartest model is an asset. Prompts are one-time favors. Assets pay you back for months.</div>
-        <label class="confirm"><input type="checkbox" class="cfm"><span class="cb"><svg viewBox="0 0 18 18"><path d="M3.5 9.5l3.3 3.3 7.7-8"/></svg></span><span class="ctxt">Everything is saved where I can reuse it</span></label>
+        <h1>Keep going after Fable's gone</h1>
+        <p class="lead">When the window closes, you lose nothing. Your plans are ready to build. Two ways to run them:</p>
+        <div class="cue">
+          <div class="cn">1</div>
+          <div class="cc"><div class="cap"><b>Same chat:</b> switch the model to Opus or Sonnet, then say "start building from the plan, one step at a time."</div></div>
+        </div>
+        <div class="cue">
+          <div class="cn">2</div>
+          <div class="cc"><div class="cap"><b>New chat:</b> paste a plan into Opus or Sonnet and tell it to build.</div></div>
+        </div>
+        <div class="note">A prompt is a one-time favor. A plan from the smartest model is an asset that pays you back for months.</div>
+        <label class="confirm"><input type="checkbox" class="cfm"><span class="cb"><svg viewBox="0 0 18 18"><path d="M3.5 9.5l3.3 3.3 7.7-8"/></svg></span><span class="ctxt">I know how to build my plans on a cheaper model</span></label>
       </section>
 
       <!-- FINISH -->
@@ -336,7 +416,11 @@ Use your full brainpower to build me one durable plan I can run for months on a 
           <div><span class="c">&#10003;</span> Audited how you use AI</div>
           <div><span class="c">&#10003;</span> Built reusable Skills and instructions</div>
           <div><span class="c">&#10003;</span> Wrote one durable asset</div>
-          <div><span class="c">&#10003;</span> Saved it all to reuse</div>
+          <div><span class="c">&#10003;</span> Ready to build on a cheaper model</div>
+        </div>
+        <div style="text-align:center">
+          <p class="sub" style="text-align:center;margin:16px 0 0">This is one of many. Come get the rest.</p>
+          <a class="fcta" href="https://philstringer.com" target="_blank" rel="noopener">More free AI playbooks &rarr;</a>
         </div>
       </section>
 
@@ -363,7 +447,7 @@ Use your full brainpower to build me one durable plan I can run for months on a 
   const HW=screens.filter((s,n)=>n>0&&!s.hasAttribute('data-final')&&!s.hasAttribute('data-bonus')).length;
   let i=0,confirms={};
 
-  const KEY='fable5-v2';
+  const KEY='fable5-v3';
   try{const s=JSON.parse(localStorage.getItem(KEY)||'{}');if(typeof s.i==='number')i=Math.min(Math.max(s.i,0),screens.length-1);confirms=s.confirms||{};}catch(e){}
   function save(){localStorage.setItem(KEY,JSON.stringify({i,confirms}))}
 
