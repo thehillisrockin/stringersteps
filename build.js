@@ -95,6 +95,14 @@ const html = `<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JGNTB1YM0M"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-JGNTB1YM0M');
+</script>
 <title>Stringer Steps &middot; Free step-by-step guides that get you unstuck</title>
 <meta name="description" content="A free, growing library of dead-simple interactive walkthroughs by Phil Stringer. Using AI, getting found online, and running your business smarter, one small step at a time. New guides every week.">
 <link rel="canonical" href="${SITE}/">
