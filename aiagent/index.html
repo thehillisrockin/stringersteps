@@ -123,6 +123,14 @@
   .caps .cap{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;background:#232323;border:1px solid #383838;border-radius:11px;padding:11px 6px;color:#b8b8b8;font-size:11.5px;font-weight:700;text-align:center}
   .caps .cap svg{width:22px;height:22px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
   .caps .cap.on{color:#fff;background:#313131;border-color:var(--amber);box-shadow:0 0 0 1.5px var(--amber) inset}
+  /* finish CTA (free class) */
+  .cta{margin-top:20px;background:rgba(0,0,0,.2);border:1px solid rgba(232,172,19,.42);border-radius:16px;padding:18px 18px 20px;text-align:center}
+  .cta .ce{font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);margin-bottom:7px}
+  .cta h3{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;color:#fff;font-size:24px;line-height:1.04;letter-spacing:.01em;margin-bottom:8px;text-wrap:balance}
+  .cta p{font-size:14px;line-height:1.5;color:#F3E7DA;margin-bottom:13px;text-wrap:pretty}
+  .cta .when{display:inline-flex;align-items:center;gap:7px;background:rgba(232,172,19,.15);border:1px solid rgba(232,172,19,.45);color:#F6E4C4;font-weight:700;font-size:13px;border-radius:99px;padding:7px 15px;margin-bottom:15px;text-wrap:balance}
+  .cta .ctabtn{display:block;width:100%;background:var(--amber);color:#3a2a05;text-decoration:none;font-weight:800;font-size:16.5px;border-radius:99px;padding:15px;box-shadow:0 8px 20px rgba(0,0,0,.32);transition:.16s}
+  .cta .ctabtn:hover{background:#f3bb2e;transform:translateY(-1px)}
 
   /* copy-a-prompt box */
   .prompt-box{margin-top:14px;background:#1b130d;border:1px solid rgba(232,172,19,.25);border-radius:14px;padding:15px;position:relative}
@@ -384,7 +392,13 @@
           <div><span class="c">&#10003;</span> Connected your tools</div>
           <div><span class="c">&#10003;</span> Put your agent to work</div>
         </div>
-        <div class="note" style="text-align:center;margin-top:16px">Come back to any step anytime. Your progress is saved.</div>
+        <div class="cta">
+          <div class="ce">Free Live Class</div>
+          <h3>Give your AI a second brain</h3>
+          <p>Learn how to pull all your calls, texts, emails, Slack, and meetings into one brain, so any AI tool has total context on you. It updates itself every day and links everything together. You do nothing.</p>
+          <div class="when">&#128197; Monday, July 20 &middot; 2:00 to 3:00 PM ET</div>
+          <a class="ctabtn" href="https://philstringer.com/free-webinar" target="_blank" rel="noopener">Save my spot &rarr;</a>
+        </div>
       </section>
 
     </div>
