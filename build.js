@@ -64,7 +64,7 @@ const featuredSection = `
       <div class="feature-note"><span class="script seasalt">heard me say ${esc(String(featuredGuide.keyword).toUpperCase())} on a video? this is&nbsp;it.</span></div>` :
       `<div class="feature" id="ntw-h" style="cursor:default">
         <h3>THE FIRST GUIDES DROP&nbsp;SOON.</h3>
-        <p>I'm building these one at a time. Grab the Launch Pad below and you'll catch each one the day it goes&nbsp;live.</p>
+        <p>I'm building these one at a time. Grab the Launchpad below and you'll catch each one the day it goes&nbsp;live.</p>
       </div>`}
     </div>
   </section>`;
@@ -84,7 +84,7 @@ const topicsSection = `
       </div>
       <div class="soonline">
         <span class="script seasalt">more guides drop all&nbsp;the&nbsp;time.</span>
-        <a href="#weekly">GET THE LAUNCH PAD →</a>
+        <a href="#weekly">GET THE LAUNCHPAD →</a>
       </div>
     </div>
   </section>`;
