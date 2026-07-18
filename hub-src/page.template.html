@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JGNTB1YM0M"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-JGNTB1YM0M');
+</script>
+<title>Stringer Steps &middot; Free step-by-step guides that get you unstuck</title>
+<meta name="description" content="A free, growing library of dead-simple interactive walkthroughs by Phil Stringer. Using AI, getting found online, and running your business smarter, one small step at a time. New guides drop all the time.">
+<link rel="canonical" href="https://stringersteps.com/">
+<meta property="og:title" content="Stringer Steps">
+<meta property="og:description" content="Free step-by-step guides that actually get you unstuck. New guides drop all the time.">
+<meta property="og:url" content="https://stringersteps.com/">
+<meta property="og:type" content="website">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"CollectionPage","name":"Stringer Steps","url":"https://stringersteps.com/","description":"A free, growing library of step-by-step interactive guides by Phil Stringer.","author":{"@type":"Person","name":"Phil Stringer","url":"https://philstringer.com"}}
+</script>
+<style>
+@font-face{font-family:'SUPR';src:url(data:font/otf;base64,{{A:supr-reg.otf}}) format('opentype');font-weight:400;font-display:block}
+@font-face{font-family:'SUPR';src:url(data:font/otf;base64,{{A:supr-bold.otf}}) format('opentype');font-weight:700;font-display:block}
+@font-face{font-family:'Seasalt';src:url(data:font/otf;base64,{{A:seasalt.otf}}) format('opentype');font-weight:400;font-display:swap}
+@font-face{font-family:'SeasaltDoodles';src:url(data:font/otf;base64,{{A:doodles.otf}}) format('opentype');font-weight:400;font-display:swap}
+@font-face{font-family:'Lato';src:url(data:font/ttf;base64,{{A:lato-reg.ttf}}) format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'Lato';src:url(data:font/ttf;base64,{{A:lato-semi.ttf}}) format('truetype');font-weight:600;font-display:swap}
+:root{
+  --accent:#F6C627; --charcoal:#2B2B2D; --ground:#1F1F21; --white:#FFFFFF; --dove:#E0E0E0; --gray:#A1A1A1;
+  --supr:'SUPR','Arial Narrow',sans-serif; --seasalt:'Seasalt',cursive; --doodles:'SeasaltDoodles',sans-serif;
+  --lato:'Lato','Helvetica Neue',Arial,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--ground);color:var(--dove);font-family:var(--lato);font-size:16px;line-height:1.55}
+img{max-width:100%;display:block}
+a{color:inherit}
+.grain{position:fixed;inset:-50%;width:200%;height:200%;pointer-events:none;z-index:9;opacity:.11;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.wrap{width:100%;max-width:640px;margin:0 auto;padding:0 22px}
+.seasalt{font-family:var(--seasalt);word-spacing:.2em}
+.doodle{font-family:var(--doodles);line-height:1}
+.wm{font-family:var(--lato);font-weight:600;font-size:10px;letter-spacing:.24em;color:var(--dove)}
+a.wmlink{text-decoration:none}
+a.wmlink:hover .wm{color:var(--accent)}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid var(--white);outline-offset:2px}
+
+/* ——— hero: photography forward ——— */
+.hero{position:relative;isolation:isolate;min-height:100svh;display:flex;flex-direction:column;
+  background:#161617 url(data:image/jpeg;base64,{{A:bg-shore.jpg}}) center 30%/cover no-repeat}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,rgba(22,22,23,.42) 0%,rgba(22,22,23,.12) 34%,rgba(22,22,23,.55) 66%,rgba(31,31,33,.97) 100%)}
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:20px 22px 0}
+.topbar img{width:40px;height:auto}
+.hero .wrap{margin-top:auto;padding-bottom:56px}
+.kicker{font-family:var(--lato);font-weight:600;font-size:12px;letter-spacing:.24em;color:var(--white);margin-bottom:10px}
+.hero h1{font-family:var(--supr);font-weight:700;color:var(--white);font-size:clamp(38px,9.6vw,58px);line-height:.95;text-wrap:balance}
+.hero h1 .big{display:block;font-size:clamp(84px,24vw,150px);line-height:.9;color:var(--accent);letter-spacing:.01em}
+.u-swash{display:block;margin-top:2px}
+.u-swash path{stroke:var(--white)}
+.hero .script{font-size:clamp(26px,7vw,32px);color:var(--white);margin:22px 0 8px}
+.hero .sub{font-size:16px;color:var(--dove);max-width:44ch;text-wrap:pretty}
+.hero .sub span{display:block}
+.cta-row{display:flex;align-items:center;gap:14px;margin-top:24px}
+.btn{display:inline-block;background:var(--accent);color:#000;font-family:var(--supr);font-weight:700;font-size:22px;
+  letter-spacing:.04em;padding:15px 30px 13px;border-radius:10px;text-decoration:none;transition:transform .15s}
+.btn:hover{transform:translateY(-1px)}
+.cta-row .doodle{font-size:56px;color:var(--white);transform:rotate(-8deg)}
+
+/* ——— section scaffolding ——— */
+section.band{padding:58px 0 8px}
+.slabel{display:inline-block;position:relative;font-size:clamp(26px,6.8vw,30px);color:var(--accent);margin-bottom:6px}
+.slabel .stroke{display:block;margin-top:-2px}
+.slabel .stroke path{stroke:var(--accent)}
+h2.sh{font-family:var(--supr);font-weight:700;color:var(--white);font-size:clamp(30px,7.6vw,40px);line-height:.96;margin:8px 0 18px;text-wrap:balance}
+
+/* ——— feature card ——— */
+.feature{display:block;position:relative;isolation:isolate;overflow:hidden;border-radius:16px;text-decoration:none;
+  background:#161617 url(data:image/jpeg;base64,{{A:bg-snow.jpg}}) center 20%/cover no-repeat;
+  padding:150px 22px 24px;border:1px solid #3a3a3d;box-shadow:0 24px 60px rgba(0,0,0,.45)}
+.feature::after{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,rgba(22,22,23,.05) 0%,rgba(22,22,23,.55) 45%,rgba(22,22,23,.96) 100%)}
+.kw{display:inline-block;background:var(--accent);color:#000;font-family:var(--supr);font-weight:700;font-size:16px;
+  letter-spacing:.08em;padding:6px 12px 4px;border-radius:6px;transform:rotate(-2deg)}
+.feature h3{font-family:var(--supr);font-weight:700;text-transform:uppercase;color:var(--white);font-size:clamp(30px,8vw,42px);line-height:.95;margin:12px 0 8px;text-wrap:balance}
+.feature p{color:var(--dove);font-size:15.5px;max-width:46ch}
+.feature .go{display:inline-flex;align-items:center;gap:10px;margin-top:16px;font-family:var(--supr);font-weight:700;
+  font-size:20px;color:var(--accent);letter-spacing:.04em}
+.feature .go .doodle{font-size:34px;color:var(--accent);transform:rotate(6deg)}
+.feature-note{display:flex;align-items:center;gap:10px;margin-top:16px}
+.feature-note .script{font-size:23px;color:var(--dove)}
+
+.mini-grid{display:grid;gap:12px}
+@media (min-width:700px){.mini-grid{grid-template-columns:1fr 1fr}}
+
+/* ——— pillars ——— */
+.pillars{display:grid;grid-template-columns:1fr;gap:0;border-top:1px dashed #45454a}
+.pillar{padding:16px 0 14px;border-bottom:1px dashed #45454a}
+.pillar h4{font-family:var(--lato);font-weight:600;color:var(--white);font-size:17px;display:flex;align-items:center;gap:10px}
+.pillar h4 .doodle{font-size:24px;color:var(--accent);flex:none}
+.pillar .blurb{font-size:14px;color:var(--gray);margin-top:4px;text-wrap:pretty}
+.minicard{display:block;margin-top:12px;background:var(--charcoal);border:1px solid #45454a;border-radius:12px;
+  padding:14px 16px;text-decoration:none;transition:border-color .15s}
+.minicard:hover{border-color:var(--accent)}
+.minicard .mkw{font-family:var(--supr);font-weight:700;color:var(--accent);font-size:14px;letter-spacing:.08em}
+.minicard h5{font-family:var(--supr);font-weight:700;text-transform:uppercase;color:var(--white);font-size:22px;line-height:1;margin:5px 0 4px}
+.minicard p{font-size:13.5px;color:var(--gray)}
+.minicard .mgo{display:inline-block;margin-top:8px;font-family:var(--lato);font-weight:600;font-size:12px;letter-spacing:.14em;color:var(--white)}
+.soonline{display:flex;align-items:center;gap:12px;margin:22px 0 0;flex-wrap:wrap}
+.soonline .script{font-size:25px;color:var(--white)}
+.soonline a{font-family:var(--lato);font-weight:600;font-size:13px;letter-spacing:.1em;color:var(--accent);text-decoration:none}
+.soonline a:hover{text-decoration:underline}
+
+/* ——— how ——— */
+.how-grid{display:grid;grid-template-columns:1fr;gap:18px}
+.how-b h4{font-family:var(--supr);font-weight:700;color:var(--white);font-size:26px;letter-spacing:.02em}
+.how-b .stroke{display:block;width:96px;margin:2px 0 6px}
+.how-b .stroke path{stroke:var(--accent)}
+.how-b p{font-size:14.5px;color:var(--gray);max-width:38ch}
+
+/* ——— weekly ——— */
+.weekly{position:relative;isolation:isolate;margin-top:58px;padding:54px 0 50px;overflow:hidden;
+  background:#161617 url(data:image/jpeg;base64,{{A:bg-dune.jpg}}) center/cover no-repeat}
+.weekly::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(22,22,23,.82),rgba(22,22,23,.9))}
+.weekly .script{font-size:clamp(26px,7vw,30px);color:var(--accent)}
+.weekly h2{font-family:var(--supr);font-weight:700;color:var(--white);font-size:clamp(32px,8vw,44px);line-height:.95;margin:8px 0 10px;text-wrap:balance}
+.weekly p.wsub{color:var(--dove);font-size:15px;max-width:46ch}
+.weekly p.wsub span{display:block}
+.cap{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+.cap input{flex:1;min-width:210px;background:rgba(22,22,23,.8);border:1px solid #55555a;border-radius:10px;
+  color:var(--white);font-family:var(--lato);font-size:16px;padding:14px 14px}
+.cap input::placeholder{color:#8b8b8e}
+.cap button{background:var(--accent);color:#000;border:0;cursor:pointer;font-family:var(--supr);font-weight:700;
+  font-size:19px;letter-spacing:.04em;padding:14px 24px 12px;border-radius:10px}
+.fineprint{font-size:12.5px;color:var(--gray);margin-top:12px}
+.cap-msg{margin-top:12px;font-weight:600;color:var(--white)}
+
+/* ——— footer ——— */
+footer{padding:40px 0 calc(34px + env(safe-area-inset-bottom))}
+footer .who{font-size:14px;color:var(--gray);max-width:52ch;text-wrap:pretty}
+footer .who a{color:var(--dove)}
+footer nav{display:flex;gap:20px;margin:18px 0 16px;flex-wrap:wrap}
+footer nav a{font-family:var(--lato);font-weight:600;font-size:12px;letter-spacing:.14em;color:var(--dove);text-decoration:none;text-transform:uppercase}
+footer nav a:hover{color:var(--accent)}
+footer .fine{font-size:12px;color:#6f6f74}
+
+@media (min-width:700px){
+  .wrap{max-width:960px}
+  .pillars{grid-template-columns:1fr 1fr;gap:0 44px}
+  .how-grid{grid-template-columns:1fr 1fr 1fr}
+  .feature{padding-top:210px}
+}
+</style>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+
+<section class="hero">
+  <div class="topbar">
+    <a href="https://philstringer.com" aria-label="Phil Stringer"><img src="data:image/png;base64,{{A:symbol-white.png}}" alt="Phil Stringer infinity mark"></a>
+    <a class="wmlink" href="https://philstringer.com"><span class="wm">PHILSTRINGER.COM</span></a>
+  </div>
+  <div class="wrap">
+    <div class="kicker">STRINGER STEPS · FREE GUIDES</div>
+    <h1>STEP-BY-STEP GUIDES THAT GET&nbsp;YOU <span class="big">UNSTUCK.</span></h1>
+    <svg class="u-swash" width="220" height="16" viewBox="0 0 220 16" fill="none" aria-hidden="true"><path d="M4 11 C60 5, 150 4, 216 8" stroke-width="5" stroke-linecap="round"/><path d="M12 14 C70 10, 140 9, 190 12" stroke-width="3" stroke-linecap="round"/></svg>
+    <div class="script seasalt">real walkthroughs. one click at a&nbsp;time.</div>
+    <p class="sub"><span>No 40-page PDF.</span> <span>No guessing what&nbsp;to&nbsp;do&nbsp;next.</span> <span>I break the hard stuff into small steps you&nbsp;just&nbsp;follow.</span> <span>New guides drop all&nbsp;the&nbsp;time.</span></p>
+    <div class="cta-row">
+      <a class="btn" href="#{{CTA_TARGET}}">START&nbsp;HERE</a>
+      <span class="doodle" aria-hidden="true">F</span>
+    </div>
+  </div>
+</section>
+
+<main>
+{{START_HERE_SECTION}}
+{{FEATURED_SECTION}}
+
+{{TOPICS_SECTION}}
+
+  <section class="band" aria-labelledby="how-h">
+    <div class="wrap">
+      <h2 class="sh" id="how-h">FREE, SIMPLE, AND ALWAYS&nbsp;GROWING.</h2>
+      <div class="how-grid">
+        <div class="how-b">
+          <h4>IT'S FREE.</h4>
+          <svg class="stroke" width="96" height="9" viewBox="0 0 96 9" fill="none" aria-hidden="true"><path d="M3 5 C30 3, 70 3, 93 5" stroke-width="3.2" stroke-linecap="round"/></svg>
+          <p>Read any guide, all the way through. No wall, no catch.</p>
+        </div>
+        <div class="how-b">
+          <h4>IT'S SIMPLE.</h4>
+          <svg class="stroke" width="96" height="9" viewBox="0 0 96 9" fill="none" aria-hidden="true"><path d="M3 6 C35 4, 60 3, 93 4" stroke-width="3.2" stroke-linecap="round"/></svg>
+          <p>One step per screen. Check it off, move to the next.</p>
+        </div>
+        <div class="how-b">
+          <h4>IT GROWS.</h4>
+          <svg class="stroke" width="96" height="9" viewBox="0 0 96 9" fill="none" aria-hidden="true"><path d="M3 4 C28 6, 66 5, 93 6" stroke-width="3.2" stroke-linecap="round"/></svg>
+          <p>I add new ones all the time. Come back, or grab the Launch&nbsp;Pad&nbsp;below.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="weekly" id="weekly" aria-labelledby="weekly-h">
+    <div class="wrap">
+      <span class="script seasalt">the launch pad. one short email, every&nbsp;week.</span>
+      <h2 id="weekly-h">THE BEST STRINGER STEP, EVERY&nbsp;WEEK.</h2>
+      <p class="wsub"><span>The best new guide of the week, plus practical ways to&nbsp;use&nbsp;it.</span></p>
+      <form class="cap" id="lpform">
+        <input type="email" id="lp_email" name="email_address" placeholder="you@email.com" aria-label="Your email" required>
+        <input type="text" id="lp_web" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;height:1px;width:1px;opacity:0">
+        <button type="submit" id="lp_btn">SIGN ME UP</button>
+      </form>
+      <p class="fineprint">Free. Unsubscribe anytime, no hard feelings.</p>
+      <p class="cap-msg" id="capMsg" hidden></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="who">Built by Phil Stringer. I teach entrepreneurs and local businesses how to use AI to save time and get found. More at <a href="https://philstringer.com">philstringer.com</a>.</p>
+    <nav>
+      <a href="#topics">Browse by Topic</a>
+      <a href="#new-this-week">New This Week</a>
+      <a href="#weekly">The Launch Pad</a>
+    </nav>
+    <p class="fine">&copy; Stringer Steps &middot; a Phil Stringer / Stratus Global project</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var f=document.getElementById('lpform'),btn=document.getElementById('lp_btn'),msg=document.getElementById('capMsg');
+  f.addEventListener('submit',async function(e){
+    e.preventDefault();
+    var email=document.getElementById('lp_email').value.trim();
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){msg.textContent='That email does not look right.';msg.hidden=false;return}
+    btn.disabled=true;var o=btn.textContent;btn.textContent='SIGNING YOU UP...';msg.hidden=true;
+    try{
+      var r=await fetch('https://stratus-lead-gate.vercel.app/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({nl:'launchpad',email:email,website:document.getElementById('lp_web').value})});
+      if(!r.ok)throw new Error('http '+r.status);
+      f.hidden=true;
+      msg.textContent="You're in. The next Launch Pad lands in your inbox.";
+      msg.hidden=false;
+    }catch(err){
+      btn.disabled=false;btn.textContent=o;
+      msg.textContent='Something went wrong. Tap the button to try again.';
+      msg.hidden=false;
+    }
+  });
+})();
+</script>
+</body>
+</html>
