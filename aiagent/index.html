@@ -271,14 +271,40 @@ body.readall .card.moment h1{color:var(--ink)!important}
 body.readall .card.moment p.lead{color:var(--ink)!important}
 body.readall .card.moment p.sub{color:var(--muted)!important}
 @media print{
-  .menubtn,.stepmenu,.menu-scrim,.nav,.pbar,.plabel,.confirm,.startover,.oneview-tools,.confetti{display:none!important}
-  html,body{background:#fff!important}
-  .screen{display:block!important;animation:none!important;opacity:1!important;transform:none!important;page-break-inside:avoid;margin-bottom:20px}
-  .card,.card.moment{background:#fff!important;box-shadow:none!important;max-width:100%!important;border:none!important}
-  .card.moment::after{display:none!important}
-  .card,.card *{color:#1a1a1a!important}
+  @page{margin:14mm}
+  .menubtn,.stepmenu,.menu-scrim,.nav,.pbar,.plabel,.confirm,.startover,.oneview-tools,.confetti,iframe,video{display:none!important}
+  html,body{background:#fff!important;display:block!important;height:auto!important;min-height:0!important}
+  body{padding:0!important;margin:0!important}
+  .stage{max-width:100%!important;width:100%!important;margin:0!important}
+  /* let long steps flow across pages; only keep small blocks intact */
+  .screen{display:block!important;animation:none!important;opacity:1!important;transform:none!important;page-break-inside:auto!important;margin:0 0 16pt;padding:0 0 12pt;border-bottom:1px solid #ccc}
+  #screens>.screen:last-child{border-bottom:none}
+  .note,.dl,.cue,.recap,.choice,.skillcard,.video{page-break-inside:avoid!important}
+  h1,h2{page-break-after:avoid!important;page-break-inside:avoid!important}
+  .card,.card.moment{background:#fff!important;box-shadow:none!important;max-width:100%!important;border:none!important;padding:0!important;border-radius:0!important}
+  .card::after,.card.moment::after{display:none!important}
+  .card,.card *{color:#1a1a1a!important;text-shadow:none!important}
+  /* display type scaled to fit a printed page */
+  h1.big{font-size:22pt!important;line-height:1.08!important;overflow-wrap:break-word}
+  .bignum{font-size:18pt!important;line-height:1.15!important;padding-top:4pt!important;margin-bottom:4pt!important;color:#8a6d00!important}
   .eyebrow,.cardlabel,.sj-n,.recap .c{color:#8a6d00!important}
   a{color:#000!important;text-decoration:underline}
+  /* the white logo prints black (inverted), centered, no shadow */
+  .logolink{display:block!important;text-align:center!important;margin:0 0 12pt!important}
+  .toplogo{filter:invert(1)!important;opacity:1!important;height:26px!important;margin:0 auto!important;display:inline-block!important}
+  /* video embeds become a short note instead of a dead player */
+  .video{aspect-ratio:auto!important;background:none!important;box-shadow:none!important;overflow:visible!important;border-radius:0!important}
+  .video::after{content:"▶ This step has a video — watch it in the online guide.";display:block;font-size:10.5pt;color:#555!important;border:1px solid #ccc;border-radius:6pt;padding:8pt 10pt}
+  /* no dark ink blocks: every box prints light with a border */
+  .countdown,.recap,.promo,.note,.dl,.cue,.choice,.prompt-box,.skillcard{background:#fff!important;border:1px solid #bbb!important;box-shadow:none!important}
+  .ccmenu,.ccmenu *{background:#f4f4f4!important;border-color:#ddd!important}
+  .ccm-row{border:1px solid #ddd!important}
+  .copy{display:none!important}
+  /* prompt boxes: print the FULL text — no clipped scroll areas, no scrollbars */
+  .prompt-box,.prompt-box *{max-height:none!important;height:auto!important;overflow:visible!important}
+  .prompt-box pre,.prompt-box code,pre{white-space:pre-wrap!important;word-break:break-word!important;overflow:visible!important}
+  /* keep step number + eyebrow attached to their heading across page breaks */
+  .bignum,.eyebrow{page-break-after:avoid!important;page-break-inside:avoid!important;break-after:avoid-page!important}
 }
 </style>
 </head>
