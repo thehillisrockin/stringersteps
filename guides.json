@@ -14,15 +14,27 @@
   ],
   "guides": [
     {
-      "keyword": "claudeworkshop",
+      "keyword": "aiagent",
+      "title": "Set Up Your First AI Agent",
+      "topic": "ai-beginners",
+      "visibility": "public",
+      "flagship": false,
+      "featured": false,
+      "url": "https://stringersteps.com/aiagent",
+      "kitTag": "src-guide-aiagent",
+      "updated": "2026-07-18",
+      "oneLineOutcome": "Build your first working AI agent, one step at a time, no code required."
+    },
+    {
+      "keyword": "claudehomework",
       "title": "Claude Workshop Homework",
       "topic": "ai-beginners",
       "visibility": "private",
       "flagship": false,
       "featured": false,
-      "url": "https://stringersteps.com/claudeworkshop",
+      "url": "https://stringersteps.com/claudehomework",
       "kitTag": null,
-      "updated": "2026-07-02",
+      "updated": "2026-07-18",
       "oneLineOutcome": "Get your machine set up right before the live workshop."
     },
     {
@@ -50,7 +62,7 @@
       "oneLineOutcome": "A tribute page. Private, not part of the public library."
     },
     {
-      "keyword": "secondbrain",
+      "keyword": "secondbrainhomework",
       "title": "Second Brain Workshop Pre-Work",
       "topic": "save-time",
       "visibility": "private",
@@ -58,11 +70,11 @@
       "featured": false,
       "url": "https://portableaibrain.com",
       "kitTag": null,
-      "updated": "2026-07-02",
+      "updated": "2026-07-18",
       "oneLineOutcome": "The follow-along homework for the paid Second Brain workshop."
     },
     {
-      "keyword": "secondbrainguide",
+      "keyword": "secondbrainworkshop",
       "title": "Build Your Second Brain (Full Guide)",
       "topic": "save-time",
       "visibility": "private",
@@ -70,7 +82,7 @@
       "featured": false,
       "url": "https://build.portableaibrain.com",
       "kitTag": null,
-      "updated": "2026-07-02",
+      "updated": "2026-07-18",
       "oneLineOutcome": "The full step-by-step Second Brain build, for paid attendees."
     }
   ]

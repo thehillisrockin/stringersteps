@@ -2,4 +2,5 @@
 Free step-by-step walkthroughs by Phil Stringer. Public library at https://stringersteps.com. New guides drop all the time.
 
 ## Guides
+- Set Up Your First AI Agent — Build your first working AI agent, one step at a time, no code required. — https://stringersteps.com/aiagent
 - Use Fable 5 Before It's Gone — Get real work out of the smartest AI model before it's retired. — https://stringersteps.com/fable5
