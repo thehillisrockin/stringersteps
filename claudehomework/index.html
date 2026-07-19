@@ -185,6 +185,13 @@ body.readall .oneview-tools{right:15px}
 .ov-btn:hover{background:rgba(255,255,255,.18)}
 .card.moment .ov-btn{background:rgba(255,255,255,.16)}
 .ov-btn svg{width:16px;height:16px;flex:none}
+/* clear the step header (label + progress bar) from under the floating buttons */
+.top{padding-right:180px}
+@media(max-width:540px){
+  .ov-label{display:none}
+  .ov-btn{width:42px;padding:0;justify-content:center}
+  .top{padding-right:120px}
+}
 .printview-btn{display:none}
 body.readall .printview-btn{display:flex}
 body.readall .screen{display:block!important;animation:none!important;opacity:1!important;transform:none!important;margin:0 0 26px;padding-bottom:22px;border-bottom:1px solid var(--line)}
