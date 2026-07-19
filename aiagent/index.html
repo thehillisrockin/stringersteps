@@ -248,6 +248,10 @@
 /* ===== One-page (read-all) + Print/PDF view — injected module ===== */
 .oneview-tools{position:absolute;top:15px;right:65px;z-index:8;display:flex;gap:8px}
 body.readall .oneview-tools{right:15px}
+/* one-page mode: reserve space at the card top so buttons never sit on the headline */
+body.readall .card{padding-top:76px!important}
+.ov-btn:focus{outline:none}
+.ov-btn:focus-visible{outline:2px solid var(--red);outline-offset:2px}
 .ov-btn{height:42px;padding:0 13px;border-radius:12px;border:none;background:rgba(255,255,255,.10);color:var(--ink);font:inherit;font-weight:700;font-size:12.5px;cursor:pointer;display:flex;align-items:center;gap:6px;white-space:nowrap;transition:.15s}
 .ov-btn:hover{background:rgba(255,255,255,.18)}
 .card.moment .ov-btn{background:rgba(255,255,255,.16)}
