@@ -209,6 +209,12 @@
   .stepjump .sj-star{flex:none;width:24px;height:24px;display:flex;align-items:center;justify-content:center;color:var(--amber);font-size:16px}
   @media(max-width:560px){.card{padding:24px 20px 20px;border-radius:22px;min-height:auto}h1{font-size:29px}h1.big{font-size:37px}.bignum{font-size:46px}.next{padding:13px 24px;font-size:15px}}
 
+  /* path chooser */
+  .pathbtn{display:flex;flex-direction:column;gap:5px;width:100%;background:#161617;color:#F5F5F6;border:1.5px solid rgba(246,198,39,.3);border-radius:14px;padding:16px 17px;margin:7px 0;font:inherit;text-align:left;cursor:pointer;transition:.16s}
+  .pathbtn:hover{transform:translateY(-1px);border-color:var(--amber);background:#1d1d1f}
+  .pathbtn .pb-t{font-weight:800;font-size:16.5px;color:var(--amber)}
+  .pathbtn .pb-d{font-size:13.5px;line-height:1.5;color:#C9CDD3}
+
   /* ===== LEAD GATE ===== */
   .stage.locked{display:none}
   .gatewrap{position:fixed;inset:0;z-index:200;overflow-y:auto;display:flex;padding:24px 16px;
@@ -352,18 +358,18 @@ body.readall .card.moment p.sub{color:var(--muted)!important}
     </div>
     <div class="body" id="screens">
       <!-- WELCOME -->
-      <section class="screen active" data-next="Let's go &rarr;" data-noback>
+      <section class="screen active" data-next="Let's go &rarr;" data-noback data-plabel="Let's hire your team">
         <div class="eyebrow">Your AI Ad Agency &middot; Free</div>
         <h1 class="big">Hire your AI marketing department</h1>
         <p class="lead">You're about to install a <b>Director of Marketing</b> and <b>three specialists</b> into your AI. They learn your market, your clients, and your voice. Then they do your marketing with you.</p>
-        <p class="sub">Works in Claude or ChatGPT, free plans included. Your progress saves, so you can stop and pick it back up later.</p>
-        <div class="note">About 10 minutes, paint by numbers. No tech skills needed.</div>
+        <p class="sub">Works in Claude or ChatGPT. There's an easy path and a pro path, and you'll pick in a minute. Your progress saves, so you can stop and pick it back up later.</p>
+        <div class="note">Paint by numbers. No tech skills needed.</div>
       </section>
 
-      <!-- STEP 1 -->
-      <section class="screen" data-next="Continue &rarr;">
+      <!-- SHARED STEP 1 -->
+      <section class="screen" data-next="Continue &rarr;" data-plabel="Step 1 &middot; Meet the team">
         <div class="bignum">(1)</div>
-        <div class="eyebrow">Step 1 of 8</div>
+        <div class="eyebrow">Step 1 &middot; Everyone does this</div>
         <h1>Meet your team</h1>
         <p class="lead">Four hires. One job: get you more business without you living on your phone.</p>
         <div class="skillcard"><div class="si">D</div><div class="sc-b"><b>Director of Marketing</b><span>Learns your business, keeps everything sounding like you, and runs the plan.</span></div></div>
@@ -374,10 +380,21 @@ body.readall .card.moment p.sub{color:var(--muted)!important}
         <label class="confirm"><input type="checkbox" class="cfm"><span class="cb"><svg viewBox="0 0 18 18"><path d="M3.5 9.5l3.3 3.3 7.7-8"/></svg></span><span class="ctxt">I've met my team</span></label>
       </section>
 
-      <!-- STEP 2 -->
-      <section class="screen" data-next="Continue &rarr;">
+      <!-- CHOOSER -->
+      <section class="screen" data-choice data-plabel="Step 2 &middot; Pick your path">
         <div class="bignum">(2)</div>
-        <div class="eyebrow">Step 2 of 8</div>
+        <div class="eyebrow">Step 2 &middot; Your call</div>
+        <h1>Pick your path</h1>
+        <p class="lead">Two ways to install your team. Same four hires, same results, either way.</p>
+        <button class="pathbtn" type="button" onclick="choosePath('easy')"><span class="pb-t">&#128994; Easy path &rarr;</span><span class="pb-d">About 10 minutes. Works in <b>Claude or ChatGPT</b>, free plans included. Your team lives in one tidy project folder.</span></button>
+        <button class="pathbtn" type="button" onclick="choosePath('pro')"><span class="pb-t">&#9889; Pro path &rarr;</span><span class="pb-d">Install your team as a <b>skill</b>, so it shows up in ANY chat instead of one folder. Claude free plans included. In ChatGPT this uses a custom GPT, which needs a paid plan.</span></button>
+        <div class="note">Not sure? Take the <b>easy path</b>. You can come back and level up any time, and the menu up top lets you switch.</div>
+      </section>
+
+      <!-- EASY 1 -->
+      <section class="screen" data-path="easy" data-next="Continue &rarr;" data-plabel="Easy path &middot; 1 of 7">
+        <div class="bignum">(1)</div>
+        <div class="eyebrow">Easy path &middot; Step 1 of 7</div>
         <h1>Download your team</h1>
         <p class="lead">One small download. Inside are your four playbook files.</p>
         <a class="dl" href="marketing-department.zip" download><span class="emoji">&#128188;</span> My Marketing Department <span class="tag">.zip &middot; 4 files</span><span class="go">Download &rarr;</span></a>
@@ -387,10 +404,10 @@ body.readall .card.moment p.sub{color:var(--muted)!important}
         <label class="confirm"><input type="checkbox" class="cfm"><span class="cb"><svg viewBox="0 0 18 18"><path d="M3.5 9.5l3.3 3.3 7.7-8"/></svg></span><span class="ctxt">I've got my 4 files</span></label>
       </section>
 
-      <!-- STEP 3 -->
-      <section class="screen" data-next="Continue &rarr;">
-        <div class="bignum">(3)</div>
-        <div class="eyebrow">Step 3 of 8</div>
+      <!-- EASY 2 -->
+      <section class="screen" data-path="easy" data-next="Continue &rarr;" data-plabel="Easy path &middot; 2 of 7">
+        <div class="bignum">(2)</div>
+        <div class="eyebrow">Easy path &middot; Step 2 of 7</div>
         <h1>Open your AI</h1>
         <p class="lead">Your team can live in <b>Claude</b> or <b>ChatGPT</b>. Both work on the free plan. Pick the one you already use and log in.</p>
         <a class="dl" href="https://claude.ai" target="_blank" rel="noopener"><span class="emoji">&#129504;</span> Claude <span class="tag">claude.ai</span><span class="go">Open it &rarr;</span></a>
@@ -400,10 +417,10 @@ body.readall .card.moment p.sub{color:var(--muted)!important}
         <label class="confirm"><input type="checkbox" class="cfm"><span class="cb"><svg viewBox="0 0 18 18"><path d="M3.5 9.5l3.3 3.3 7.7-8"/></svg></span><span class="ctxt">I'm logged in</span></label>
       </section>
 
-      <!-- STEP 4 -->
-      <section class="screen" data-next="Continue &rarr;">
-        <div class="bignum">(4)</div>
-        <div class="eyebrow">Step 4 of 8</div>
+      <!-- EASY 3 -->
+      <section class="screen" data-path="easy" data-next="Continue &rarr;" data-plabel="Easy path &middot; 3 of 7">
+        <div class="bignum">(3)</div>
+        <div class="eyebrow">Easy path &middot; Step 3 of 7</div>
         <h1>Make your project</h1>
         <p class="lead">A <b>Project</b> is a folder your AI never forgets. Your team is going to live in it.</p>
         <div class="cue"><span class="cn">1</span><div class="cc"><div class="cap"><b>In Claude:</b> look at the left sidebar and click <b>Projects</b>, then the <b>New project</b> button.</div>
@@ -414,10 +431,10 @@ body.readall .card.moment p.sub{color:var(--muted)!important}
         <label class="confirm"><input type="checkbox" class="cfm"><span class="cb"><svg viewBox="0 0 18 18"><path d="M3.5 9.5l3.3 3.3 7.7-8"/></svg></span><span class="ctxt">My project is made</span></label>
       </section>
 
-      <!-- STEP 5 -->
-      <section class="screen" data-next="Continue &rarr;">
-        <div class="bignum">(5)</div>
-        <div class="eyebrow">Step 5 of 8</div>
+      <!-- EASY 4 -->
+      <section class="screen" data-path="easy" data-next="Continue &rarr;" data-plabel="Easy path &middot; 4 of 7">
+        <div class="bignum">(4)</div>
+        <div class="eyebrow">Easy path &middot; Step 4 of 7</div>
         <h1>Upload your team</h1>
         <p class="lead">Add all <b>4 files</b> from your downloaded folder into the project.</p>
         <div class="cue"><span class="cn">1</span><div class="cc"><div class="cap"><b>In Claude:</b> inside your project, find the files area on the right and click the <b>+</b>. Pick all 4 files.</div></div></div>
@@ -426,10 +443,10 @@ body.readall .card.moment p.sub{color:var(--muted)!important}
         <label class="confirm"><input type="checkbox" class="cfm"><span class="cb"><svg viewBox="0 0 18 18"><path d="M3.5 9.5l3.3 3.3 7.7-8"/></svg></span><span class="ctxt">All 4 files are in</span></label>
       </section>
 
-      <!-- STEP 6 -->
-      <section class="screen" data-next="Continue &rarr;">
-        <div class="bignum">(6)</div>
-        <div class="eyebrow">Step 6 of 8</div>
+      <!-- EASY 5 -->
+      <section class="screen" data-path="easy" data-next="Continue &rarr;" data-plabel="Easy path &middot; 5 of 7">
+        <div class="bignum">(5)</div>
+        <div class="eyebrow">Easy path &middot; Step 5 of 7</div>
         <h1>Set the instructions</h1>
         <p class="lead">Now tell the project who it is. Copy this and paste it into the instructions box:</p>
         <div class="prompt-box"><button class="copy">Copy</button><pre>You are my AI marketing department. Follow the attached playbooks. Start as the Director of Marketing and interview me one question at a time. Then act as my team: Director of Marketing, Database and Referral Manager, Content and Listing Manager, and Reputation and AI Visibility Manager.</pre></div>
@@ -438,10 +455,10 @@ body.readall .card.moment p.sub{color:var(--muted)!important}
         <label class="confirm"><input type="checkbox" class="cfm"><span class="cb"><svg viewBox="0 0 18 18"><path d="M3.5 9.5l3.3 3.3 7.7-8"/></svg></span><span class="ctxt">Instructions are saved</span></label>
       </section>
 
-      <!-- STEP 7 -->
-      <section class="screen" data-next="Continue &rarr;">
-        <div class="bignum">(7)</div>
-        <div class="eyebrow">Step 7 of 8</div>
+      <!-- EASY 6 -->
+      <section class="screen" data-path="easy" data-next="Continue &rarr;" data-plabel="Easy path &middot; 6 of 7">
+        <div class="bignum">(6)</div>
+        <div class="eyebrow">Easy path &middot; Step 6 of 7</div>
         <h1>Wake up your Director</h1>
         <p class="lead">Start a new chat <b>inside the project</b> and paste this:</p>
         <div class="prompt-box"><button class="copy">Copy</button><pre>Director, set me up.</pre></div>
@@ -450,10 +467,10 @@ body.readall .card.moment p.sub{color:var(--muted)!important}
         <label class="confirm"><input type="checkbox" class="cfm"><span class="cb"><svg viewBox="0 0 18 18"><path d="M3.5 9.5l3.3 3.3 7.7-8"/></svg></span><span class="ctxt">My interview is done</span></label>
       </section>
 
-      <!-- STEP 8 -->
-      <section class="screen" data-next="Continue &rarr;">
-        <div class="bignum">(8)</div>
-        <div class="eyebrow">Step 8 of 8</div>
+      <!-- EASY 7 -->
+      <section class="screen" data-path="easy" data-next="Continue &rarr;" data-plabel="Easy path &middot; 7 of 7">
+        <div class="bignum">(7)</div>
+        <div class="eyebrow">Easy path &middot; Step 7 of 7</div>
         <h1>Put them to work</h1>
         <p class="lead">That's it. Now just talk to your team in plain English. Try one of these:</p>
         <div class="prompt-box"><button class="copy">Copy</button><pre>Director, what should my marketing focus on this week?</pre></div>
@@ -463,18 +480,86 @@ body.readall .card.moment p.sub{color:var(--muted)!important}
         <label class="confirm"><input type="checkbox" class="cfm"><span class="cb"><svg viewBox="0 0 18 18"><path d="M3.5 9.5l3.3 3.3 7.7-8"/></svg></span><span class="ctxt">I gave my team its first job</span></label>
       </section>
 
+      <!-- PRO 1 -->
+      <section class="screen" data-path="pro" data-next="Continue &rarr;" data-plabel="Pro path &middot; 1 of 5">
+        <div class="bignum">(1)</div>
+        <div class="eyebrow">Pro path &middot; Step 1 of 5</div>
+        <h1>Download the pro pack</h1>
+        <p class="lead">Two downloads. Which ones you need depends on your tool:</p>
+        <a class="dl" href="marketing-department-skill.zip" download><span class="emoji">&#9889;</span> The Claude skill <span class="tag">.zip &middot; keep it zipped</span><span class="go">Download &rarr;</span></a>
+        <a class="dl" href="marketing-department.zip" download><span class="emoji">&#128188;</span> The 4 playbook files <span class="tag">.zip &middot; for ChatGPT builders</span><span class="go">Download &rarr;</span></a>
+        <div class="note warn"><b>Do NOT unzip the skill file.</b> The zip itself IS the skill. Claude eats it whole. (ChatGPT builders: extract the second one like normal. On Windows that's right-click, then Extract All.)</div>
+        <label class="confirm"><input type="checkbox" class="cfm"><span class="cb"><svg viewBox="0 0 18 18"><path d="M3.5 9.5l3.3 3.3 7.7-8"/></svg></span><span class="ctxt">I've got my downloads</span></label>
+      </section>
+
+      <!-- PRO 2 -->
+      <section class="screen" data-path="pro" data-next="Continue &rarr;" data-plabel="Pro path &middot; 2 of 5">
+        <div class="bignum">(2)</div>
+        <div class="eyebrow">Pro path &middot; Step 2 of 5 &middot; Claude</div>
+        <h1>Install the skill in Claude</h1>
+        <p class="lead">Two minutes, and your team works in <b>every chat</b>. Free plans included.</p>
+        <div class="cue"><span class="cn">1</span><div class="cc"><div class="cap">First, flip one switch: <b>Settings &rarr; Capabilities</b>, turn on <b>Code execution and file creation</b>. Skills need it.</div></div></div>
+        <div class="cue"><span class="cn">2</span><div class="cc"><div class="cap">Then open <b>Settings &rarr; Customize &rarr; Skills</b>:</div>
+          <img class="shot" src="data:image/png;base64,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" alt="Claude Customize menu showing Skills, Connectors, Plugins, and Memory">
+        </div></div>
+        <div class="cue"><span class="cn">3</span><div class="cc"><div class="cap">Click <b>+</b>, then <b>Upload a skill</b>, and pick <b>marketing-department-skill.zip</b>. Make sure its toggle is on.</div>
+          <div class="menx"><div class="menx-top"><span class="mb">Browse</span><span class="mb on">Add &#9662;</span></div><div class="menx-list"><div class="mxi"><span class="mxic">&#9998;</span>Create with Claude</div><div class="mxi"><span class="mxic">&#9776;</span>Write skill instructions</div><div class="mxi hl"><span class="mxic">&#8593;</span>Upload a skill</div></div></div>
+        </div></div>
+        <label class="confirm"><input type="checkbox" class="cfm"><span class="cb"><svg viewBox="0 0 18 18"><path d="M3.5 9.5l3.3 3.3 7.7-8"/></svg></span><span class="ctxt">Skill installed (or skipping, I'm a ChatGPT person)</span></label>
+      </section>
+
+      <!-- PRO 3 -->
+      <section class="screen" data-path="pro" data-next="Continue &rarr;" data-plabel="Pro path &middot; 3 of 5">
+        <div class="bignum">(3)</div>
+        <div class="eyebrow">Pro path &middot; Step 3 of 5 &middot; ChatGPT</div>
+        <h1>Build it in ChatGPT</h1>
+        <p class="lead">ChatGPT's version of "works anywhere" is a <b>custom GPT</b>. Heads up: building one needs a paid plan (Plus or up).</p>
+        <div class="cue"><span class="cn">1</span><div class="cc"><div class="cap">Go to <a href="https://chatgpt.com/gpts" target="_blank" rel="noopener"><b>chatgpt.com/gpts</b></a>, click <b>+ Create</b>, then the <b>Configure</b> tab.</div></div></div>
+        <div class="cue"><span class="cn">2</span><div class="cc"><div class="cap">Name it <b>My Marketing Department</b> and paste this into <b>Instructions</b>:</div></div></div>
+        <div class="prompt-box"><button class="copy">Copy</button><pre>You are my AI marketing department: a Director of Marketing plus a Database and Referral Manager, a Content and Listing Manager, and a Reputation and AI Visibility Manager. The four attached knowledge files are the playbooks. Follow them. The first time we talk, interview me one question at a time as the Director, then save my answers as my Marketing Brain and act as the team from then on.</pre></div>
+        <div class="cue"><span class="cn">3</span><div class="cc"><div class="cap">Under <b>Knowledge</b>, click <b>Upload files</b> and add the <b>4 playbook files</b> from your second download.</div></div></div>
+        <div class="cue"><span class="cn">4</span><div class="cc"><div class="cap">Click <b>Create</b>, keep it <b>Only me</b>. From now on, type <b>@</b> in any chat and pick it to summon your team.</div></div></div>
+        <div class="note">On a work ChatGPT account (Business or Enterprise)? You may have <b>Skills</b> there too. Same standard, same file: upload the skill zip instead.</div>
+        <label class="confirm"><input type="checkbox" class="cfm"><span class="cb"><svg viewBox="0 0 18 18"><path d="M3.5 9.5l3.3 3.3 7.7-8"/></svg></span><span class="ctxt">My GPT is ready (or skipping, I'm a Claude person)</span></label>
+      </section>
+
+      <!-- PRO 4 -->
+      <section class="screen" data-path="pro" data-next="Continue &rarr;" data-plabel="Pro path &middot; 4 of 5">
+        <div class="bignum">(4)</div>
+        <div class="eyebrow">Pro path &middot; Step 4 of 5</div>
+        <h1>Wake up your Director</h1>
+        <p class="lead"><b>In Claude:</b> open any chat, even a brand new one, and paste:</p>
+        <div class="prompt-box"><button class="copy">Copy</button><pre>Use the marketing department skill. Director, set me up.</pre></div>
+        <p class="lead"><b>In ChatGPT:</b> open your new GPT and paste:</p>
+        <div class="prompt-box"><button class="copy">Copy</button><pre>Director, set me up.</pre></div>
+        <p class="lead">Your Director interviews you once, one question at a time, then saves your answers as your <b>Marketing Brain</b>. Answer like you're talking to a new hire over coffee.</p>
+        <label class="confirm"><input type="checkbox" class="cfm"><span class="cb"><svg viewBox="0 0 18 18"><path d="M3.5 9.5l3.3 3.3 7.7-8"/></svg></span><span class="ctxt">My interview is done</span></label>
+      </section>
+
+      <!-- PRO 5 -->
+      <section class="screen" data-path="pro" data-next="Continue &rarr;" data-plabel="Pro path &middot; 5 of 5">
+        <div class="bignum">(5)</div>
+        <div class="eyebrow">Pro path &middot; Step 5 of 5</div>
+        <h1>Put them to work, anywhere</h1>
+        <p class="lead">This is the pro payoff: you're mid-conversation about anything, and your team is right there. Try one:</p>
+        <div class="prompt-box"><button class="copy">Copy</button><pre>Director, what should my marketing focus on this week?</pre></div>
+        <div class="prompt-box"><button class="copy">Copy</button><pre>Content and Listing Manager, launch this listing. Here's the address and the details:</pre></div>
+        <div class="prompt-box"><button class="copy">Copy</button><pre>Database and Referral Manager, who should I reach out to this week?</pre></div>
+        <div class="note">The pattern: <b>name the role, say what you want.</b> No folder to visit. They follow you everywhere.</div>
+        <label class="confirm"><input type="checkbox" class="cfm"><span class="cb"><svg viewBox="0 0 18 18"><path d="M3.5 9.5l3.3 3.3 7.7-8"/></svg></span><span class="ctxt">I gave my team its first job</span></label>
+      </section>
+
       <!-- FINISH -->
-      <section class="screen" data-final data-noback>
+      <section class="screen" data-final data-noback data-plabel="All done!">
         <div class="done-ic">&#10003;</div>
         <h1 class="big" style="text-align:center">You have a marketing department</h1>
         <p class="lead" style="text-align:center">Most agents chat with AI. You just hired a team.</p>
         <div class="recap" id="recap">
           <div><span class="c">&#10003;</span> Met your four hires</div>
-          <div><span class="c">&#10003;</span> Downloaded the playbooks</div>
-          <div><span class="c">&#10003;</span> Made your project</div>
-          <div><span class="c">&#10003;</span> Loaded all 4 files</div>
+          <div><span class="c">&#10003;</span> Picked your path</div>
+          <div><span class="c">&#10003;</span> Installed your team</div>
           <div><span class="c">&#10003;</span> Ran your Director interview</div>
-          <div><span class="c">&#10003;</span> Gave your team its first job</div>
+          <div><span class="c">&#10003;</span> Gave them their first job</div>
         </div>
         <div class="cta">
           <div class="ce">Live Workshop &middot; Thursday</div>
@@ -506,15 +591,12 @@ body.readall .card.moment p.sub{color:var(--muted)!important}
   const pfill=document.getElementById('pfill'),plabel=document.getElementById('plabel');
   const backBtn=document.getElementById('backBtn'),nextBtn=document.getElementById('nextBtn'),nav=document.getElementById('nav');
   const card=document.querySelector('.card');
-  const contentTotal=screens.length-2;
-  const HW=screens.filter((s,n)=>n>0&&!s.hasAttribute('data-final')&&!s.hasAttribute('data-bonus')).length;
-  let i=0,confirms={};
-  const PROMPT=((document.getElementById('onboardingPrompt')||{}).textContent||'').trim();
-  if(PROMPT){const pt=document.getElementById('promptText');if(pt)pt.textContent=PROMPT;}
+  let i=0,confirms={},path=null;
 
-  const KEY='ss-agency-v1';
-  try{const s=JSON.parse(localStorage.getItem(KEY)||'{}');if(typeof s.i==='number')i=Math.min(Math.max(s.i,0),screens.length-1);confirms=s.confirms||{};}catch(e){}
-  function save(){localStorage.setItem(KEY,JSON.stringify({i,confirms}))}
+  const KEY='ss-agency-v2';
+  try{const s=JSON.parse(localStorage.getItem(KEY)||'{}');if(typeof s.i==='number')i=Math.min(Math.max(s.i,0),screens.length-1);confirms=s.confirms||{};path=s.path||null;}catch(e){}
+  function save(){localStorage.setItem(KEY,JSON.stringify({i,confirms,path}))}
+  function visList(){return screens.filter(s=>{const p=s.dataset.path;return !p||p===path;});}
 
   const CC=['#F6C627','#FFD84D','#FFFFFF','#E0E0E0','#C9A00F','#A1A1A1'];
   function burst(el){const r=el.getBoundingClientRect(),x=r.left+r.width/2,y=r.top+r.height/2;for(let k=0;k<18;k++){const p=document.createElement('div');p.className='confetti';p.style.left=x+'px';p.style.top=y+'px';p.style.background=CC[k%CC.length];document.body.appendChild(p);const a=Math.random()*Math.PI*2,d=45+Math.random()*70;requestAnimationFrame(()=>{p.style.transform='translate('+(Math.cos(a)*d)+'px,'+(Math.sin(a)*d+40)+'px) rotate('+(Math.random()*420)+'deg)';p.style.opacity='0';});setTimeout(()=>p.remove(),720);}}
@@ -523,39 +605,40 @@ body.readall .card.moment p.sub{color:var(--muted)!important}
 
   function gateMet(sc){const cb=sc.querySelector('.cfm');if(cb)return cb.checked;return true;}
   function render(){
+    const vis=visList();
+    if(!vis.includes(screens[i])){const ch=screens.find(s=>s.hasAttribute('data-choice'));i=screens.indexOf(ch);}
     screens.forEach((s,n)=>s.classList.toggle('active',n===i));const sc=screens[i];
     card.classList.toggle('moment',(i===0)||sc.hasAttribute('data-final'));
-    pfill.style.width=Math.round((i/(screens.length-1))*100)+'%';
-    if(i===0)plabel.textContent="Let's hire your team";
-    else if(sc.hasAttribute('data-final')){plabel.textContent="All done!";if(!window._rained){window._rained=true;setTimeout(rainConfetti,250);}}
-    else if(sc.hasAttribute('data-bonus'))plabel.textContent="Bonus";
-    else plabel.textContent="Step "+i+" of "+HW;
+    const vi=vis.indexOf(sc);
+    pfill.style.width=Math.round((vi/(vis.length-1))*100)+'%';
+    plabel.textContent=sc.dataset.plabel||'';
+    if(sc.hasAttribute('data-final')){if(!window._rained){window._rained=true;setTimeout(rainConfetti,250);}}
     backBtn.style.visibility=sc.hasAttribute('data-noback')?'hidden':'visible';
-    if(sc.hasAttribute('data-final')){nav.style.display='none';}else{nav.style.display='flex';nextBtn.innerHTML=sc.dataset.next||'Continue &rarr;';}
+    if(sc.hasAttribute('data-final')){nav.style.display='none';}
+    else{nav.style.display='flex';nextBtn.style.display=sc.hasAttribute('data-choice')?'none':'';nextBtn.innerHTML=sc.dataset.next||'Continue &rarr;';}
     nextBtn.disabled=!gateMet(sc);syncMenu();window.scrollTo({top:0,behavior:'smooth'});save();
   }
   function refreshGate(){const ok=gateMet(screens[i]),was=nextBtn.disabled;nextBtn.disabled=!ok;if(was&&ok){nextBtn.classList.remove('ready');void nextBtn.offsetWidth;nextBtn.classList.add('ready');}}
   function applyState(){screens.forEach((sc,n)=>{const cb=sc.querySelector('.cfm');if(cb&&confirms[n]){cb.checked=true;cb.closest('.confirm').classList.add('checked');}});}
-  nextBtn.onclick=()=>{if(!nextBtn.disabled&&i<screens.length-1){i++;render();}};
-  backBtn.onclick=()=>{if(i>0){i--;render();}};
+  window.choosePath=function(p){path=p;save();buildMenu();const vis=visList();const ch=vis.find(s=>s.hasAttribute('data-choice'));const ci=vis.indexOf(ch);if(ci>-1&&ci<vis.length-1){i=screens.indexOf(vis[ci+1]);}render();};
+  nextBtn.onclick=()=>{const vis=visList();const vi=vis.indexOf(screens[i]);if(!nextBtn.disabled&&vi>-1&&vi<vis.length-1){i=screens.indexOf(vis[vi+1]);render();}};
+  backBtn.onclick=()=>{const vis=visList();const vi=vis.indexOf(screens[i]);if(vi>0){i=screens.indexOf(vis[vi-1]);render();}};
   document.querySelectorAll('.cfm').forEach(cb=>cb.addEventListener('change',function(){const idx=screens.indexOf(this.closest('.screen'));confirms[idx]=this.checked;this.closest('.confirm').classList.toggle('checked',this.checked);if(this.checked)burst(this.closest('.confirm').querySelector('.cb'));refreshGate();save();}));
   document.querySelectorAll('.copy').forEach(btn=>btn.onclick=function(){const pre=this.parentElement.querySelector('pre');const t=pre?pre.textContent.trim():'';if(!t)return;copyText(t).then(()=>{this.textContent='Copied!';setTimeout(()=>this.textContent='Copy',1600);}).catch(()=>{this.textContent='Select all + Copy';setTimeout(()=>this.textContent='Copy',2200);});});
   const menuBtn=document.getElementById('menuBtn'),stepMenu=document.getElementById('stepMenu'),menuScrim=document.getElementById('menuScrim'),menuClose=document.getElementById('menuClose'),stepList=document.getElementById('stepList');
-  function buildMenu(){if(!stepList)return;stepList.innerHTML='';let bd=false;screens.forEach((sc,n)=>{
-    if(sc.hasAttribute('data-bonus')&&!bd){bd=true;const d=document.createElement('li');d.className='menu-div';d.textContent='Bonus skills';stepList.appendChild(d);}
+  function buildMenu(){if(!stepList)return;stepList.innerHTML='';visList().forEach(sc=>{const n=screens.indexOf(sc);
     const li=document.createElement('li');const b=document.createElement('button');b.className='stepjump';b.dataset.go=n;
-    const label=n===0?'Welcome':sc.hasAttribute('data-final')?'Finish':sc.querySelector('h1').textContent;
-    if(sc.hasAttribute('data-bonus')){b.innerHTML='<span class="sj-star">&#9733;</span><span class="sj-label"></span>';}
-    else{const num=(n===0||sc.hasAttribute('data-final'))?'':n;b.innerHTML='<span class="sj-tick">&#10003;</span>'+(num?'<span class="sj-n">'+num+'</span>':'')+'<span class="sj-label"></span>';}
+    const label=n===0?'Welcome':sc.hasAttribute('data-final')?'Finish':sc.hasAttribute('data-choice')?'Pick your path':sc.querySelector('h1').textContent;
+    b.innerHTML='<span class="sj-tick">&#10003;</span><span class="sj-label"></span>';
     b.querySelector('.sj-label').textContent=label;b.onclick=()=>{i=n;closeMenu();render();};li.appendChild(b);stepList.appendChild(li);
   });}
   function syncMenu(){if(!stepList)return;[...stepList.querySelectorAll('.stepjump')].forEach(b=>{const n=+b.dataset.go;b.classList.toggle('current',n===i);b.classList.toggle('done',!!confirms[n]);});}
-  function openMenu(){syncMenu();if(stepMenu)stepMenu.classList.add('show');if(menuScrim)menuScrim.classList.add('show');}
+  function openMenu(){buildMenu();syncMenu();if(stepMenu)stepMenu.classList.add('show');if(menuScrim)menuScrim.classList.add('show');}
   function closeMenu(){if(stepMenu)stepMenu.classList.remove('show');if(menuScrim)menuScrim.classList.remove('show');}
   if(menuBtn)menuBtn.onclick=openMenu;if(menuClose)menuClose.onclick=closeMenu;if(menuScrim)menuScrim.onclick=closeMenu;
   document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();});
   const startOver=document.getElementById('startOver');let resetArm=false,resetT=null;
-  function doReset(){localStorage.removeItem(KEY);confirms={};i=0;document.querySelectorAll('.cfm').forEach(cb=>{cb.checked=false;cb.closest('.confirm').classList.remove('checked');});window._rained=false;closeMenu();render();}
+  function doReset(){localStorage.removeItem(KEY);confirms={};i=0;path=null;document.querySelectorAll('.cfm').forEach(cb=>{cb.checked=false;cb.closest('.confirm').classList.remove('checked');});window._rained=false;closeMenu();buildMenu();render();}
   if(startOver)startOver.onclick=function(){const b=this;if(!resetArm){resetArm=true;b.classList.add('arm');b.textContent='Tap again to clear';resetT=setTimeout(()=>{resetArm=false;b.classList.remove('arm');b.innerHTML='\u21ba Start over';},2600);return;}clearTimeout(resetT);resetArm=false;b.classList.remove('arm');b.innerHTML='\u21ba Start over';doReset();};
   buildMenu();applyState();render();
 </script>
