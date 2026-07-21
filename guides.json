@@ -3,14 +3,46 @@
   "brand": "Stringer Steps",
   "tagline": "Free step-by-step guides that actually get you unstuck.",
   "pillars": [
-    { "key": "found-by-ai", "label": "Getting Found by AI", "blurb": "Show up when people ask ChatGPT, Perplexity, or Google's AI for someone like you. This is the AEO stuff, in plain words." },
-    { "key": "ai-beginners", "label": "AI for Beginners", "blurb": "Never really used it? Start here. The basics, the way I wish someone showed me." },
-    { "key": "more-customers", "label": "Get More Customers", "blurb": "Guides for filling your calendar: reviews, referrals, follow-up, showing up local." },
-    { "key": "content", "label": "Content Without the Grind", "blurb": "Make posts, emails, and videos faster so you can stay consistent without burning out." },
-    { "key": "save-time", "label": "Save Time with AI", "blurb": "Little systems that hand the boring work to a robot so you get your hours back." },
-    { "key": "look-legit", "label": "Look Legit Online", "blurb": "Clean up your website, profiles, and first impression so people trust you fast." },
-    { "key": "sell", "label": "Sell Without Being Sleazy", "blurb": "Offers, pricing, and simple sales steps that feel like you, not a pushy guru." },
-    { "key": "run-smarter", "label": "Run Your Business Smarter", "blurb": "Tools, workflows, and habits to keep the whole thing from living in your head." }
+    {
+      "key": "found-by-ai",
+      "label": "Getting Found by AI",
+      "blurb": "Show up when people ask ChatGPT, Perplexity, or Google's AI for someone like you. This is the AEO stuff, in plain words."
+    },
+    {
+      "key": "ai-beginners",
+      "label": "AI for Beginners",
+      "blurb": "Never really used it? Start here. The basics, the way I wish someone showed me."
+    },
+    {
+      "key": "more-customers",
+      "label": "Get More Customers",
+      "blurb": "Guides for filling your calendar: reviews, referrals, follow-up, showing up local."
+    },
+    {
+      "key": "content",
+      "label": "Content Without the Grind",
+      "blurb": "Make posts, emails, and videos faster so you can stay consistent without burning out."
+    },
+    {
+      "key": "save-time",
+      "label": "Save Time with AI",
+      "blurb": "Little systems that hand the boring work to a robot so you get your hours back."
+    },
+    {
+      "key": "look-legit",
+      "label": "Look Legit Online",
+      "blurb": "Clean up your website, profiles, and first impression so people trust you fast."
+    },
+    {
+      "key": "sell",
+      "label": "Sell Without Being Sleazy",
+      "blurb": "Offers, pricing, and simple sales steps that feel like you, not a pushy guru."
+    },
+    {
+      "key": "run-smarter",
+      "label": "Run Your Business Smarter",
+      "blurb": "Tools, workflows, and habits to keep the whole thing from living in your head."
+    }
   ],
   "guides": [
     {
@@ -84,6 +116,18 @@
       "kitTag": null,
       "updated": "2026-07-20",
       "oneLineOutcome": "The full step-by-step Second Brain build, for paid attendees."
+    },
+    {
+      "keyword": "agency",
+      "title": "Hire Your AI Marketing Department",
+      "topic": "more-customers",
+      "visibility": "public",
+      "flagship": false,
+      "featured": false,
+      "url": "https://stringersteps.com/agency",
+      "kitTag": "src-gate-agency",
+      "updated": "2026-07-21",
+      "oneLineOutcome": "Install an AI Director of Marketing and three specialists that market your real estate business in your voice."
     }
   ]
 }
