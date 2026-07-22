@@ -128,6 +128,18 @@
       "kitTag": "src-gate-agency",
       "updated": "2026-07-21",
       "oneLineOutcome": "Install an AI Director of Marketing and three specialists that market your real estate business in your voice."
+    },
+    {
+      "keyword": "followupboss",
+      "title": "Connect Follow Up Boss to Claude",
+      "topic": "run-smarter",
+      "visibility": "public",
+      "flagship": false,
+      "featured": false,
+      "url": "https://stringersteps.com/followupboss",
+      "kitTag": "src-guide-followupboss",
+      "updated": "2026-07-22",
+      "oneLineOutcome": "Connect your Follow Up Boss CRM to Claude and run your whole pipeline in plain English."
     }
   ]
 }
