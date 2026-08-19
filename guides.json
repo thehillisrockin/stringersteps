@@ -140,6 +140,18 @@
       "kitTag": "src-guide-followupboss",
       "updated": "2026-07-22",
       "oneLineOutcome": "Connect your Follow Up Boss CRM to Claude and run your whole pipeline in plain English."
+    },
+    {
+      "keyword": "aeohomework",
+      "title": "AEO Workshop Homework",
+      "topic": "found-by-ai",
+      "visibility": "private",
+      "flagship": false,
+      "featured": false,
+      "url": "https://stringersteps.com/aeohomework",
+      "kitTag": null,
+      "updated": "2026-08-18",
+      "oneLineOutcome": "Get your business answers doc ready before the live AEO workshop."
     }
   ]
 }
