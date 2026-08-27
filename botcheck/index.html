@@ -941,9 +941,16 @@ window.BOTCHECK_PLATFORMS = {
   var EMBED = /(^|[?&])embed=1(&|$)/.test(location.search);
   function reportHeight(){
     if (!EMBED || !window.parent || window.parent === window) return;
-    var h = Math.ceil(document.documentElement.scrollHeight);
+    // Measure the CONTENT, not the document. documentElement.scrollHeight is
+    // at least the iframe's own height, so reporting it made the frame ratchet
+    // taller on every tick and never shrink, leaving dead space under the tool.
+    var stage = document.querySelector('.stage');
+    var h = Math.ceil(stage ? stage.getBoundingClientRect().height : document.body.scrollHeight);
+    if (h === lastH) return;          // only speak when something actually changed
+    lastH = h;
     try { window.parent.postMessage({ botcheckHeight: h }, '*'); } catch (e) {}
   }
+  var lastH = 0;
   if (EMBED) {
     document.documentElement.classList.add('embed');
     document.addEventListener('DOMContentLoaded', function(){

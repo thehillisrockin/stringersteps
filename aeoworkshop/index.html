@@ -319,7 +319,7 @@ body.readall .card.moment p.sub{color:var(--muted)!important}
 /* --- embedded bot checker --- */
 .embedwrap{margin:18px 0 4px;background:#232326;border:1px solid rgba(255,255,255,.16);
   border-radius:16px;padding:18px 16px;overflow:hidden}
-.botframe{width:100%;border:0;display:block;min-height:430px;transition:height .25s ease}
+.botframe{width:100%;border:0;display:block;min-height:300px;transition:height .2s ease}
 /* --- finish CTA (one ask only) --- */
 .ctabtn{display:block;width:100%;text-align:center;background:var(--red);color:#000;text-decoration:none;
   border-radius:14px;padding:17px 20px;font-weight:800;font-size:16.5px;margin-top:20px;
@@ -390,9 +390,110 @@ document.addEventListener('DOMContentLoaded',function(){
   </div>
 </section>
 
+<!-- ============ HOMEWORK 1: THE 10 QUESTIONS ============ -->
+<section class="screen" data-next="Continue &rarr;" data-screen="hw1">
+  <div class="bignum" data-e="hw1.num1">01</div>
+  <div class="eyebrow" data-e="hw1.eyebrow1">Homework, step 1 of 4</div>
+  <h1 data-e="hw1.title1">Run the 10-question prompt</h1>
+  <p class="lead" data-e="hw1.lead1">Everything today gets written about <b>your</b> business. This is how the tools learn what that is. Copy this whole prompt into ChatGPT or Claude, whichever one already knows you best, and send it.</p>
+
+  <div class="prompt-box"><button class="copy">Copy</button><pre id="hwPrompt">You are an expert interviewer and marketing strategist. Your job is to fully understand my business so you can later write AEO-optimized "Best Choice," "Reasons to Choose," and "Head-to-Head" articles that help AI tools (like ChatGPT, Gemini, and Perplexity) identify me as the top expert in my field.
+
+Based on what you already know about me and my business, ask me 10 detailed questions that will fill in any gaps needed to fully understand things like:
+
+- What makes my services different from competitors
+- The key outcomes or transformations my clients get
+- The main types of clients or industries I serve
+- The services I offer (and what's unique about each one)
+- The cities or markets I serve
+- My brand tone and personality (how I want people to describe me)
+- My pricing, guarantees, or offers
+- The biggest pain points my audience faces before hiring me
+- The common objections people have before buying
+- The results or success stories I'm most proud of
+
+Each question should dig deep enough to help you later write clear, specific, human-sounding articles that show why I'm the best choice in my industry.</pre></div>
+
+  <div class="note" data-e="hw1.note1">
+    <b>Already did the homework?</b> Open that same chat and skip ahead to step 4.
+  </div>
+
+  <label class="confirm"><input type="checkbox" class="cfm"><span class="cb"><svg viewBox="0 0 24 24"><path d="M4 12.5l5.5 5.5L20 6.5"/></svg></span><span class="ctxt" data-e="hw1.confirm1">I have my 10 questions</span></label>
+</section>
+
+<!-- ============ HOMEWORK 2: ANSWER THEM ============ -->
+<section class="screen" data-next="Continue &rarr;" data-screen="hw2">
+  <div class="bignum" data-e="hw2.num1">02</div>
+  <div class="eyebrow" data-e="hw2.eyebrow1">Homework, step 2 of 4</div>
+  <h1 data-e="hw2.title1">Answer them in the chat</h1>
+  <p class="lead" data-e="hw2.lead1">Type your answers straight into the same conversation. No document, no formatting. Just talk.</p>
+
+  <div class="note" data-e="hw2.note1">
+    <b>Answer the first 10 and stop.</b> It will keep asking follow-up questions until you die. You do not need them.
+  </div>
+
+  <div class="note" data-e="hw2.note2">
+    <b>Stuck on one?</b> Paste this and it will draft an answer from what it already knows, then you fix it.
+  </div>
+  <div class="prompt-box"><button class="copy">Copy</button><pre>Based on what you know about my business, how would you answer this question if you were me?</pre></div>
+
+  <label class="confirm"><input type="checkbox" class="cfm"><span class="cb"><svg viewBox="0 0 24 24"><path d="M4 12.5l5.5 5.5L20 6.5"/></svg></span><span class="ctxt" data-e="hw2.confirm1">All 10 answered</span></label>
+</section>
+
+<!-- ============ HOMEWORK 3: REFERENCE FILE ============ -->
+<section class="screen" data-next="Continue &rarr;" data-screen="hw3">
+  <div class="bignum" data-e="hw3.num1">03</div>
+  <div class="eyebrow" data-e="hw3.eyebrow1">Homework, step 3 of 4</div>
+  <h1 data-e="hw3.title1">Turn it into your reference file</h1>
+  <p class="lead" data-e="hw3.lead1">This one file is what every tool reads today. Paste this into the same chat.</p>
+
+  <div class="prompt-box"><button class="copy">Copy</button><pre>Take everything from this conversation, including my answers to your 10 questions and what you already know about my business, and turn it into one complete business reference document. Include: what I do, who I serve, my markets and cities, what makes me different, my offers and pricing, my brand voice, the pain points I solve, the objections I hear, and my best results and success stories. Write it in plain language with clear headings. This document will be handed to other AI tools as context so they can write marketing articles about my business, so make it complete enough that a tool reading only this document fully understands my business. Then give it to me as a downloadable Markdown file.</pre></div>
+
+  <div class="note warn" data-e="hw3.note1">
+    <b>Download it as .md or .txt.</b> AI reads those cleanest. A Pages file fails silently and the tool will write about somebody else entirely.
+  </div>
+
+  <div class="note" data-e="hw3.note2">
+    <b>Put your name and market in the first two lines.</b> Something like "My name is Gwen Wang. I am a realtor in the Bay Area." It removes any doubt about who these articles should recommend.
+  </div>
+
+  <label class="confirm"><input type="checkbox" class="cfm"><span class="cb"><svg viewBox="0 0 24 24"><path d="M4 12.5l5.5 5.5L20 6.5"/></svg></span><span class="ctxt" data-e="hw3.confirm1">My reference file is downloaded</span></label>
+</section>
+
+<!-- ============ HOMEWORK 4: TOOLS ============ -->
+<section class="screen" data-next="Continue &rarr;" data-screen="hw4">
+  <div class="bignum" data-e="hw4.num1">04</div>
+  <div class="eyebrow" data-e="hw4.eyebrow1">Homework, step 4 of 4</div>
+  <h1 data-e="hw4.title1">Grab your article tools</h1>
+  <p class="lead" data-e="hw4.lead1">Four tools, already trained to write each type of article the right way. Tap whichever you use.</p>
+
+  <div class="toolpick">
+    <button type="button" class="tool-btn" data-panel="hwGpt">I use ChatGPT</button>
+    <button type="button" class="tool-btn" data-panel="hwClaude">I use Claude</button>
+  </div>
+
+  <div class="tpanel" id="hwGpt">
+    <a class="dl" href="https://chatgpt.com/g/g-6902240c615481918a87ac99846ce012-best-choice-article-bot" target="_blank" rel="noopener"><span class="emoji">&#129302;</span>Best Choice<span class="go">Open &rarr;</span></a>
+    <a class="dl" href="https://chatgpt.com/g/g-690232c4fd78819195f260956d6b7125-reasons-to-choose-article-bot" target="_blank" rel="noopener"><span class="emoji">&#129302;</span>Reasons to Choose<span class="go">Open &rarr;</span></a>
+    <a class="dl" href="https://chatgpt.com/g/g-690ccab118708191b01a37772f81375f-local-service-article-bot" target="_blank" rel="noopener"><span class="emoji">&#129302;</span>Local Service<span class="go">Open &rarr;</span></a>
+    <a class="dl" href="https://chatgpt.com/g/g-690cce17bdb081918347f00d007eaffa-head-to-head-article-bot" target="_blank" rel="noopener"><span class="emoji">&#129302;</span>Head to Head<span class="go">Open &rarr;</span></a>
+    <div class="note" data-e="hw4.note1">Open each one now so they are waiting in your tabs. A free ChatGPT account works.</div>
+  </div>
+
+  <div class="tpanel" id="hwClaude">
+    <a class="dl" href="/aeohomework/best-choice-articles.zip" download><span class="emoji">&#128230;</span>Best Choice<span class="tag">.zip</span><span class="go">Download &rarr;</span></a>
+    <a class="dl" href="/aeohomework/reasons-to-choose-articles.zip" download><span class="emoji">&#128230;</span>Reasons to Choose<span class="tag">.zip</span><span class="go">Download &rarr;</span></a>
+    <a class="dl" href="/aeohomework/local-service-articles.zip" download><span class="emoji">&#128230;</span>Local Service<span class="tag">.zip</span><span class="go">Download &rarr;</span></a>
+    <a class="dl" href="/aeohomework/head-to-head-articles.zip" download><span class="emoji">&#128230;</span>Head to Head<span class="tag">.zip</span><span class="go">Download &rarr;</span></a>
+    <div class="note" data-e="hw4.note2">Upload all four once, under Settings, then Capabilities, then Skills. They stay in your account.</div>
+  </div>
+
+  <label class="confirm"><input type="checkbox" class="cfm"><span class="cb"><svg viewBox="0 0 24 24"><path d="M4 12.5l5.5 5.5L20 6.5"/></svg></span><span class="ctxt" data-e="hw4.confirm1">My four tools are ready</span></label>
+</section>
+
 <!-- ============ BOT CHECK ============ -->
 <section class="screen" data-next="Continue &rarr;" data-screen="botcheck">
-  <div class="bignum" data-e="botcheck.num1">01</div>
+  <div class="bignum" data-e="botcheck.num1">05</div>
   <div class="eyebrow" data-e="botcheck.eyebrow1">Before you write a word</div>
   <h1 data-e="botcheck.title1">Can AI even read your site?</h1>
   <p class="lead" data-e="botcheck.lead1">Some websites turn AI robots away at the door. If yours is one of them, every article you write today is invisible. Check first. It takes ten seconds.</p>
@@ -414,69 +515,23 @@ document.addEventListener('DOMContentLoaded',function(){
   <label class="confirm"><input type="checkbox" class="cfm"><span class="cb"><svg viewBox="0 0 24 24"><path d="M4 12.5l5.5 5.5L20 6.5"/></svg></span><span class="ctxt" data-e="botcheck.confirm1">I checked my website</span></label>
 </section>
 
-<!-- ============ HOMEWORK / REFERENCE FILE ============ -->
-<section class="screen" data-next="Continue &rarr;" data-screen="reference">
-  <div class="bignum" data-e="reference.num1">02</div>
-  <div class="eyebrow" data-e="reference.eyebrow1">Your reference file</div>
-  <h1 data-e="reference.title1">Give the bots your business</h1>
-  <p class="lead" data-e="reference.lead1">The four writing bots know exactly how to write an AEO article. They know nothing about you. Your reference file is what turns a generic article into an article about <b>you</b>, in <b>your</b> market.</p>
-
-  <p class="sub" data-e="reference.sub1">If you did the homework, you already have it. Open it now and keep it handy, because you will upload it four separate times today.</p>
-
-  <div class="note" data-e="reference.note1">
-    <b>Do not have it yet?</b> Do it right now, before step 3. It is one prompt and about five minutes: <a href="https://stringersteps.com/aeohomework" target="_blank" rel="noopener">stringersteps.com/aeohomework</a>. You cannot write the articles without it.
-  </div>
-
-  <div class="note warn" data-e="reference.note2">
-    <b>Save it as plain text.</b> Export it as <b>.txt</b> or <b>.md</b>. AI reads those cleanest. A Pages file will fail silently and the bot will write about somebody else entirely. A Google Doc or Word file works, plain text is safest.
-  </div>
-
-  <div class="note" data-e="reference.note3">
-    <b>Put your name and market in the first two lines.</b> Something like "My name is Gwen Wang. I am a realtor in the Bay Area." It removes any doubt about who the article should recommend.
-  </div>
-
-  <label class="confirm"><input type="checkbox" class="cfm"><span class="cb"><svg viewBox="0 0 24 24"><path d="M4 12.5l5.5 5.5L20 6.5"/></svg></span><span class="ctxt" data-e="reference.confirm1">My reference file is open and saved as plain text</span></label>
-</section>
-
-<!-- ============ THE RULES ============ -->
-<section class="screen" data-next="Continue &rarr;" data-screen="rules">
-  <div class="bignum" data-e="rules.num1">03</div>
-  <div class="eyebrow" data-e="rules.eyebrow1">Read once, applies to all 100</div>
-  <h1 data-e="rules.title1">The rules for every article</h1>
-  <p class="lead" data-e="rules.lead1">These are the same for all four article types. Learn them here and the next four steps are just copy and paste.</p>
-
-  <div class="rulelist">
-    <div class="rule"><span class="rn">1</span><div><b>Third person, always.</b> An expert writing about you, never you writing about yourself. First person reads as self-promotion and AI discounts it. The bots do this automatically. Do not undo it.</div></div>
-    <div class="rule"><span class="rn">2</span><div><b>No call to action.</b> No phone number, no "visit my site," no "call me today." One CTA and AI treats the whole article as an ad.</div></div>
-    <div class="rule"><span class="rn">3</span><div><b>Short. 200 to 300 words.</b> These are not blog posts. AI wants clarity and pattern, not an essay.</div></div>
-    <div class="rule"><span class="rn">4</span><div><b>The title is the exact question someone types.</b> Match the prompt as closely as you can. That match is what gets you pulled into the answer.</div></div>
-    <div class="rule"><span class="rn">5</span><div><b>Four articles at a time, maximum.</b> Ask for five or more and the bot starts cutting corners.</div></div>
-    <div class="rule"><span class="rn">6</span><div><b>Post three to seven a week. Never all at once.</b> Five to seven is the sweet spot. Dumping 100 posts in one day looks like spam.</div></div>
-    <div class="rule"><span class="rn">7</span><div><b>One article per post.</b> Each one is its own page on your website. Never combine them.</div></div>
-  </div>
-
-  <div class="note" data-e="rules.note1">
-    <b>Three words you will hear all day.</b> <b>Crawling</b> is AI reading your page. <b>Indexing</b> is AI filing it away. <b>Ranking</b> is AI deciding where you land when it answers someone. Everything today is about earning all three.
-  </div>
-
-  <label class="confirm"><input type="checkbox" class="cfm"><span class="cb"><svg viewBox="0 0 24 24"><path d="M4 12.5l5.5 5.5L20 6.5"/></svg></span><span class="ctxt" data-e="rules.confirm1">Got it</span></label>
-</section>
-
 <!-- ============ STEP 1: BEST CHOICE ============ -->
 <section class="screen" data-next="Continue &rarr;" data-screen="bestchoice">
-  <div class="bignum" data-e="bestchoice.num1">04</div>
+  <div class="bignum" data-e="bestchoice.num1">06</div>
   <div class="eyebrow" data-e="bestchoice.eyebrow1">Step 1 of 4 &middot; 10 articles</div>
   <h1 data-e="bestchoice.title1">Best choice articles</h1>
   <p class="lead" data-e="bestchoice.lead1">These tell AI <b>when</b> to recommend you. Each one answers a real question people are typing, and the title is that question word for word.</p>
+  <div class="note" data-e="bestchoice.note1"><b>What this one is.</b> These teach AI <b>when</b> to recommend you. Each article answers one real question, and the title is that question word for word, so the match is as close as possible to what someone types.<br><br><b>What the bot is trained to do:</b> write it in third person like an outside expert, keep it to 200 to 300 words at a seventh-grade reading level, and leave out any call to action. One "call me today" and AI reads the whole thing as an ad and discounts it.</div>
+
 
   <div class="cue">
     <div class="cn">1</div>
     <div class="cc">
       <div class="cap" data-e="bestchoice.cap1">Find the 10 questions people actually type. Two ways, pick one.</div>
-      <div class="note" data-e="bestchoice.note1">
+      <div class="note" data-e="bestchoice.note2">
         <b>Real data:</b> <a href="https://answerthepublic.com" target="_blank" rel="noopener">answerthepublic.com</a>. Search <i>best [your job] in [your area]</i>, click the <b>AI models</b> tab, and read the prompts in order of popularity. Paid, about $20 a month, with a 14-day trial. Use the trial today and cancel it.
       </div>
-      <div class="note" data-e="bestchoice.note2">
+      <div class="note" data-e="bestchoice.note3">
         <b>Free:</b> ask ChatGPT or Claude for the 10 most common things people ask when looking for your service in your area. Less precise, still works.
       </div>
     </div>
@@ -505,7 +560,7 @@ document.addEventListener('DOMContentLoaded',function(){
   </div>
   <div class="tpanel" id="p1claude">
     <a class="dl" href="/aeohomework/best-choice-articles.zip" download><span class="emoji">&#128230;</span>Best Choice skill<span class="tag">.zip</span><span class="go">Download &rarr;</span></a>
-    <div class="note" data-e="bestchoice.note3">Upload it once under Settings, then Capabilities, then Skills. It stays in your account.</div>
+    <div class="note" data-e="bestchoice.note4">Upload it once under Settings, then Capabilities, then Skills. It stays in your account.</div>
   </div>
 
   <div class="cue">
@@ -516,7 +571,7 @@ document.addEventListener('DOMContentLoaded',function(){
   </div>
   <div class="prompt-box"><button class="copy">Copy</button><pre>Write me an article about: [paste your first question here]</pre></div>
 
-  <div class="note warn" data-e="bestchoice.note4">
+  <div class="note warn" data-e="bestchoice.note5">
     <b>Check that first one before you write nine more.</b> Is your name in it? Is it third person? If it pulled in a stranger from the web, say: <i>Please use the document I uploaded as the business to recommend, and rewrite it.</i>
   </div>
 
@@ -533,11 +588,11 @@ document.addEventListener('DOMContentLoaded',function(){
 3. [question]
 4. [question]</pre></div>
 
-  <div class="note" data-e="bestchoice.note5">
+  <div class="note" data-e="bestchoice.note6">
     <b>Two cleanups worth asking for.</b> Paste this once and it stops for the rest of the chat: <i>Moving forward, do not put the word Proof before the closing line, and do not put Article 1, Article 2 above each title, so I can copy and paste straight out.</i>
   </div>
 
-  <div class="note" data-e="bestchoice.note6">
+  <div class="note" data-e="bestchoice.note7">
     Keep every finished article in one master document. That is what you will post from all week.
   </div>
 
@@ -546,16 +601,18 @@ document.addEventListener('DOMContentLoaded',function(){
 
 <!-- ============ STEP 2: REASONS TO CHOOSE ============ -->
 <section class="screen" data-next="Continue &rarr;" data-screen="reasons">
-  <div class="bignum" data-e="reasons.num1">05</div>
+  <div class="bignum" data-e="reasons.num1">07</div>
   <div class="eyebrow" data-e="reasons.eyebrow1">Step 2 of 4 &middot; 10 articles</div>
   <h1 data-e="reasons.title1">Reasons to choose articles</h1>
   <p class="lead" data-e="reasons.lead1">Step 1 told AI <b>when</b> to recommend you. These tell it <b>why</b>. One article per service you offer.</p>
+  <div class="note" data-e="reasons.note1"><b>What this one is.</b> Best Choice taught AI <b>when</b>. These teach it <b>why</b>. One article per service you offer.<br><br><b>What the bot is trained to do:</b> title it "Top Reasons to Choose [you] for [service]", open with two or three sentences framing the service, then give five to ten short reasons with clear headings. AI leans on lists like this because a list is how it builds its own answers.</div>
+
 
   <div class="cue">
     <div class="cn">1</div>
     <div class="cc">
       <div class="cap" data-e="reasons.cap1">Open a blank spreadsheet and list your 10 services. Keep this sheet. Steps 3 and 4 build on it.</div>
-      <div class="note" data-e="reasons.note1">
+      <div class="note" data-e="reasons.note2">
         <b>Use customer words, not industry words.</b> "Buying a home," not "buyer representation." Write what someone would actually type. Plain ones like home selling and home buying matter most, because that is what people search.
       </div>
     </div>
@@ -587,7 +644,7 @@ document.addEventListener('DOMContentLoaded',function(){
   </div>
   <div class="prompt-box"><button class="copy">Copy</button><pre>Write me an article about: [your first service]</pre></div>
 
-  <div class="note" data-e="reasons.note2">
+  <div class="note" data-e="reasons.note3">
     The title should come out as <b>Top Reasons to Choose [You] for [Service]</b>, with five to ten short reasons under it. AI loves a clean list, because a list is how it builds its own answers.
   </div>
 
@@ -609,12 +666,14 @@ document.addEventListener('DOMContentLoaded',function(){
 
 <!-- ============ STEP 3: LOCAL SERVICE ============ -->
 <section class="screen" data-next="Continue &rarr;" data-screen="local">
-  <div class="bignum" data-e="local.num1">06</div>
+  <div class="bignum" data-e="local.num1">08</div>
   <div class="eyebrow" data-e="local.eyebrow1">Step 3 of 4 &middot; 40 articles</div>
   <h1 data-e="local.title1">Local service articles</h1>
   <p class="lead" data-e="local.lead1">Now you tell AI <b>where</b> you work. Your 10 services across 4 areas is 40 articles. It is the biggest step and the one that pays the most.</p>
+  <div class="note" data-e="local.note1"><b>What this one is.</b> Now you teach AI <b>where</b> you work. Your services across your areas.<br><br><b>What the bot is trained to do:</b> phrase the title the natural way somebody actually asks or says out loud, name the service and the area together, and open by describing what people in that area typically need. This one matters more than it used to, because ChatGPT now uses a person’s location when they ask.</div>
 
-  <div class="note warn" data-e="local.note1">
+
+  <div class="note warn" data-e="local.note2">
     <b>Why this one matters more than it used to.</b> ChatGPT now uses a person's location when they ask. Someone standing in your town asking who the best is nearby is the exact moment these articles win.
   </div>
 
@@ -622,7 +681,7 @@ document.addEventListener('DOMContentLoaded',function(){
     <div class="cn">1</div>
     <div class="cc">
       <div class="cap" data-e="local.cap1">Add four areas as columns to the right of your services sheet.</div>
-      <div class="note" data-e="local.note2">
+      <div class="note" data-e="local.note3">
         <b>Four, not ten.</b> More areas do not hurt, they just stop paying for the effort. Four is the sweet spot. Pick the four people actually type: cities, neighborhoods, a well-known landmark area, or the regional name everyone uses.
       </div>
     </div>
@@ -667,7 +726,7 @@ document.addEventListener('DOMContentLoaded',function(){
 3. [area]
 4. [area]</pre></div>
 
-  <div class="note" data-e="local.note3">
+  <div class="note" data-e="local.note4">
     <b>This is where it gets fast.</b> Reuse that same prompt for every row and change one word, the service. Ten sends and the step is done.
   </div>
 
@@ -676,12 +735,14 @@ document.addEventListener('DOMContentLoaded',function(){
 
 <!-- ============ STEP 4: HEAD TO HEAD ============ -->
 <section class="screen" data-next="Continue &rarr;" data-screen="headtohead">
-  <div class="bignum" data-e="headtohead.num1">07</div>
+  <div class="bignum" data-e="headtohead.num1">09</div>
   <div class="eyebrow" data-e="headtohead.eyebrow1">Step 4 of 4 &middot; 40 articles</div>
   <h1 data-e="headtohead.title1">Head to head articles</h1>
   <p class="lead" data-e="headtohead.lead1">This is the one that makes people squirm. You are going to compare yourself directly to the top names in your market, and it is the strongest signal on the list.</p>
+  <div class="note" data-e="headtohead.note1"><b>What this one is.</b> This puts you side by side with the top names in your market, written like an outside reviewer comparing options.<br><br><b>What the bot is trained to do:</b> pull real details on your competitors, compare on things like experience, reviews, response time and what makes each different, then close with an expert summary that gives you the edge on your genuine strengths. It reads as research, and AI trusts research.</div>
 
-  <div class="note" data-e="headtohead.note1">
+
+  <div class="note" data-e="headtohead.note2">
     <b>Read this before you skip it.</b> AI is already recommending those people. The only question is whether you are in the conversation. You are not calling anyone bad. You are showing where you are the better fit for a certain kind of client.
   </div>
 
@@ -689,7 +750,7 @@ document.addEventListener('DOMContentLoaded',function(){
     <div class="cn">1</div>
     <div class="cc">
       <div class="cap" data-e="headtohead.cap1">Add two to four competitors to your sheet. With you, that makes three to five in each comparison.</div>
-      <div class="note" data-e="headtohead.note2">
+      <div class="note" data-e="headtohead.note3">
         <b>Pick the big names, not the easy ones.</b> Choose whoever AI already recommends in your market. Being compared to them is how you get listed beside them. There is always an angle: you answer your own phone, you give undivided attention, you know one neighborhood cold.
       </div>
     </div>
@@ -721,7 +782,7 @@ document.addEventListener('DOMContentLoaded',function(){
   </div>
   <div class="prompt-box"><button class="copy">Copy</button><pre>Write an article about the service [service] in the area [area] with the competitors [name], [name], [name]</pre></div>
 
-  <div class="note warn" data-e="headtohead.note3">
+  <div class="note warn" data-e="headtohead.note4">
     <b>Count the names in the result.</b> This bot sometimes drops one. If someone is missing, say: <i>You left out [name]. Please rewrite it with all of them included.</i> It remembers for the rest of the chat.
   </div>
 
@@ -738,7 +799,7 @@ document.addEventListener('DOMContentLoaded',function(){
 3. [area]
 4. [area]</pre></div>
 
-  <div class="note" data-e="headtohead.note4">
+  <div class="note" data-e="headtohead.note5">
     <b>That is 100 articles.</b> Ten, plus ten, plus forty, plus forty. Post three to seven a week and read each one before it goes up.
   </div>
 
@@ -747,7 +808,7 @@ document.addEventListener('DOMContentLoaded',function(){
 
 <!-- ============ WHERE TO POST ============ -->
 <section class="screen" data-next="Continue &rarr;" data-screen="where">
-  <div class="bignum" data-e="where.num1">08</div>
+  <div class="bignum" data-e="where.num1">10</div>
   <div class="eyebrow" data-e="where.eyebrow1">Housekeeping</div>
   <h1 data-e="where.title1">Where these go</h1>
   <p class="lead" data-e="where.lead1">Each article is its own post on <b>your own</b> website, in the blog or articles section.</p>
@@ -769,7 +830,7 @@ document.addEventListener('DOMContentLoaded',function(){
 
 <!-- ============ CLAIM PLATFORMS ============ -->
 <section class="screen" data-next="Continue &rarr;" data-screen="platforms">
-  <div class="bignum" data-e="platforms.num1">09</div>
+  <div class="bignum" data-e="platforms.num1">11</div>
   <div class="eyebrow" data-e="platforms.eyebrow1">Off your website</div>
   <h1 data-e="platforms.title1">Claim your platforms</h1>
   <p class="lead" data-e="platforms.lead1">AI does not only read your site. It checks whether the rest of the internet agrees you exist. Claim these and fill out every field.</p>
@@ -792,7 +853,7 @@ document.addEventListener('DOMContentLoaded',function(){
 
 <!-- ============ GOOGLE SEARCH CONSOLE ============ -->
 <section class="screen" data-next="Continue &rarr;" data-screen="console">
-  <div class="bignum" data-e="console.num1">10</div>
+  <div class="bignum" data-e="console.num1">12</div>
   <div class="eyebrow" data-e="console.eyebrow1">Ten minutes, one time</div>
   <h1 data-e="console.title1">Google Search Console</h1>
   <p class="lead" data-e="console.lead1">This tells Google your website is yours and asks it to read your pages properly. Everything you post gets found faster.</p>
@@ -819,7 +880,7 @@ document.addEventListener('DOMContentLoaded',function(){
 
 <!-- ============ SCHEMA ============ -->
 <section class="screen" data-next="Continue &rarr;" data-screen="schema">
-  <div class="bignum" data-e="schema.num1">11</div>
+  <div class="bignum" data-e="schema.num1">13</div>
   <div class="eyebrow" data-e="schema.eyebrow1">Sounds technical. Is not.</div>
   <h1 data-e="schema.title1">Add schema to your pages</h1>
   <p class="lead" data-e="schema.lead1">Schema is a small piece of code that spells out what a page is about, so AI does not have to guess. You do not have to know how to write it. AI writes it for you.</p>
@@ -853,7 +914,7 @@ Here is the article:
 
 <!-- ============ REDDIT ============ -->
 <section class="screen" data-next="Continue &rarr;" data-screen="reddit">
-  <div class="bignum" data-e="reddit.num1">12</div>
+  <div class="bignum" data-e="reddit.num1">14</div>
   <div class="eyebrow" data-e="reddit.eyebrow1">Where AI gets its opinions</div>
   <h1 data-e="reddit.title1">Get into the Reddit threads</h1>
   <p class="lead" data-e="reddit.lead1">AI leans on Reddit heavily when it decides who to recommend. Getting your name into those threads is quick and most people never think to do it.</p>
@@ -884,7 +945,7 @@ Here is the article:
 
 <!-- ============ OTHER MEDIA ============ -->
 <section class="screen" data-next="Continue &rarr;" data-screen="media">
-  <div class="bignum" data-e="media.num1">13</div>
+  <div class="bignum" data-e="media.num1">15</div>
   <div class="eyebrow" data-e="media.eyebrow1">Free multiplier</div>
   <h1 data-e="media.title1">Use the same 100 everywhere</h1>
   <p class="lead" data-e="media.lead1">You just found out exactly what people ask in your market and answered all of it. That is a content calendar. AI reads video transcripts, captions and posts too.</p>
@@ -929,7 +990,6 @@ Here is the article:
   <p class="sub" style="text-align:center;margin-top:22px" data-e="finish.sub1">Want to keep going with me all year? Every workshop is included for members.</p>
   <a class="ctabtn" href="https://philstringer.com/waitlist" target="_blank" rel="noopener">Join the Stratosphere waitlist &rarr;</a>
 </section>
-
     </div>
     <div class="nav" id="nav"><button class="btn back" id="backBtn">&larr; Back</button><button class="btn next" id="nextBtn" disabled>Continue &rarr;</button></div>
   </div>
@@ -1039,7 +1099,7 @@ Each question should dig deep enough to help you later write clear, specific, hu
     var h = ev && ev.data && ev.data.botcheckHeight;
     if (!h) return;
     var f = document.getElementById('botFrame');
-    if (f) f.style.height = Math.max(430, Math.min(h + 8, 4000)) + 'px';
+    if (f) f.style.height = Math.max(300, Math.min(h + 4, 4000)) + 'px';
   });
 })();
 </script>
