@@ -127,6 +127,15 @@ form{margin-top:24px}
 .fix ol{margin:0 0 6px 0;padding-left:0;list-style:none;counter-reset:s}
 .fix ol li{counter-increment:s;position:relative;padding-left:38px;margin-bottom:13px;font-size:15px;line-height:1.55}
 .fix ol li::before{content:counter(s);position:absolute;left:0;top:-1px;width:26px;height:26px;border-radius:50%;background:var(--amber);color:#000;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center}
+/* evidence rows: what we asked, what the site answered */
+.evid{margin:14px 0 0;border-top:1px solid var(--line)}
+.evrow{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;padding:11px 2px;border-bottom:1px solid var(--line)}
+.evwho{flex:1 1 190px;font-size:14.5px;font-weight:700;color:var(--ink);min-width:0}
+.evwho em{font-style:normal;color:var(--muted);font-weight:600}
+.evsaid{flex:0 1 auto;font-size:14px;font-weight:700}
+.ev-ok .evsaid{color:var(--good)}
+.ev-bad .evsaid{color:var(--bad)}
+.fix ol li i{font-style:italic;color:var(--ink)}
 .copybox{position:relative;margin:12px 0 14px}
 .copybox pre{background:#0E0E10;border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:15px 15px 15px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;line-height:1.7;color:#DDD;white-space:pre;-webkit-overflow-scrolling:touch}
 .copybtn{width:100%;margin-top:8px;background:#161617;border:1.5px solid rgba(246,198,39,.5);color:var(--amber);border-radius:12px;padding:13px 16px;font-family:inherit;font-size:14.5px;font-weight:800;cursor:pointer;transition:.16s}
@@ -166,10 +175,8 @@ form{margin-top:24px}
 
   <!-- ============ START ============ -->
   <section class="screen active" id="scr-start">
-    <div class="eyebrow">Free check &middot; no signup</div>
     <h1 class="big">Can AI find<br>your website?</h1>
-    <p class="lead">ChatGPT, Claude, Perplexity and Google send AI robots to read websites. If your website turns those robots away, you will never show up in their answers. No matter how good your content is.</p>
-    <p class="sub">Type your website below. This takes about ten seconds and tells you in plain English whether you are good to go.</p>
+    <p class="lead">ChatGPT, Claude, Perplexity and Google send robots to read your website. If yours turns them away, you never show up in their answers. No matter how good your content is.</p>
 
     <form id="checkForm" autocomplete="off">
       <label class="fieldlabel" for="domain">Your website</label>
@@ -182,7 +189,7 @@ form{margin-top:24px}
     </form>
 
     <div class="note">
-      <b>What this looks at.</b> Your robots.txt file (the note your website leaves for robots) and whether your web host turns AI robots away at the door. Most people only ever check the first one, and the second one is where about a third of blocks are hiding. Nothing is saved. We never see your passwords or your content.
+      Checks two things: the note your website leaves for robots, and whether your web host turns them away at the door. About a third of blocks hide in the second one, which the usual robots.txt trick never shows you.
     </div>
   </section>
 
@@ -497,6 +504,87 @@ window.BOTCHECK_PLATFORMS = {
     ].join('\n');
   }
 
+  // Every failure mode gets its own named cause and its own fix. "We could not
+  // tell" is not an answer anyone can act on.
+  var ROBOTS_DIAGNOSIS = {
+    html: {
+      cause: 'Your robots.txt is returning a web page instead of a text file.',
+      say: 'Robots asked ' + '%D%' + ' for its rulebook and got a web page back. A robot cannot read a web page as rules, so it has to guess. Most guess in your favour, but you are leaving that to chance.',
+      why: 'This is usually a missing file. Your website answers every address with a page, including addresses that do not exist, so the robots.txt address returns your normal site or your 404 page.',
+      steps: [
+        'Open <b>%U%</b> in your browser.',
+        'If you see your website or a "page not found" screen instead of plain text, that confirms it.',
+        'Ask whoever manages your website to publish a real robots.txt file that returns plain text. Paste them the lines below as the contents.',
+        'Run this check again to confirm it is fixed.'
+      ],
+      showRobots: true
+    },
+    refused: {
+      cause: 'Your website refused to hand over your robots.txt file.',
+      say: 'We asked ' + '%D%' + ' for its rulebook the same way every AI robot does, and your site said no. Every AI robot reads that file first. If they cannot get it, many stop right there.',
+      why: 'Security software is turning away anything that does not look like a person clicking around. Robots do not look like that, so they get refused.',
+      steps: [
+        'Open <b>%U%</b> in your browser. If it loads for you but not for us, your security software is filtering by who is asking.',
+        'Send your web provider the message below.',
+        'Ask them specifically to let robots fetch /robots.txt without a challenge.',
+        'Run this check again once they confirm.'
+      ]
+    },
+    challenge: {
+      cause: 'Your security software is showing robots a checkpoint screen.',
+      say: 'Your site answered our request for the rulebook with a security checkpoint, the kind that asks you to prove you are human. AI robots cannot pass those. They leave.',
+      why: 'This is bot protection doing its job a little too well. It cannot tell the difference between a robot you want and a robot you do not.',
+      steps: [
+        'Find out who runs your security layer. If your site is on Cloudflare, that is where this lives.',
+        'Ask them to allow verified AI crawlers instead of challenging them. The message below says it for you.',
+        'Run this check again once they confirm.'
+      ]
+    },
+    server_error: {
+      cause: 'Your server crashed when we asked for the file.',
+      say: 'Your website threw an error trying to hand over its rulebook. That is a server problem, not a settings problem, and it will hit real visitors too.',
+      why: 'Something is broken on the hosting side. This one is worth fixing today regardless of AI.',
+      steps: [
+        'Open <b>%U%</b> yourself to see the error.',
+        'Send your web host the address and the error. This is their job to fix.',
+        'Run this check again once the site is healthy.'
+      ]
+    },
+    timeout: {
+      cause: 'Your website took too long to answer.',
+      say: 'Your site never finished handing over its rulebook. Robots give up on slow sites, and so do customers.',
+      why: 'Either your site is slow right now, or something is quietly holding up requests that are not from a browser.',
+      steps: [
+        'Open <b>%U%</b> yourself and see how long it takes.',
+        'If it is slow for you too, that is a hosting speed problem worth raising with your host.',
+        'Try this check again in a few minutes.'
+      ]
+    },
+    network: {
+      cause: 'We could not complete the connection to your website.',
+      say: 'The connection to your site failed partway through. That usually points at a certificate or DNS problem, and it affects real visitors as much as robots.',
+      why: 'Common causes are an expired security certificate or a domain pointing somewhere it should not.',
+      steps: [
+        'Open <b>%U%</b> in your browser and look for a security warning.',
+        'If you see a certificate warning, tell your web host today. Visitors are seeing it too.',
+        'Run this check again once it loads cleanly.'
+      ]
+    }
+  };
+  ROBOTS_DIAGNOSIS.odd_status = ROBOTS_DIAGNOSIS.refused;
+  ROBOTS_DIAGNOSIS.huge = ROBOTS_DIAGNOSIS.html;
+
+  function diagFor(data){
+    var r = data.robots || {};
+    return ROBOTS_DIAGNOSIS[r.reason] || ROBOTS_DIAGNOSIS.refused;
+  }
+  function fillTokens(s, data){
+    return s.replace(/%D%/g, esc(data.domain)).replace(/%U%/g, esc((data.robots && data.robots.url) || ''));
+  }
+  function robotsBrokenSay(data){
+    return fillTokens(diagFor(data).say, data);
+  }
+
   function copyBox(id, text, label){
     return '<div class="copybox">' +
              '<pre id="' + id + '">' + esc(text) + '</pre>' +
@@ -528,6 +616,28 @@ window.BOTCHECK_PLATFORMS = {
       return out;
     }
 
+    if (data.overall === 'firewall') {
+      if (plat && plat.steps && plat.steps.length) {
+        out += '<div class="fix">' +
+                 '<div class="kicker">What to do about it</div>' +
+                 '<h2>You are on ' + esc(plat.name) + '. Here is the fix.</h2>' +
+                 (plat.intro ? '<p>' + plat.intro + '</p>' : '') +
+                 '<ol>' + plat.steps.map(function(s){ return '<li>' + s + '</li>'; }).join('') + '</ol>' +
+                 (plat.note ? '<div class="note warn" style="margin-top:4px">' + plat.note + '</div>' : '') +
+                 copyBox('provideremail', providerEmail(data.domain, engines), 'Copy the message for your provider') +
+               '</div>';
+      } else {
+        out += '<div class="fix">' +
+                 '<div class="kicker">What to do about it</div>' +
+                 '<h2>Send this to whoever runs your website</h2>' +
+                 '<p>This block lives in your hosting or security layer, not inside your website editor, so it is not something you can change yourself. The message below tells them exactly what to allow.</p>' +
+                 copyBox('provideremail', providerEmail(data.domain, engines), 'Copy the message') +
+               '</div>';
+      }
+      out += fwWarnHtml(fw, data);
+      return out;
+    }
+
     if (data.overall === 'good') {
       out += '<div class="fix">' +
                '<div class="kicker">Nothing to fix</div>' +
@@ -539,16 +649,20 @@ window.BOTCHECK_PLATFORMS = {
       return out;
     }
 
-    if (data.overall === 'unknown') {
+    if (data.overall === 'robotsbroken') {
+      var dg = diagFor(data);
+      var probesOk = fw.verdict === 'clear';
       out += '<div class="fix">' +
-               '<div class="kicker">What to do about it</div>' +
-               '<h2>Check it by hand, then ask your provider</h2>' +
-               '<ol>' +
-                 '<li>Open <a href="' + esc((data.robots && data.robots.url) || '') + '" target="_blank" rel="noopener">' + esc(data.domain) + '/robots.txt</a> in your own browser. If you see plain text, read it for the word <b>Disallow</b> next to any robot name.</li>' +
-                 '<li>If your browser shows an error or a security screen too, that is your answer: something is blocking non-human visitors, and AI robots are non-human visitors.</li>' +
-                 '<li>Send your web provider the message below and ask them to confirm.</li>' +
-               '</ol>' +
-               copyBox('provideremail', providerEmail(data.domain, engines), 'Copy the message') +
+               '<div class="kicker">The cause</div>' +
+               '<h2>' + esc(dg.cause) + '</h2>' +
+               '<p>' + fillTokens(dg.why, data) + '</p>' +
+               (probesOk
+                 ? '<div class="note"><b>The good news, and it is real.</b> We fetched your homepage while calling ourselves GPTBot, ClaudeBot and PerplexityBot, and your site served all three. Your pages are reachable. It is only the rulebook that is broken, so fixing this is housekeeping, not an emergency.</div>'
+                 : '') +
+               '<p style="margin-top:14px"><b>How to fix it:</b></p>' +
+               '<ol>' + dg.steps.map(function(s){ return '<li>' + fillTokens(s, data) + '</li>'; }).join('') + '</ol>' +
+               (dg.showRobots ? copyBox('robotsfix', ROBOTS_FIX, 'Copy the lines to put in the file') : '') +
+               copyBox('provideremail', providerEmail(data.domain, engines), 'Copy the message for your provider') +
              '</div>';
       if (fw.verdict === 'warning') out += fwWarnHtml(fw, data);
       return out;
@@ -596,40 +710,93 @@ window.BOTCHECK_PLATFORMS = {
     return out;
   }
 
+  // Plain-English name for what the server said, so the evidence reads like a
+  // sentence instead of a status code.
+  function saidWhat(code){
+    if (!code) return 'never answered at all';
+    if (code >= 200 && code < 300) return 'let it in (' + code + ')';
+    if (code === 403 || code === 401) return 'refused it (' + code + ')';
+    if (code === 429) return 'turned it away for asking too much (429)';
+    if (code === 451) return 'refused it for legal reasons (451)';
+    if (code === 503) return 'said it was unavailable (503)';
+    if (code >= 500) return 'threw an error (' + code + ')';
+    return 'answered ' + code;
+  }
+
+  function confirmSteps(domain){
+    return '<p style="margin-top:16px"><b>Want it confirmed beyond doubt? This takes one minute.</b> Our test uses the right name from the wrong address, so the only perfect test is asking the real robot. Do this:</p>' +
+           '<ol>' +
+             '<li>Open <b>ChatGPT</b> and turn on web search.</li>' +
+             '<li>Ask it exactly this: <i>"Visit ' + esc(domain) + ' and tell me what this business does."</i></li>' +
+             '<li>If it comes back with real details from your site, you are fine. If it says it cannot access the site, your block is confirmed.</li>' +
+             '<li>Repeat in <b>Perplexity</b> if you want a second opinion.</li>' +
+           '</ol>';
+  }
+
   function fwWarnHtml(fw, data){
     var cf = fw.cfMitigated || data.platform === 'cloudflare';
     var wpe = data.platform === 'wpengine';
     var p = fw.probes || {};
+    var high = fw.confidence === 'high';
     var got429 = p.gptbot === 429 || p.claudebot === 429 || p.perplexitybot === 429;
-    return '<div class="fix" style="margin-top:16px">' +
-             '<div class="kicker">One more thing to check</div>' +
-             '<h2>Your security may be turning bots away</h2>' +
-             '<p>A normal web browser loaded your homepage fine, but requests that identified themselves as AI robots got turned away. That points at a firewall or bot protection, and robots.txt cannot fix that kind of block.</p>' +
-             (cf ? '<p><b>This looks like Cloudflare.</b> Since July 2025, Cloudflare blocks AI robots by default on new sites. Most people never chose this. See the steps above to switch it off.</p>' : '') +
-             ((wpe || got429) ? '<p><b>Those "429" errors are a strong signal.</b> That is the response a host sends when it is deliberately turning heavy robots away, and it usually means the block is at the hosting company, not your site.</p>' : '') +
-             '<div class="note warn">' +
-               '<b>Read this as a maybe, not a definite.</b> Good bot protection checks where a robot really comes from, not just what it calls itself. Our test knocks using the right name from the wrong address, so a real AI robot may get in even though our knock did not. Your robots.txt result above is the definite part. Ask your provider to confirm this one.' +
-             '</div>' +
+
+    var head = high ? 'Your host is almost certainly blocking AI'
+                    : 'Your host is probably blocking AI';
+    var odds = high
+      ? 'We stop short of certain because the only place to prove it outright is your own server records.'
+      : 'Some AI robots got through and some did not, which usually means a rule that fires only part of the time.';
+
+    var out = '<div class="fix" style="margin-top:16px">' +
+                '<div class="kicker">' + (high ? 'High probability, unconfirmed' : 'Likely, unconfirmed') + '</div>' +
+                '<h2>' + head + '</h2>' +
+                '<p><b>Here is exactly what we did.</b> We asked your homepage for the same page four times, changing only who we said we were:</p>' +
+                '<div class="evid">' +
+                  evidRow('A regular web browser', fw.baseline, true) +
+                  evidRow('GPTBot (ChatGPT)', p.gptbot, false) +
+                  evidRow('ClaudeBot (Claude)', p.claudebot, false) +
+                  evidRow('PerplexityBot (Perplexity)', p.perplexitybot, false) +
+                '</div>' +
+                '<p style="margin-top:14px">Your website welcomes people and refuses robots. Websites do not do that by accident. Something in front of your site is deciding who gets in, and robots.txt cannot override it.</p>';
+
+    if (cf) out += '<p><b>This is Cloudflare doing it.</b> Since July 2025 Cloudflare blocks AI robots by default on new sites, so almost nobody chose this on purpose. The steps above turn it off.</p>';
+    if (wpe || got429) out += '<p><b>That 429 answer is the giveaway.</b> A 429 means "you are asking too often," which is what a host sends when it is deliberately throttling robots. That block lives at your hosting company, not on your website.</p>';
+
+    out += '<div class="note warn"><b>Why we say unconfirmed.</b> ' + esc(odds) + ' Real AI robots come from a published list of addresses, and ours does not. A careful firewall may wave the real GPTBot through while refusing our imitation of it. That is the one thing standing between this and a flat yes.</div>';
+    out += confirmSteps(data.domain);
+    out += '</div>';
+    return out;
+  }
+
+  function evidRow(who, code, isBrowser){
+    var ok = code >= 200 && code < 300;
+    var cls = ok ? 'ev-ok' : 'ev-bad';
+    return '<div class="evrow ' + cls + '">' +
+             '<span class="evwho">' + esc(who) + (isBrowser ? ' <em>(a person)</em>' : '') + '</span>' +
+             '<span class="evsaid">Your site ' + esc(saidWhat(code)) + '</span>' +
            '</div>';
   }
 
-  function engineRow(e){
+  // Repeating the same sentence on five rows teaches nothing. A row carries a
+  // sub-line only when it says something the other rows do not.
+  function engineRow(e, fw){
     var cls, word, sub = '';
     if (e.status === 'unknown') {
-      cls = 'e-partial'; word = 'Could not check'; sub = 'We could not read your robots.txt file.';
+      // No readable rulebook, so the only real question is whether the robot
+      // can reach the pages at all. The probes answered that.
+      if (fw && fw.verdict === 'warning') { cls = 'e-blocked'; word = 'Refused'; }
+      else { cls = 'e-open'; word = 'Can reach you'; }
     } else if (e.status === 'open') {
       cls = 'e-open'; word = 'Can read';
     } else if (e.status === 'limited') {
-      cls = 'e-open'; word = 'Can read'; sub = 'Some private pages are off limits, which is normal.';
+      cls = 'e-open'; word = 'Can read';
     } else if (e.status === 'partial' && e.canQuote) {
       // only the training crawler is blocked, so it can still cite you today
       cls = 'e-open'; word = 'Can quote you';
-      sub = 'Only its training robot is blocked.';
     } else if (e.status === 'partial') {
       cls = 'e-partial'; word = 'Partly blocked';
       sub = 'Blocked: ' + e.blockedBots.join(', ');
     } else {
-      cls = 'e-blocked'; word = 'Blocked'; sub = 'Your site turns it away.';
+      cls = 'e-blocked'; word = 'Blocked';
     }
     var icon = (cls === 'e-open') ? ICON.check : (cls === 'e-blocked' ? ICON.x : ICON.bang);
     return '<div class="erow ' + cls + '">' +
@@ -646,11 +813,11 @@ window.BOTCHECK_PLATFORMS = {
     if (data.overall === 'good') {
       cls='v-good'; icon=ICON.check; label='You are good to go';
       head='AI can read<br>your website';
-      say='Every major AI answer engine is allowed to read ' + esc(data.domain) + '. Nothing is standing in your way. If you are not showing up in AI answers, it is a content problem, not a blocking problem.';
+      say='Every major AI assistant is allowed to read ' + esc(data.domain) + '. If you are not showing up in AI answers, that is a content problem, not a blocking problem.';
     } else if (data.overall === 'blocked') {
       cls='v-bad'; icon=ICON.x; label='You are blocked';
       head='AI cannot read<br>your website';
-      say='Your website is turning away the robots that feed ChatGPT, Claude and the others. Until this is fixed, writing more content will not help. They cannot see any of it.';
+      say='Your website turns away the robots that feed ChatGPT, Claude and the others. Writing more content will not help until this is fixed. They cannot see any of it.';
     } else if (data.overall === 'partial') {
       cls='v-warn'; icon=ICON.bang; label='Partly blocked';
       head='Some AI is<br>locked out';
@@ -658,15 +825,16 @@ window.BOTCHECK_PLATFORMS = {
     } else if (data.overall === 'trainingonly') {
       cls='v-good'; icon=ICON.check; label='Good, with one note';
       head='AI can quote<br>your website';
-      say='Every AI assistant can read ' + esc(data.domain) + ' and quote you in answers, which is the part that matters most. You are only blocking the robots that collect pages for long term training. That is a fair choice, and plenty of business owners make it on purpose.';
-    } else if (data.overall === 'unknown') {
-      cls='v-warn'; icon=ICON.bang; label='We could not tell';
-      head='Your site would<br>not let us look';
-      say='Your website would not hand us the file that says which robots are welcome. That is itself a small warning sign, because AI robots have to read that same file. It usually means security software is turning away anything that is not a person.';
+      say='Every AI assistant can read ' + esc(data.domain) + ' and quote you in answers. You block only the robots that collect pages for long term training, which many business owners do on purpose.';
+    } else if (data.overall === 'robotsbroken') {
+      cls='v-warn'; icon=ICON.bang; label='Your robots file is broken';
+      head='Robots cannot<br>read your<br>rulebook';
+      say=robotsBrokenSay(data);
     } else {
-      cls='v-warn'; icon=ICON.bang; label='Worth a look';
-      head='Your file says<br>yes, your host<br>may say no';
-      say='Your robots.txt file allows the AI robots, but something turned our test requests away. That points at a firewall rather than your website settings.';
+      cls='v-bad'; icon=ICON.x;
+      label=(data.firewall && data.firewall.confidence === 'high') ? 'Blocked at your firewall' : 'Likely blocked at your firewall';
+      head='Your host is<br>turning AI away';
+      say='Your robots.txt file says the AI robots are welcome, but your website refused them anyway. That means the block is not in your settings. It is in the security layer sitting in front of your site.';
     }
     v.className = 'verdict ' + cls;
     $('scr-result').className = 'screen active ' + cls;
@@ -675,7 +843,7 @@ window.BOTCHECK_PLATFORMS = {
     $('vhead').innerHTML = head;
     $('vsay').innerHTML = say;
 
-    $('engines').innerHTML = (data.engines || []).map(engineRow).join('');
+    $('engines').innerHTML = (data.engines || []).map(function(e){ return engineRow(e, data.firewall); }).join('');
     $('fixblock').innerHTML = fixHtml(data);
 
     var r = data.robots || {}, fw = data.firewall || {};
