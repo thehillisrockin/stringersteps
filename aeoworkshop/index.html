@@ -398,7 +398,9 @@ document.addEventListener('DOMContentLoaded',function(){
   <p class="lead">Some websites turn AI robots away at the door. If yours is one of them, every article you write today is invisible. Check first. It takes ten seconds.</p>
 
   <div class="embedwrap">
-    <iframe class="botframe" id="botFrame" src="https://stringersteps.com/botcheck/?embed=1" title="AI bot blocking checker" loading="lazy"></iframe>
+    <!-- relative so it works on any host; bump v when botcheck changes, or
+         returning visitors get served a stale copy from cache -->
+    <iframe class="botframe" id="botFrame" src="/botcheck/?embed=1&amp;v=2" title="AI bot blocking checker"></iframe>
   </div>
 
   <div class="note">
