@@ -152,6 +152,18 @@
       "kitTag": null,
       "updated": "2026-08-18",
       "oneLineOutcome": "Get your business answers doc ready before the live AEO workshop."
+    },
+    {
+      "keyword": "botcheck",
+      "title": "Is Your Website Blocking AI?",
+      "topic": "found-by-ai",
+      "visibility": "public",
+      "flagship": false,
+      "featured": false,
+      "url": "https://stringersteps.com/botcheck",
+      "kitTag": null,
+      "updated": "2026-08-27",
+      "oneLineOutcome": "Check in ten seconds whether ChatGPT, Claude, Perplexity and Google can read your website, and get the exact fix if they cannot."
     }
   ]
 }
