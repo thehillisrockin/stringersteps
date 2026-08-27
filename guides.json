@@ -164,6 +164,18 @@
       "kitTag": null,
       "updated": "2026-08-27",
       "oneLineOutcome": "Check in ten seconds whether ChatGPT, Claude, Perplexity and Google can read your website, and get the exact fix if they cannot."
+    },
+    {
+      "keyword": "aeoworkshop",
+      "title": "AEO Workshop",
+      "topic": "found-by-ai",
+      "visibility": "private",
+      "flagship": false,
+      "featured": false,
+      "url": "https://stringersteps.com/aeoworkshop",
+      "kitTag": null,
+      "updated": "2026-08-27",
+      "oneLineOutcome": "The full workshop follow-along: check AI can read your site, then write the 100 articles that get you recommended."
     }
   ]
 }

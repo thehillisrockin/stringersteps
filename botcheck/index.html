@@ -127,6 +127,17 @@ form{margin-top:24px}
 .fix ol{margin:0 0 6px 0;padding-left:0;list-style:none;counter-reset:s}
 .fix ol li{counter-increment:s;position:relative;padding-left:38px;margin-bottom:13px;font-size:15px;line-height:1.55}
 .fix ol li::before{content:counter(s);position:absolute;left:0;top:-1px;width:26px;height:26px;border-radius:50%;background:var(--amber);color:#000;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center}
+/* embed mode (?embed=1): drops the page chrome so this can live inside a
+   Stringer Step without a card sitting inside another card */
+body.embed{background:none;background-color:transparent;padding:0;display:block;min-height:0}
+body.embed .logolink,body.embed .footline{display:none}
+body.embed .stage{max-width:none;margin:0}
+body.embed .card{background:none;box-shadow:none;border-top:none;border-radius:0;padding:0;min-height:0;overflow:visible}
+body.embed .card::after{display:none}
+body.embed h1{font-size:29px}
+body.embed h1.big{font-size:34px}
+body.embed #vhead{font-size:25px}
+
 /* evidence rows: what we asked, what the site answered */
 .evid{margin:14px 0 0;border-top:1px solid var(--line)}
 .evrow{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;padding:11px 2px;border-bottom:1px solid var(--line)}
@@ -923,6 +934,24 @@ window.BOTCHECK_PLATFORMS = {
         render(data);
       })
       .catch(function(){ fail('Something went wrong on our end. Give it another try.'); });
+  }
+
+  // Embedded in a Stringer Step: drop the chrome and keep the host iframe
+  // sized to the content so the result never sits in its own scroll box.
+  var EMBED = /(^|[?&])embed=1(&|$)/.test(location.search);
+  function reportHeight(){
+    if (!EMBED || !window.parent || window.parent === window) return;
+    var h = Math.ceil(document.documentElement.scrollHeight);
+    try { window.parent.postMessage({ botcheckHeight: h }, '*'); } catch (e) {}
+  }
+  if (EMBED) {
+    document.documentElement.classList.add('embed');
+    document.addEventListener('DOMContentLoaded', function(){
+      document.body.classList.add('embed');
+      reportHeight();
+      if (window.ResizeObserver) new ResizeObserver(reportHeight).observe(document.body);
+      setInterval(reportHeight, 700);
+    });
   }
 
   document.addEventListener('DOMContentLoaded', function(){
