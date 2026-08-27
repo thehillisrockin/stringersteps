@@ -96,7 +96,7 @@ gtag('config', 'G-JGNTB1YM0M');
     try { localStorage.setItem(KEY, token); } catch(e){}
     document.title = 'Claude Workshop';
     var f = document.createElement('iframe');
-    f.src = CONTENT + '?p=' + PRODUCT + '&t=' + encodeURIComponent(token);
+    f.src = CONTENT + '?p=' + PRODUCT + '&t=' + encodeURIComponent(token) + '&cb=' + Date.now();
     f.setAttribute('allow', 'clipboard-write; clipboard-read; fullscreen; encrypted-media; picture-in-picture');
     f.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;border:0;margin:0;';
     document.body.className = '';
@@ -111,7 +111,7 @@ gtag('config', 'G-JGNTB1YM0M');
     var token = null;
     try { token = localStorage.getItem(KEY); } catch(e){}
     if (!token) return showForm();
-    fetch(CONTENT + '?check=1&p=' + PRODUCT + '&t=' + encodeURIComponent(token))
+    fetch(CONTENT + '?check=1&p=' + PRODUCT + '&t=' + encodeURIComponent(token) + '&cb=' + Date.now(), {cache:'no-store'})
       .then(function(r){ return r.json(); })
       .then(function(j){ if (j && j.ok) showContent(token); else { try{localStorage.removeItem(KEY);}catch(e){} showForm(); } })
       .catch(function(){ showForm(); });
