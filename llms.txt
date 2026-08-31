@@ -7,3 +7,4 @@ Free step-by-step walkthroughs by Phil Stringer. Public library at https://strin
 - Hire Your AI Marketing Department — Install an AI Director of Marketing and three specialists that market your real estate business in your voice. — https://stringersteps.com/agency
 - Connect Follow Up Boss to Claude — Connect your Follow Up Boss CRM to Claude and run your whole pipeline in plain English. — https://stringersteps.com/followupboss
 - Is Your Website Blocking AI? — Check in ten seconds whether ChatGPT, Claude, Perplexity and Google can read your website, and get the exact fix if they cannot. — https://stringersteps.com/botcheck
+- Set Up Grok Bot (Hire Your First AI Team) — Go from nothing to a working team of AI employees in Grok Bot, one step at a time. — https://stringersteps.com/grokbotsetup

@@ -176,6 +176,18 @@
       "kitTag": null,
       "updated": "2026-08-27",
       "oneLineOutcome": "The full workshop follow-along: check AI can read your site, then write the 100 articles that get you recommended."
+    },
+    {
+      "keyword": "grokbotsetup",
+      "title": "Set Up Grok Bot (Hire Your First AI Team)",
+      "topic": "save-time",
+      "visibility": "public",
+      "flagship": false,
+      "featured": false,
+      "url": "https://stringersteps.com/grokbotsetup",
+      "kitTag": "src-guide-grokbotsetup",
+      "updated": "2026-08-30",
+      "oneLineOutcome": "Go from nothing to a working team of AI employees in Grok Bot, one step at a time."
     }
   ]
 }
