@@ -19,24 +19,9 @@
       "blurb": "Guides for filling your calendar: reviews, referrals, follow-up, showing up local."
     },
     {
-      "key": "content",
-      "label": "Content Without the Grind",
-      "blurb": "Make posts, emails, and videos faster so you can stay consistent without burning out."
-    },
-    {
       "key": "save-time",
       "label": "Save Time with AI",
       "blurb": "Little systems that hand the boring work to a robot so you get your hours back."
-    },
-    {
-      "key": "look-legit",
-      "label": "Look Legit Online",
-      "blurb": "Clean up your website, profiles, and first impression so people trust you fast."
-    },
-    {
-      "key": "sell",
-      "label": "Sell Without Being Sleazy",
-      "blurb": "Offers, pricing, and simple sales steps that feel like you, not a pushy guru."
     },
     {
       "key": "run-smarter",
@@ -75,7 +60,7 @@
       "topic": "ai-beginners",
       "visibility": "public",
       "flagship": false,
-      "featured": true,
+      "featured": false,
       "url": "https://stringersteps.com/fable5",
       "kitTag": "src-guide-fable5",
       "updated": "2026-08-31",
@@ -183,7 +168,7 @@
       "topic": "save-time",
       "visibility": "public",
       "flagship": false,
-      "featured": false,
+      "featured": true,
       "url": "https://stringersteps.com/grokbotsetup",
       "kitTag": "src-guide-grokbotsetup",
       "updated": "2026-08-30",
