@@ -2,9 +2,10 @@
 Free step-by-step walkthroughs by Phil Stringer. Public library at https://stringersteps.com. New guides drop all the time.
 
 ## Guides
-- Set Up Your First AI Agent — Build your first working AI agent, one step at a time, no code required. — https://stringersteps.com/aiagent
+- 3 Prompts to Try in Fable 5.1 Tonight — Three copy and paste prompts that show you what Fable 5.1 can do: one job handed off, an honest audit, and a step-by-step plan for the thing you keep avoiding. — https://stringersteps.com/fable51
 - How to Use Fable 5 — Get real work out of Fable 5, the smartest AI model, one step at a time. — https://stringersteps.com/fable5
-- Hire Your AI Marketing Department — Install an AI Director of Marketing and three specialists that market your real estate business in your voice. — https://stringersteps.com/agency
-- Connect Follow Up Boss to Claude — Connect your Follow Up Boss CRM to Claude and run your whole pipeline in plain English. — https://stringersteps.com/followupboss
-- Is Your Website Blocking AI? — Check in ten seconds whether ChatGPT, Claude, Perplexity and Google can read your website, and get the exact fix if they cannot. — https://stringersteps.com/botcheck
 - Set Up Grok Bot (Hire Your First AI Team) — Go from nothing to a working team of AI employees in Grok Bot, one step at a time. — https://stringersteps.com/grokbotsetup
+- Is Your Website Blocking AI? — Check in ten seconds whether ChatGPT, Claude, Perplexity and Google can read your website, and get the exact fix if they cannot. — https://stringersteps.com/botcheck
+- Connect Follow Up Boss to Claude — Connect your Follow Up Boss CRM to Claude and run your whole pipeline in plain English. — https://stringersteps.com/followupboss
+- Hire Your AI Marketing Department — Install an AI Director of Marketing and three specialists that market your real estate business in your voice. — https://stringersteps.com/agency
+- Set Up Your First AI Agent — Build your first working AI agent, one step at a time, no code required. — https://stringersteps.com/aiagent

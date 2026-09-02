@@ -31,28 +31,16 @@
   ],
   "guides": [
     {
-      "keyword": "aiagent",
-      "title": "Set Up Your First AI Agent",
+      "keyword": "fable51",
+      "title": "3 Prompts to Try in Fable 5.1 Tonight",
       "topic": "ai-beginners",
       "visibility": "public",
       "flagship": false,
       "featured": false,
-      "url": "https://stringersteps.com/aiagent",
-      "kitTag": "src-guide-aiagent",
-      "updated": "2026-07-18",
-      "oneLineOutcome": "Build your first working AI agent, one step at a time, no code required."
-    },
-    {
-      "keyword": "claudehomework",
-      "title": "Claude Workshop Homework",
-      "topic": "ai-beginners",
-      "visibility": "private",
-      "flagship": false,
-      "featured": false,
-      "url": "https://stringersteps.com/claudehomework",
-      "kitTag": null,
-      "updated": "2026-07-31",
-      "oneLineOutcome": "Get your machine set up right before the live workshop."
+      "url": "https://stringersteps.com/fable51",
+      "kitTag": "src-guide-fable51",
+      "updated": "2026-09-01",
+      "oneLineOutcome": "Three copy and paste prompts that show you what Fable 5.1 can do: one job handed off, an honest audit, and a step-by-step plan for the thing you keep avoiding."
     },
     {
       "keyword": "fable5",
@@ -67,76 +55,16 @@
       "oneLineOutcome": "Get real work out of Fable 5, the smartest AI model, one step at a time."
     },
     {
-      "keyword": "fred",
-      "title": "The Fred Gomberg Dad Joke Hall of Fame",
-      "topic": "run-smarter",
-      "visibility": "private",
-      "flagship": false,
-      "featured": false,
-      "url": "https://stringersteps.com/fred",
-      "kitTag": null,
-      "updated": "2026-07-02",
-      "oneLineOutcome": "A tribute page. Private, not part of the public library."
-    },
-    {
-      "keyword": "secondbrainhomework",
-      "title": "Second Brain Workshop Pre-Work",
+      "keyword": "grokbotsetup",
+      "title": "Set Up Grok Bot (Hire Your First AI Team)",
       "topic": "save-time",
-      "visibility": "private",
-      "flagship": false,
-      "featured": false,
-      "url": "https://stringersteps.com/secondbrainhomework",
-      "kitTag": null,
-      "updated": "2026-07-31",
-      "oneLineOutcome": "The follow-along homework for the paid Second Brain workshop."
-    },
-    {
-      "keyword": "secondbrainworkshop",
-      "title": "Build Your Second Brain (Full Guide)",
-      "topic": "save-time",
-      "visibility": "private",
-      "flagship": false,
-      "featured": false,
-      "url": "https://stringersteps.com/secondbrainworkshop",
-      "kitTag": null,
-      "updated": "2026-07-20",
-      "oneLineOutcome": "The full step-by-step Second Brain build, for paid attendees."
-    },
-    {
-      "keyword": "agency",
-      "title": "Hire Your AI Marketing Department",
-      "topic": "more-customers",
       "visibility": "public",
       "flagship": false,
-      "featured": false,
-      "url": "https://stringersteps.com/agency",
-      "kitTag": "src-gate-agency",
-      "updated": "2026-07-21",
-      "oneLineOutcome": "Install an AI Director of Marketing and three specialists that market your real estate business in your voice."
-    },
-    {
-      "keyword": "followupboss",
-      "title": "Connect Follow Up Boss to Claude",
-      "topic": "run-smarter",
-      "visibility": "public",
-      "flagship": false,
-      "featured": false,
-      "url": "https://stringersteps.com/followupboss",
-      "kitTag": "src-guide-followupboss",
-      "updated": "2026-07-22",
-      "oneLineOutcome": "Connect your Follow Up Boss CRM to Claude and run your whole pipeline in plain English."
-    },
-    {
-      "keyword": "aeohomework",
-      "title": "AEO Workshop Homework",
-      "topic": "found-by-ai",
-      "visibility": "private",
-      "flagship": false,
-      "featured": false,
-      "url": "https://stringersteps.com/aeohomework",
-      "kitTag": null,
-      "updated": "2026-08-18",
-      "oneLineOutcome": "Get your business answers doc ready before the live AEO workshop."
+      "featured": true,
+      "url": "https://stringersteps.com/grokbotsetup",
+      "kitTag": "src-guide-grokbotsetup",
+      "updated": "2026-08-30",
+      "oneLineOutcome": "Go from nothing to a working team of AI employees in Grok Bot, one step at a time."
     },
     {
       "keyword": "botcheck",
@@ -163,16 +91,100 @@
       "oneLineOutcome": "The full workshop follow-along: check AI can read your site, then write the 100 articles that get you recommended."
     },
     {
-      "keyword": "grokbotsetup",
-      "title": "Set Up Grok Bot (Hire Your First AI Team)",
+      "keyword": "aeohomework",
+      "title": "AEO Workshop Homework",
+      "topic": "found-by-ai",
+      "visibility": "private",
+      "flagship": false,
+      "featured": false,
+      "url": "https://stringersteps.com/aeohomework",
+      "kitTag": null,
+      "updated": "2026-08-18",
+      "oneLineOutcome": "Get your business answers doc ready before the live AEO workshop."
+    },
+    {
+      "keyword": "claudehomework",
+      "title": "Claude Workshop Homework",
+      "topic": "ai-beginners",
+      "visibility": "private",
+      "flagship": false,
+      "featured": false,
+      "url": "https://stringersteps.com/claudehomework",
+      "kitTag": null,
+      "updated": "2026-07-31",
+      "oneLineOutcome": "Get your machine set up right before the live workshop."
+    },
+    {
+      "keyword": "secondbrainhomework",
+      "title": "Second Brain Workshop Pre-Work",
       "topic": "save-time",
+      "visibility": "private",
+      "flagship": false,
+      "featured": false,
+      "url": "https://stringersteps.com/secondbrainhomework",
+      "kitTag": null,
+      "updated": "2026-07-31",
+      "oneLineOutcome": "The follow-along homework for the paid Second Brain workshop."
+    },
+    {
+      "keyword": "followupboss",
+      "title": "Connect Follow Up Boss to Claude",
+      "topic": "run-smarter",
       "visibility": "public",
       "flagship": false,
-      "featured": true,
-      "url": "https://stringersteps.com/grokbotsetup",
-      "kitTag": "src-guide-grokbotsetup",
-      "updated": "2026-08-30",
-      "oneLineOutcome": "Go from nothing to a working team of AI employees in Grok Bot, one step at a time."
+      "featured": false,
+      "url": "https://stringersteps.com/followupboss",
+      "kitTag": "src-guide-followupboss",
+      "updated": "2026-07-22",
+      "oneLineOutcome": "Connect your Follow Up Boss CRM to Claude and run your whole pipeline in plain English."
+    },
+    {
+      "keyword": "agency",
+      "title": "Hire Your AI Marketing Department",
+      "topic": "more-customers",
+      "visibility": "public",
+      "flagship": false,
+      "featured": false,
+      "url": "https://stringersteps.com/agency",
+      "kitTag": "src-gate-agency",
+      "updated": "2026-07-21",
+      "oneLineOutcome": "Install an AI Director of Marketing and three specialists that market your real estate business in your voice."
+    },
+    {
+      "keyword": "secondbrainworkshop",
+      "title": "Build Your Second Brain (Full Guide)",
+      "topic": "save-time",
+      "visibility": "private",
+      "flagship": false,
+      "featured": false,
+      "url": "https://stringersteps.com/secondbrainworkshop",
+      "kitTag": null,
+      "updated": "2026-07-20",
+      "oneLineOutcome": "The full step-by-step Second Brain build, for paid attendees."
+    },
+    {
+      "keyword": "aiagent",
+      "title": "Set Up Your First AI Agent",
+      "topic": "ai-beginners",
+      "visibility": "public",
+      "flagship": false,
+      "featured": false,
+      "url": "https://stringersteps.com/aiagent",
+      "kitTag": "src-guide-aiagent",
+      "updated": "2026-07-18",
+      "oneLineOutcome": "Build your first working AI agent, one step at a time, no code required."
+    },
+    {
+      "keyword": "fred",
+      "title": "The Fred Gomberg Dad Joke Hall of Fame",
+      "topic": "run-smarter",
+      "visibility": "private",
+      "flagship": false,
+      "featured": false,
+      "url": "https://stringersteps.com/fred",
+      "kitTag": null,
+      "updated": "2026-07-02",
+      "oneLineOutcome": "A tribute page. Private, not part of the public library."
     }
   ]
 }

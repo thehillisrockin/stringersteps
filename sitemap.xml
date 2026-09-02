@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://stringersteps.com/</loc></url>
-  <url><loc>https://stringersteps.com/aiagent</loc></url>
+  <url><loc>https://stringersteps.com/fable51</loc></url>
   <url><loc>https://stringersteps.com/fable5</loc></url>
-  <url><loc>https://stringersteps.com/agency</loc></url>
-  <url><loc>https://stringersteps.com/followupboss</loc></url>
-  <url><loc>https://stringersteps.com/botcheck</loc></url>
   <url><loc>https://stringersteps.com/grokbotsetup</loc></url>
+  <url><loc>https://stringersteps.com/botcheck</loc></url>
+  <url><loc>https://stringersteps.com/followupboss</loc></url>
+  <url><loc>https://stringersteps.com/agency</loc></url>
+  <url><loc>https://stringersteps.com/aiagent</loc></url>
 </urlset>
