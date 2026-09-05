@@ -2,7 +2,7 @@
 /*
  * Stringer Steps hub build — THE YELLOW 2026 design (locked by Phil 2026-07-18).
  * Reads guides.json + hub-src/page.template.html + hub-src/assets/, writes
- * index.html + sitemap.xml + llms.txt. Only visibility:"public" guides are
+ * index.html + 404.html + sitemap.xml + llms.txt. Only visibility:"public" guides are
  * ever emitted. Private guides stay direct-link folders and never appear on
  * the hub, the sitemap, or llms.txt.
  *
@@ -98,11 +98,22 @@ html = html
   .replace('{{CTA_TARGET}}', flagships.length ? 'start-here' : 'topics');
 
 // inline assets as data URIs: {{A:filename}}
-html = html.replace(/\{\{A:([a-z0-9.\-]+)\}\}/g, (m, f) =>
+const inlineAssets = (s) => s.replace(/\{\{A:([a-z0-9.\-]+)\}\}/g, (m, f) =>
   fs.readFileSync(path.join(SRC, 'assets', f)).toString('base64'));
+html = inlineAssets(html);
 
 if (html.includes('{{')) throw new Error('unresolved template token remains');
 fs.writeFileSync(path.join(ROOT, 'index.html'), html);
+
+// 404.html (smart not-found page). GitHub Pages serves it for every missing
+// path; its script fixes miscased / mistyped PUBLIC keywords (/FABLE51,
+// /fable5.1 -> /fable51/) and lowercases any other single-segment path.
+// Only public keywords are listed so private guide slugs stay unlisted.
+let nf = fs.readFileSync(path.join(SRC, '404.template.html'), 'utf8')
+  .replace('{{SLUGS}}', JSON.stringify(pub.map((g) => String(g.keyword).toLowerCase())));
+nf = inlineAssets(nf);
+if (nf.includes('{{')) throw new Error('unresolved token in 404 template');
+fs.writeFileSync(path.join(ROOT, '404.html'), nf);
 
 // sitemap.xml (root + public guides only)
 const urls = [SITE + '/'].concat(pub.map((g) => g.url || (SITE + '/' + g.keyword)));
@@ -122,6 +133,6 @@ ${pub.length ? pub.map((g) => `- ${g.title} — ${g.oneLineOutcome} — ${g.url 
 `;
 fs.writeFileSync(path.join(ROOT, 'llms.txt'), llms);
 
-console.log('Built index.html, sitemap.xml, llms.txt (yellow kit)');
+console.log('Built index.html, 404.html, sitemap.xml, llms.txt (yellow kit)');
 console.log('  public guides: ' + pub.length + '  |  flagships: ' + flagships.length + '  |  featured: ' + (featuredGuide ? featuredGuide.keyword : 'none (empty-state)'));
 console.log('  private (kept off hub/sitemap): ' + data.guides.filter((g) => g.visibility === 'private').map((g) => g.keyword).join(', '));

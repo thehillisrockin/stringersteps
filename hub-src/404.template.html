@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Stringer Steps &middot; That link didn't land</title>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script>
+/* smart-404: GitHub Pages is case-sensitive and has no server-side rewrites.
+   Fix the two ways people mistype a guide link before the page even paints:
+   1) a public keyword typed with the wrong case or stray punctuation
+      (/FABLE51, /Fable5.1, /fable-51) -> /fable51/
+   2) any other single-segment path with capitals -> its lowercase twin
+      (covers private guides without listing them here). */
+(function(){
+  var SLUGS = {{SLUGS}};
+  var seg = location.pathname.replace(/^\/+|\/+$/g,'').split('/');
+  if (seg.length !== 1 || !seg[0]) return;
+  var raw = seg[0];
+  try { raw = decodeURIComponent(raw); } catch (e) {}
+  var lower = raw.toLowerCase();
+  var norm = lower.replace(/[^a-z0-9]/g,'');
+  var tail = location.search + location.hash;
+  if (norm && norm !== raw && SLUGS.indexOf(norm) !== -1) { location.replace('/' + norm + '/' + tail); return; }
+  if (lower !== raw && /^[a-z0-9._-]+$/.test(lower)) { location.replace('/' + lower + tail); return; }
+})();
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JGNTB1YM0M"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-JGNTB1YM0M');
+gtag('event', 'page_not_found', { path: location.pathname });
+</script>
+<style>
+@font-face{font-family:'SUPR';src:url(data:font/otf;base64,{{A:supr-bold.otf}}) format('opentype');font-weight:700;font-display:block}
+:root{--accent:#F6C627;--ground:#1F1F21;--dove:#E0E0E0;--gray:#A1A1A1;--white:#FFFFFF}
+*{margin:0;padding:0;box-sizing:border-box}
+html{background:var(--ground);-webkit-text-size-adjust:100%}
+body{min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--ground);color:var(--dove);font-family:'Helvetica Neue',Arial,sans-serif;font-size:17px;line-height:1.55;padding:32px 20px}
+main{max-width:560px;width:100%}
+.logo{width:44px;height:44px;margin-bottom:28px}
+.eyebrow{display:block;font-family:'SUPR','Arial Narrow',sans-serif;font-weight:700;letter-spacing:.14em;font-size:13px;color:var(--accent);margin-bottom:14px}
+h1{font-family:'SUPR','Arial Narrow',sans-serif;font-weight:700;font-size:clamp(40px,9vw,64px);line-height:.95;letter-spacing:.01em;color:var(--white);text-transform:uppercase;margin-bottom:18px}
+p{margin-bottom:14px;max-width:44ch}
+.typed{color:var(--gray);font-size:14px;word-break:break-all}
+.typed b{color:var(--dove);font-weight:600}
+.btn{display:inline-block;margin-top:14px;background:var(--accent);color:#1F1F21;text-decoration:none;font-family:'SUPR','Arial Narrow',sans-serif;font-weight:700;letter-spacing:.08em;font-size:15px;padding:16px 26px;border-radius:999px}
+.btn:hover{filter:brightness(1.06)}
+</style>
+</head>
+<body>
+<main>
+  <img class="logo" src="/favicon-192.png" alt="" width="44" height="44">
+  <span class="eyebrow">STRINGER STEPS</span>
+  <h1>That link didn't land.</h1>
+  <p>Check the spelling, or pick a guide from the library. Every guide lives at stringersteps.com followed by one word.</p>
+  <p class="typed" id="typed" hidden>You typed: <b id="typedPath"></b></p>
+  <a class="btn" href="/">OPEN THE LIBRARY &rarr;</a>
+</main>
+<script>
+(function(){var p=location.pathname;if(p&&p!=='/'){document.getElementById('typedPath').textContent=p;document.getElementById('typed').hidden=false;}})();
+</script>
+</body>
+</html>
