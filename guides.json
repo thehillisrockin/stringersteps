@@ -31,6 +31,18 @@
   ],
   "guides": [
     {
+      "keyword": "spy",
+      "title": "See Every Ad Your Competitors Are Running",
+      "topic": "more-customers",
+      "visibility": "public",
+      "url": "https://stringersteps.com/spy",
+      "kitTag": "src-guide-spy",
+      "featured": false,
+      "flagship": false,
+      "updated": "2026-09-15",
+      "oneLineOutcome": "Walk the Meta Ad Library one click at a time, then paste one prompt so Claude scores the ads your competitors keep paying for and turns them into six ad ideas for you."
+    },
+    {
       "keyword": "fable51",
       "title": "3 Prompts to Try in Fable 5.1 Tonight",
       "topic": "ai-beginners",
