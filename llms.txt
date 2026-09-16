@@ -2,6 +2,7 @@
 Free step-by-step walkthroughs by Phil Stringer. Public library at https://stringersteps.com. New guides drop all the time.
 
 ## Guides
+- Turn On the New Siri and Give It Three Real Jobs — Update to iOS 27, turn on Siri AI (waitlist and all), find the new Siri app, then give it the three asks that prove the new Siri is different: dig up a buried detail, turn a text into a calendar event, ask about what is on your screen. — https://stringersteps.com/siri
 - See Every Ad Your Competitors Are Running — Walk the Meta Ad Library one click at a time, then paste one prompt so Claude scores the ads your competitors keep paying for and turns them into six ad ideas for you. — https://stringersteps.com/spy
 - 3 Prompts to Try in Fable 5.1 Tonight — Three copy and paste prompts that show you what Fable 5.1 can do: one job handed off, an honest audit, and a step-by-step plan for the thing you keep avoiding. — https://stringersteps.com/fable51
 - How to Use Fable 5 — Get real work out of Fable 5, the smartest AI model, one step at a time. — https://stringersteps.com/fable5

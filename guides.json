@@ -31,6 +31,18 @@
   ],
   "guides": [
     {
+      "keyword": "siri",
+      "title": "Turn On the New Siri and Give It Three Real Jobs",
+      "topic": "ai-beginners",
+      "visibility": "public",
+      "url": "https://stringersteps.com/siri",
+      "kitTag": "src-guide-siri",
+      "featured": false,
+      "flagship": false,
+      "updated": "2026-09-16",
+      "oneLineOutcome": "Update to iOS 27, turn on Siri AI (waitlist and all), find the new Siri app, then give it the three asks that prove the new Siri is different: dig up a buried detail, turn a text into a calendar event, ask about what is on your screen."
+    },
+    {
       "keyword": "spy",
       "title": "See Every Ad Your Competitors Are Running",
       "topic": "more-customers",
