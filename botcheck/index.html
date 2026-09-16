@@ -168,6 +168,39 @@ body.embed #vhead{font-size:25px}
 .footline{text-align:center;margin:20px auto 0;font-size:13px;color:rgba(255,255,255,.55)}
 .footline a{color:rgba(255,255,255,.8);font-weight:700}
 
+/* ---- the workshop offer (shown under the result only) ---- */
+.offer{margin-top:22px;min-height:0;justify-content:flex-start;padding:32px 32px 30px}
+.offer[hidden]{display:none}
+.offer .eyebrow{color:var(--amber)}
+.offer h2{font-family:'SUPR',sans-serif;font-weight:700;font-size:31px;line-height:1.02;text-transform:uppercase;color:var(--ink);margin-bottom:14px;text-wrap:balance}
+.offer p.lead{font-size:16.5px}
+.offer .bridge{margin-top:0;margin-bottom:18px}
+.offer .bridge b{color:var(--amber)}
+.getlist{list-style:none;margin:20px 0 6px;padding:0}
+.getlist li{display:flex;gap:14px;padding:14px 0;border-top:1px solid var(--line)}
+.getlist li:last-child{border-bottom:1px solid var(--line)}
+.getnum{flex:none;width:30px;height:30px;border-radius:50%;background:var(--amber);color:#000;font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.getlist h3{font-size:16.5px;font-weight:800;color:var(--ink);margin-bottom:3px;line-height:1.25}
+.getlist p{font-size:14.5px;line-height:1.55;color:var(--body)}
+.walk{margin-top:18px;background:rgba(246,198,39,.10);border:1px solid rgba(246,198,39,.45);border-radius:14px;padding:16px 18px;font-size:15px;line-height:1.58;color:var(--body)}
+.walk b{color:var(--amber)}
+.proof{margin-top:26px}
+.proof .kicker{font-size:12px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--amber);margin-bottom:12px}
+.quote{border-left:3px solid var(--amber);padding:2px 0 2px 16px;margin:0 0 18px}
+.quote p{font-size:15.5px;line-height:1.6;color:var(--ink);font-style:italic}
+.quote cite{display:block;margin-top:7px;font-style:normal;font-size:13.5px;font-weight:700;color:var(--muted)}
+.pricebox{margin-top:26px;text-align:center;border-top:1px solid var(--line);padding-top:24px}
+.pricebox .price{font-family:'SUPR',sans-serif;font-size:58px;line-height:1;color:var(--ink);font-weight:700}
+.pricebox .price sup{font-size:26px;vertical-align:top;margin-right:2px;position:relative;top:8px}
+.pricebox .pnote{font-size:14.5px;color:var(--muted);margin-top:6px;font-weight:600}
+.buy{display:block;text-align:center;text-decoration:none;margin-top:18px;background:var(--red);color:#000;border-radius:14px;padding:18px 20px;font-size:17px;font-weight:800;transition:.16s;box-shadow:0 8px 20px rgba(0,0,0,.3)}
+.buy:hover{background:#FFD84D;transform:translateY(-1px)}
+.more{display:block;text-align:center;margin-top:14px;font-size:14.5px;font-weight:700;color:rgba(255,255,255,.75)}
+.more:hover{color:#fff}
+.fineprint{margin-top:22px;font-size:13.5px;line-height:1.6;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+.fineprint b{color:var(--body)}
+.fineprint a{color:var(--body);font-weight:700}
+
 @media (max-width:520px){
   body{padding:16px 12px}
   .card{padding:26px 21px 22px;border-radius:20px}
@@ -175,6 +208,7 @@ body.embed #vhead{font-size:25px}
   .verdict{gap:14px} .vicon{width:54px;height:54px} .vicon svg{width:29px;height:29px}
   .estat{font-size:12.5px}
   .fix{padding:17px 16px 15px}
+  .offer{padding:26px 21px 24px} .offer h2{font-size:27px} .pricebox .price{font-size:50px}
 }
 </style>
 </head>
@@ -239,6 +273,44 @@ body.embed #vhead{font-size:25px}
   </section>
 
 </div>
+
+<!-- ============ THE WORKSHOP OFFER (result screen only) ============ -->
+<aside class="card offer" id="offer" hidden aria-label="The AEO Workshop">
+  <div class="eyebrow">Your next step</div>
+  <h2 id="offerHead">Now give AI a reason to say your name</h2>
+  <p class="lead bridge" id="offerBridge"></p>
+
+  <p class="lead">Every day, people ask ChatGPT, Gemini and Perplexity who the best in their area is. The AI answers with the businesses it can read and trust. Being readable gets you in the door. Content is what gets you named.</p>
+  <p class="lead">The AEO Workshop is a recorded, on demand workshop where I build the whole system on a real business while you build yours. You get three things:</p>
+
+  <ol class="getlist">
+    <li><span class="getnum">1</span><div><h3>The full workshop, recorded</h3><p>About three hours of me on screen, building it step by step. Pause it, rewind it, take as long as you need.</p></div></li>
+    <li><span class="getnum">2</span><div><h3>The step by step guide</h3><p>Every click written down, with the exact prompts to paste. It saves your progress so you can come back any time.</p></div></li>
+    <li><span class="getnum">3</span><div><h3>Four article bots, yours to keep</h3><p>They write the articles the way AI likes to read them. You read what they wrote and hit post. Works with ChatGPT or Claude, free plans included.</p></div></li>
+  </ol>
+
+  <div class="walk"><b>What you walk away with:</b> around a hundred short articles, banked and ready to post a few a week, plus the profiles AI checks before it recommends anyone (Google Business, Bing Places, Apple, Yelp and more), all set up.</div>
+
+  <div class="proof">
+    <div class="kicker">People who did this</div>
+    <blockquote class="quote"><p>&ldquo;Bro, this is actually working. Just got a $1.4 million dollar listing from someone who reached out to me. I asked how they found me and they said ChatGPT. I just did the workshop a couple weeks ago and I&rsquo;m already getting deals.&rdquo;</p><cite>Text from a workshop attendee</cite></blockquote>
+    <blockquote class="quote"><p>&ldquo;I took Phil&rsquo;s AEO workshop in October. I&rsquo;m blown away. In November alone, my GCI surpassed my total from January through October. Now I&rsquo;m working with 14 active buyers and sellers, signed 2 new agents to my team who found me by searching ChatGPT for a brokerage near me, landed a multi-million dollar cash buyer, and have 5 properties under contract during what&rsquo;s normally the slowest season for me. This class changed my business, I&rsquo;m grateful.&rdquo;</p><cite>AEO Workshop member</cite></blockquote>
+    <blockquote class="quote"><p>&ldquo;I just finished all the articles and started posting them. I have about 70 done, and will post the rest tomorrow.&rdquo;</p><cite>Trish G. &middot; workshop member</cite></blockquote>
+    <blockquote class="quote"><p>&ldquo;I just want to attest that this works. It works so, so well.&rdquo;</p><cite>Tanya &middot; workshop member</cite></blockquote>
+  </div>
+
+  <div class="pricebox">
+    <div class="price"><sup>$</sup>297</div>
+    <div class="pnote">One payment. Yours to keep, with no expiration.</div>
+    <a class="buy" id="buyBtn" href="https://philstringer.thrivecart.com/aeo-workshop-replay/?utm_source=botcheck&amp;utm_medium=tool&amp;utm_campaign=aeo-evergreen">Get instant access</a>
+    <a class="more" id="moreBtn" href="https://training.philstringer.com/aeo-workshop?utm_source=botcheck&amp;utm_medium=tool&amp;utm_campaign=aeo-evergreen">See everything that is inside</a>
+  </div>
+
+  <div class="fineprint">
+    <b>Not technical?</b> That is who this was built for. If you can copy, paste and click what I click, you can do this.<br>
+    <b>Already bought a ticket to the live workshop?</b> It is yours. Unlock it at <a href="https://stringersteps.com/aeoworkshop">stringersteps.com/aeoworkshop</a> with your purchase email.
+  </div>
+</aside>
 
 <p class="footline">A free tool from <a href="https://stringersteps.com">Stringer Steps</a> &middot; built by Phil Stringer</p>
 
@@ -459,6 +531,7 @@ window.BOTCHECK_PLATFORMS = {
   var screens = ['scr-start','scr-loading','scr-result'];
   function show(id){
     screens.forEach(function(s){ $(s).classList.toggle('active', s === id); });
+    $('offer').hidden = (id !== 'scr-result');
     window.scrollTo({top:0, behavior:'smooth'});
   }
   function esc(s){
@@ -883,6 +956,14 @@ window.BOTCHECK_PLATFORMS = {
     }).join('') + '</div>';
     if (r.found) html += '<div style="margin-top:14px">Your file: <code>' + esc(r.url) + '</code></div>';
     $('rawbody').innerHTML = html;
+
+    var readable = (data.overall === 'good' || data.overall === 'trainingonly');
+    $('offerHead').innerHTML = readable
+      ? 'AI can read you.<br>Now give it a reason<br>to say your name'
+      : 'Fix the door first.<br>Then give AI a reason<br>to say your name';
+    $('offerBridge').innerHTML = readable
+      ? 'AI <i>can</i> talk about ' + esc(data.domain) + ' now. It just needs something worth repeating. That is what the workshop builds.'
+      : '<b>Do the fix above first.</b> After that, AI <i>can</i> talk about ' + esc(data.domain) + '. It just needs something worth repeating. That is what the workshop builds.';
 
     show('scr-result');
   }
