@@ -209,6 +209,18 @@
       "kitTag": null,
       "updated": "2026-07-02",
       "oneLineOutcome": "A tribute page. Private, not part of the public library."
+    },
+    {
+      "keyword": "reddit",
+      "title": "The Reddit Master Prompt",
+      "topic": "found-by-ai",
+      "visibility": "public",
+      "url": "https://stringersteps.com/reddit",
+      "kitTag": "src-gate-reddit",
+      "featured": false,
+      "flagship": false,
+      "updated": "2026-09-16",
+      "oneLineOutcome": "Paste a few Reddit links into one prompt and get your buyers' exact words, the questions AI tools should send to you, and 40 hooks."
     }
   ]
 }
