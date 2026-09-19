@@ -329,7 +329,7 @@ body.readall .card.moment p.sub{color:var(--muted)!important}
         </div>
         <div><label class="fl" for="gf_email">Email</label><input class="fi" id="gf_email" type="email" autocomplete="email" inputmode="email" placeholder="jane@email.com"></div>
         <div><label class="fl" for="gf_phone">Mobile phone</label><input class="fi" id="gf_phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(555) 123-4567"></div>
-        <label class="gconsent" id="gconsent"><input type="checkbox" id="gf_consent"><span class="cb"><svg viewBox="0 0 18 18"><path d="M3.5 9.5l3.3 3.3 7.7-8"/></svg></span><span class="ct">I agree to receive text messages from Phil Stringer with training tips, class reminders, and occasional offers. Message frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out anytime.</span></label>
+        <label class="gconsent" id="gconsent"><input type="checkbox" id="gf_consent"><span class="cb"><svg viewBox="0 0 18 18"><path d="M3.5 9.5l3.3 3.3 7.7-8"/></svg></span><span class="ct">I agree to receive text messages from Phil Stringer with training tips, class reminders, and occasional offers. Message frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out or HELP for help. Consent is not a condition of purchase. <a href="https://team.philstringer.com/crm/privacy" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">Privacy policy</a> · <a href="https://team.philstringer.com/crm/texting-terms" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">Texting terms</a>.</span></label>
         <button class="gbtn" id="gsubmit" type="submit" disabled>Unlock the guide &rarr;</button>
         <div class="gerr" id="gerr"></div>
       </form>
@@ -615,7 +615,7 @@ If no date is known, use [unknown] instead.
 (function(){
   const GATE_KEY='ss-aiagent-unlocked-v1';
   const API='https://stratus-lead-gate.vercel.app/api/lead';
-  const CONSENT_TEXT="I agree to receive text messages from Phil Stringer with training tips, class reminders, and occasional offers. Message frequency varies. Msg & data rates may apply. Reply STOP to opt out anytime.";
+  const CONSENT_TEXT="I agree to receive text messages from Phil Stringer with training tips, class reminders, and occasional offers. Message frequency varies. Msg & data rates may apply. Reply STOP to opt out or HELP for help. Consent is not a condition of purchase. Privacy policy: https://team.philstringer.com/crm/privacy Texting terms: https://team.philstringer.com/crm/texting-terms";
   const gate=document.getElementById('gate'), stage=document.getElementById('stage');
   function unlock(){gate.classList.add('hide');stage.classList.remove('locked');try{localStorage.setItem(GATE_KEY,'1');}catch(e){}window.scrollTo({top:0});}
   try{if(localStorage.getItem(GATE_KEY)==='1'){unlock();}}catch(e){}
