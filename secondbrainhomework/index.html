@@ -738,8 +738,9 @@ Start with Section 1 now.
   document.querySelectorAll('.river').forEach(r=>r.onclick=()=>{rivers[r.dataset.r]=!rivers[r.dataset.r];r.classList.toggle('on',rivers[r.dataset.r]);save();});
 
   function copyText(t){
-    if(navigator.clipboard&&window.isSecureContext){return navigator.clipboard.writeText(t);}
-    return new Promise((res,rej)=>{const ta=document.createElement('textarea');ta.value=t;ta.setAttribute('readonly','');ta.style.position='fixed';ta.style.top='0';ta.style.opacity='0';document.body.appendChild(ta);ta.focus();ta.select();try{ta.setSelectionRange(0,t.length);}catch(e){}let ok=false;try{ok=document.execCommand('copy');}catch(e){}document.body.removeChild(ta);ok?res():rej();});
+    const fb=()=>new Promise((res,rej)=>{const ta=document.createElement('textarea');ta.value=t;ta.setAttribute('readonly','');ta.style.position='fixed';ta.style.top='0';ta.style.opacity='0';document.body.appendChild(ta);ta.focus();ta.select();try{ta.setSelectionRange(0,t.length);}catch(e){}let ok=false;try{ok=document.execCommand('copy');}catch(e){}document.body.removeChild(ta);ok?res():rej();});
+    if(navigator.clipboard&&window.isSecureContext){return navigator.clipboard.writeText(t).catch(fb);}
+    return fb();
   }
   document.getElementById('copyBtn').onclick=function(){
     const btn=this;
