@@ -31,6 +31,18 @@
   ],
   "guides": [
     {
+      "keyword": "tuneup",
+      "title": "New Claude Just Dropped. Give Your Setup a Tune-Up.",
+      "topic": "run-smarter",
+      "visibility": "public",
+      "url": "https://stringersteps.com/tuneup",
+      "kitTag": "src-guide-tuneup",
+      "featured": true,
+      "flagship": false,
+      "updated": "2026-09-22",
+      "oneLineOutcome": "Clean out the old rules, memory notes and add-ons Claude reads every session, then install /tuneup, one command that finds outdated or conflicting rules and fixes only the ones you pick."
+    },
+    {
       "keyword": "siri",
       "title": "Turn On the New Siri and Give It Three Real Jobs",
       "topic": "ai-beginners",
@@ -84,7 +96,7 @@
       "topic": "save-time",
       "visibility": "public",
       "flagship": false,
-      "featured": true,
+      "featured": false,
       "url": "https://stringersteps.com/grokbotsetup",
       "kitTag": "src-guide-grokbotsetup",
       "updated": "2026-08-30",
