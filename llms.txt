@@ -2,6 +2,9 @@
 Free step-by-step walkthroughs by Phil Stringer. Public library at https://stringersteps.com. New guides drop all the time.
 
 ## Guides
+- Make an Open House Flyer with ChatGPT Images 2.5 — Turn your real listing photo into a print-ready open house flyer with one copy-paste prompt, fix any mistakes, make a square Instagram version, and cut out your headshot. — https://stringersteps.com/images25
+- Test Grok 4.7 Against the AI You Already Use — Grok 4.7 isn't in the Grok app yet, so put it side by side with Claude or ChatGPT on OpenRouter, give both the same listing job, and pick a winner on four questions. — https://stringersteps.com/grok47
+- Build a Lead Form That Sorts Hot, Warm and Cold with Jev — Have Claude build a buyer lead form that uses Jev to sort every lead into hot, warm or cold as they answer, with a $5 spending cap and fair housing rules built in. — https://stringersteps.com/jev
 - New Claude Just Dropped. Give Your Setup a Tune-Up. — Clean out the old rules, memory notes and add-ons Claude reads every session, then install /tuneup, one command that finds outdated or conflicting rules and fixes only the ones you pick. — https://stringersteps.com/tuneup
 - Turn On the New Siri and Give It Three Real Jobs — Update to iOS 27, turn on Siri AI (waitlist and all), find the new Siri app, then give it the three asks that prove the new Siri is different: dig up a buried detail, turn a text into a calendar event, ask about what is on your screen. — https://stringersteps.com/siri
 - See Every Ad Your Competitors Are Running — Walk the Meta Ad Library one click at a time, then paste one prompt so Claude scores the ads your competitors keep paying for and turns them into six ad ideas for you. — https://stringersteps.com/spy

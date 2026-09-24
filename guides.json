@@ -31,6 +31,42 @@
   ],
   "guides": [
     {
+      "keyword": "images25",
+      "title": "Make an Open House Flyer with ChatGPT Images 2.5",
+      "topic": "more-customers",
+      "visibility": "public",
+      "url": "https://stringersteps.com/images25",
+      "kitTag": "src-guide-images25",
+      "featured": false,
+      "flagship": false,
+      "updated": "2026-09-23",
+      "oneLineOutcome": "Turn your real listing photo into a print-ready open house flyer with one copy-paste prompt, fix any mistakes, make a square Instagram version, and cut out your headshot."
+    },
+    {
+      "keyword": "grok47",
+      "title": "Test Grok 4.7 Against the AI You Already Use",
+      "topic": "ai-beginners",
+      "visibility": "public",
+      "url": "https://stringersteps.com/grok47",
+      "kitTag": "src-guide-grok47",
+      "featured": false,
+      "flagship": false,
+      "updated": "2026-09-23",
+      "oneLineOutcome": "Grok 4.7 isn't in the Grok app yet, so put it side by side with Claude or ChatGPT on OpenRouter, give both the same listing job, and pick a winner on four questions."
+    },
+    {
+      "keyword": "jev",
+      "title": "Build a Lead Form That Sorts Hot, Warm and Cold with Jev",
+      "topic": "more-customers",
+      "visibility": "public",
+      "url": "https://stringersteps.com/jev",
+      "kitTag": "src-guide-jev",
+      "featured": false,
+      "flagship": false,
+      "updated": "2026-09-23",
+      "oneLineOutcome": "Have Claude build a buyer lead form that uses Jev to sort every lead into hot, warm or cold as they answer, with a $5 spending cap and fair housing rules built in."
+    },
+    {
       "keyword": "tuneup",
       "title": "New Claude Just Dropped. Give Your Setup a Tune-Up.",
       "topic": "run-smarter",
