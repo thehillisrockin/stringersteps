@@ -6,6 +6,7 @@
 import fs from 'fs';
 import path from 'path';
 import { execSync } from 'child_process';
+import suprK from './supr-k.cjs';
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
 const HOME = process.env.HOME || '/Users/philstringer';
 const STATE = path.join(HOME, '.stringersteps-publish-state.json');
@@ -38,7 +39,8 @@ for (const g of man.guides.filter((x) => x.visibility === 'public')) {
   catch (e) { log(`${k}: fetch failed ${e.message}`); continue; }
   const sig = JSON.stringify(edits);
   if (state[k] === sig) continue;
-  const out = applyEdits(fs.readFileSync(base, 'utf8'), edits);
+  // edits arrive with plain Ks (the /edit sanitizer strips the fix's spans), so re-apply the SUPR K fix
+  const out = suprK.fixPage(applyEdits(fs.readFileSync(base, 'utf8'), edits)).html;
   const target = path.join(ROOT, k, 'index.html');
   if (fs.readFileSync(target, 'utf8') !== out) { fs.writeFileSync(target, out); changed.push([k, edits.length]); }
   state[k] = sig;

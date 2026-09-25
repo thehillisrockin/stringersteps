@@ -6,6 +6,7 @@
 //   node tools/stamp-edit-ids.mjs <guide>
 import fs from 'fs';
 import path from 'path';
+import suprK from './supr-k.cjs';
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
 const g = process.argv[2];
 if (!g) { console.error('usage: node tools/stamp-edit-ids.mjs <guide>'); process.exit(1); }
@@ -63,6 +64,8 @@ for (const part of parts) {
   out += stampChunk(part, slug, counters);
 }
 const total = Object.values(counters).reduce((a, b) => a + b, 0);
+// SUPR draws K as a near-H: every stamped guide (and so its baseline) gets the K fix
+const k = suprK.fixPage(out); out = k.html;
 fs.writeFileSync(file, out);
 fs.writeFileSync(path.join(ROOT, '_baselines', g + '.html'), out);
-console.log(`${g}: ${total} editable blocks stamped, baseline written`);
+console.log(`${g}: ${total} editable blocks stamped, ${k.count} SUPR K${k.count === 1 ? '' : 's'} fixed, baseline written`);

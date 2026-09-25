@@ -16,6 +16,8 @@ const fs = require('fs');
 const path = require('path');
 const ROOT = __dirname;
 const SRC = path.join(ROOT, 'hub-src');
+// SUPR draws K as a near-H; paint a clean K over every K in SUPR-set text
+const { fixPage: suprK } = require('./tools/supr-k.cjs');
 
 const data = JSON.parse(fs.readFileSync(path.join(ROOT, 'guides.json'), 'utf8'));
 const SITE = data.site || 'https://stringersteps.com';
@@ -103,6 +105,7 @@ const inlineAssets = (s) => s.replace(/\{\{A:([a-z0-9.\-]+)\}\}/g, (m, f) =>
 html = inlineAssets(html);
 
 if (html.includes('{{')) throw new Error('unresolved template token remains');
+html = suprK(html).html;
 fs.writeFileSync(path.join(ROOT, 'index.html'), html);
 
 // 404.html (smart not-found page). GitHub Pages serves it for every missing
@@ -113,6 +116,7 @@ let nf = fs.readFileSync(path.join(SRC, '404.template.html'), 'utf8')
   .replace('{{SLUGS}}', JSON.stringify(pub.map((g) => String(g.keyword).toLowerCase())));
 nf = inlineAssets(nf);
 if (nf.includes('{{')) throw new Error('unresolved token in 404 template');
+nf = suprK(nf).html;
 fs.writeFileSync(path.join(ROOT, '404.html'), nf);
 
 // sitemap.xml (root + public guides only)
