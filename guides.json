@@ -31,6 +31,18 @@
   ],
   "guides": [
     {
+      "keyword": "launchpad",
+      "title": "Get into the Launchpad",
+      "topic": "run-smarter",
+      "visibility": "private",
+      "flagship": false,
+      "featured": false,
+      "url": "https://stringersteps.com/launchpad",
+      "kitTag": null,
+      "updated": "2026-09-26",
+      "oneLineOutcome": "For new Stratosphere members: sign in, say hi, and find the Monday call, the replays and the workshops. Private, linked from the welcome emails and the thank-you page."
+    },
+    {
       "keyword": "images25",
       "title": "Make an Open House Flyer with ChatGPT Images 2.5",
       "topic": "more-customers",
