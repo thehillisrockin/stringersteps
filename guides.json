@@ -31,6 +31,18 @@
   ],
   "guides": [
     {
+      "keyword": "messages",
+      "title": "Auto-File Your Texts Into Your Second Brain",
+      "topic": "save-time",
+      "visibility": "public",
+      "url": "https://stringersteps.com/messages",
+      "kitTag": "src-guide-messages",
+      "featured": false,
+      "flagship": false,
+      "updated": "2026-09-29",
+      "oneLineOutcome": "Connect Claude to your iMessages once, file every conversation that matters into your Second Brain with the people and companies linked, and let a daily routine file new texts on its own."
+    },
+    {
       "keyword": "launchpad",
       "title": "Get into the Launchpad",
       "topic": "run-smarter",
