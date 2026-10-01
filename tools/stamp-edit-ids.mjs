@@ -13,6 +13,20 @@ if (!g) { console.error('usage: node tools/stamp-edit-ids.mjs <guide>'); process
 const file = path.join(ROOT, g, 'index.html');
 let html = fs.readFileSync(file, 'utf8');
 
+// Retired copy guard: tools/retired-copy.json lists lines Phil has retired, per guide.
+// A rebuild from an old source brings them back unnoticed, so stop before anything is written.
+const retiredFile = path.join(ROOT, 'tools', 'retired-copy.json');
+if (fs.existsSync(retiredFile)) {
+  let retired = {};
+  try { retired = JSON.parse(fs.readFileSync(retiredFile, 'utf8')); } catch (e) { console.error('WARN: tools/retired-copy.json is not valid JSON, retired copy check skipped'); }
+  const back = (Array.isArray(retired[g]) ? retired[g] : []).filter((r) => r && r.old && html.includes(r.old));
+  if (back.length) {
+    for (const r of back) console.error(`${g}: retired copy is back: "${r.old}" must now read "${r.now}" (${r.since}: ${r.why})`);
+    console.error(`${g}: nothing stamped. Fix the line in ${g}/index.html and in the source it was rebuilt from, then run this again.`);
+    process.exit(1);
+  }
+}
+
 const KINDS = [
   [(t, c) => t === 'h1', 'h1'], [(t, c) => t === 'h3', 'h3'],
   [(t, c) => /\beyebrow\b/.test(c), 'eyebrow'], [(t, c) => t === 'p' && /\blead\b/.test(c), 'lead'],
