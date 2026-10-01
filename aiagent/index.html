@@ -245,7 +245,7 @@
   .gfine{color:#A1A1A1;font-size:11.5px;line-height:1.5;text-align:center;margin-top:14px;opacity:.82;text-wrap:pretty}
   @media(max-width:560px){.gatecard{padding:23px 18px}.gatecard h1{font-size:27px}.gf .row2{flex-direction:column;gap:12px}}
 
-/* ===== One-page (read-all) + Print/PDF view — injected module ===== */
+/* ===== One-page (read-all) + Print/PDF view, injected module ===== */
 .oneview-tools{position:absolute;top:15px;right:65px;z-index:8;display:flex;gap:8px}
 body.readall .oneview-tools{right:15px}
 /* one-page mode: reserve space at the card top so buttons never sit on the headline */
@@ -298,13 +298,13 @@ body.readall .card.moment p.sub{color:var(--muted)!important}
   .toplogo{filter:invert(1)!important;opacity:1!important;height:26px!important;margin:0 auto!important;display:inline-block!important}
   /* video embeds become a short note instead of a dead player */
   .video{aspect-ratio:auto!important;background:none!important;box-shadow:none!important;overflow:visible!important;border-radius:0!important}
-  .video::after{content:"▶ This step has a video — watch it in the online guide.";display:block;font-size:10.5pt;color:#555!important;border:1px solid #ccc;border-radius:6pt;padding:8pt 10pt}
+  .video::after{content:"▶ This step has a video. Watch it in the online guide.";display:block;font-size:10.5pt;color:#555!important;border:1px solid #ccc;border-radius:6pt;padding:8pt 10pt}
   /* no dark ink blocks: every box prints light with a border */
   .countdown,.recap,.promo,.note,.dl,.cue,.choice,.prompt-box,.skillcard{background:#fff!important;border:1px solid #bbb!important;box-shadow:none!important}
   .ccmenu,.ccmenu *{background:#f4f4f4!important;border-color:#ddd!important}
   .ccm-row{border:1px solid #ddd!important}
   .copy{display:none!important}
-  /* prompt boxes: print the FULL text — no clipped scroll areas, no scrollbars */
+  /* prompt boxes: print the FULL text, no clipped scroll areas, no scrollbars */
   .prompt-box,.prompt-box *{max-height:none!important;height:auto!important;overflow:visible!important}
   .prompt-box pre,.prompt-box code,pre{white-space:pre-wrap!important;word-break:break-word!important;overflow:visible!important}
   /* keep step number + eyebrow attached to their heading across page breaks */
@@ -503,12 +503,12 @@ body.readall .card.moment p.sub{color:var(--muted)!important}
           <div><span class="c">&#10003;</span> Put your agent to work</div>
         </div>
         <div class="cta">
-          <div class="ce">Live Workshop &middot; Thursday</div>
-          <h3>Now give your agent a second brain</h3>
-          <p>Your agent is only as smart as what it knows about you. On Thursday I'll build your entire <b>Second Brain</b> with you, live, in two hours. Every call, email, text, and detail of your business, organized so any AI knows you completely. It's normally $997. This link gets you in for <b>$297</b>, and it closes Thursday when we start. Money-back and time-back guarantee, plus the full recording.</p>
-          <div class="when">&#128197; Thursday, July 23 &middot; 12:00 to 2:00 PM ET</div>
-          <a class="ctabtn" href="https://philstringer.com/secondbrainworkshop" target="_blank" rel="noopener">Save my seat for $297 &rarr;</a>
+          <div class="ce">Free Trainings</div>
+          <h3>Want to go deeper with AI?</h3>
+          <p>I teach this stuff step by step. All my trainings are waiting for&nbsp;you.</p>
+          <a class="ctabtn" href="https://training.philstringer.com" target="_blank" rel="noopener">Watch my free trainings &rarr;</a>
         </div>
+        <p class="sub" style="text-align:center;margin-top:14px">More step-by-steps at <a href="https://stringersteps.com" style="color:var(--red);font-weight:700">stringersteps.com</a></p>
       </section>
 
     </div>
