@@ -63,8 +63,20 @@
       "featured": false,
       "url": "https://stringersteps.com/launchpad",
       "kitTag": null,
-      "updated": "2026-09-26",
-      "oneLineOutcome": "For new Stratosphere members: sign in, say hi, and find the Monday call, the replays and the workshops. Private, linked from the welcome emails and the thank-you page."
+      "updated": "2026-10-01",
+      "oneLineOutcome": "For new Stratosphere members: sign in, get on the member map, say hi, and find the Monday call, the replays and the workshops. Private, linked from the welcome emails and the thank-you page."
+    },
+    {
+      "keyword": "launchpadstart",
+      "title": "Get into the Launchpad",
+      "topic": "run-smarter",
+      "visibility": "private",
+      "flagship": false,
+      "featured": false,
+      "url": "https://stringersteps.com/launchpadstart",
+      "kitTag": null,
+      "updated": "2026-10-01",
+      "oneLineOutcome": "For new free Launchpad members: sign in, get on the member map, say hi, and find Office Hours, the training replays and the Stringer Steps. Private, sent to everyone who joins the free Launchpad."
     },
     {
       "keyword": "images25",
