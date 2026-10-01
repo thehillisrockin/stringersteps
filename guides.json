@@ -31,6 +31,18 @@
   ],
   "guides": [
     {
+      "keyword": "opus55",
+      "title": "Make a Just Listed Video with Claude Opus 5.5",
+      "topic": "more-customers",
+      "visibility": "public",
+      "url": "https://stringersteps.com/opus55",
+      "kitTag": "src-guide-opus55",
+      "featured": false,
+      "flagship": false,
+      "updated": "2026-09-30",
+      "oneLineOutcome": "Turn your listing photos into a 15-second motion graphics video for Reels: install the HyperFrames plugin in Claude, paste two prompts, pick a style, fine-tune it in plain words, and save the MP4."
+    },
+    {
       "keyword": "messages",
       "title": "Auto-File Your Texts Into Your Second Brain",
       "topic": "save-time",
