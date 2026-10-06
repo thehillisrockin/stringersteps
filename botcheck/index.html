@@ -139,6 +139,11 @@ body.embed h1.big{font-size:34px}
 body.embed #vhead{font-size:25px}
 /* embedded inside a guide, the workshop offer never shows (the guide owns the next step) */
 .embed .offer{display:none!important}
+/* src=unlock: the no-offer version for the Zillow Unlock stage QR (Phil, 2026-10-06).
+   https://stringersteps.com/botcheck/?src=unlock hides the AEO Workshop offer card (every paid link and
+   workshop line on this page lives inside it). Plain /botcheck/ still shows the offer. To show the offer
+   to Zillow traffic again, delete this rule and the src=unlock line in the script. */
+.nooffer .offer{display:none!important}
 
 /* evidence rows: what we asked, what the site answered */
 .evid{margin:14px 0 0;border-top:1px solid var(--line)}
@@ -1021,6 +1026,8 @@ window.BOTCHECK_PLATFORMS = {
 
   // Embedded in a Stringer Step: drop the chrome and keep the host iframe
   // sized to the content so the result never sits in its own scroll box.
+  // src=unlock (Zillow Unlock stage QR): no workshop offer. Switch notes sit with the .nooffer CSS rule.
+  if (/(^|[?&])src=unlock(&|$)/.test(location.search)) document.documentElement.classList.add('nooffer');
   var EMBED = /(^|[?&])embed=1(&|$)/.test(location.search);
   function reportHeight(){
     if (!EMBED || !window.parent || window.parent === window) return;
