@@ -31,6 +31,19 @@
   ],
   "guides": [
     {
+      "keyword": "unlock",
+      "title": "When AI Recommends an Agent, Will It Be You?",
+      "topic": "found-by-ai",
+      "visibility": "private",
+      "flagship": false,
+      "featured": false,
+      "url": "https://stringersteps.com/unlock",
+      "kitTag": "src-guide-unlock",
+      "updated": "2026-10-06",
+      "oneLineOutcome": "The system from Phil's Zillow Unlock 2026 talk: check that AI can read your website, build your reference file, grab the four article bots, write the four article types, and claim the profiles and reviews AI trusts.",
+      "note": "QR on the last slide of the Zillow Unlock Center Stage talk (Oct 13 2026, Las Vegas). Ungated per Zillow (optional soft ask on the finish screen only), nothing for sale. Private and unlisted by Phil's call (2026-10-06); he can make it public later."
+    },
+    {
       "keyword": "opus55",
       "title": "Make a Just Listed Video with Claude Opus 5.5",
       "topic": "more-customers",
