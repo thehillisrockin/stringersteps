@@ -38,10 +38,11 @@
       "flagship": false,
       "featured": false,
       "url": "https://stringersteps.com/unlock",
-      "kitTag": "src-guide-unlock",
-      "updated": "2026-10-06",
+      "kitTag": "src-gate-unlock",
+      "updated": "2026-10-11",
       "oneLineOutcome": "The system from Phil's Zillow Unlock 2026 talk: check that AI can read your website, build your reference file, grab the four article bots, write the four article types, and claim the profiles and reviews AI trusts.",
-      "note": "QR on the last slide of the Zillow Unlock Center Stage talk (Oct 13 2026, Las Vegas). Ungated per Zillow (optional soft ask on the finish screen only), nothing for sale. Private and unlisted by Phil's call (2026-10-06); he can make it public later."
+      "note": "QR on slide 48 of the Zillow Unlock Center Stage talk (Oct 13 2026, Las Vegas); the URL is locked. Gated since 2026-10-11 (Phil, Zillow approved): standard lead wall, guide:'unlock' lands in Kit as src-gate-unlock + sms-consent-clean. Finish screen pitches the on-demand AEO Workshop until 2026-10-14 00:00 PT, then the standard close. Private and unlisted.",
+      "gated": true
     },
     {
       "keyword": "opus55",
