@@ -41,7 +41,7 @@
       "kitTag": "src-gate-unlock",
       "updated": "2026-10-11",
       "oneLineOutcome": "The system from Phil's Zillow Unlock 2026 talk: check that AI can read your website, build your reference file, grab the four article bots, write the four article types, and claim the profiles and reviews AI trusts.",
-      "note": "QR on slide 48 of the Zillow Unlock Center Stage talk (Oct 13 2026, Las Vegas); the URL is locked. Gated since 2026-10-11 (Phil, Zillow approved): standard lead wall, guide:'unlock' lands in Kit as src-gate-unlock + sms-consent-clean. Finish screen pitches the on-demand AEO Workshop until 2026-10-14 00:00 PT, then the standard close. Private and unlisted.",
+      "note": "QR on slide 48 of the Zillow Unlock Center Stage talk (Oct 13 2026, Las Vegas); the URL is locked. Gated since 2026-10-11 (Phil, Zillow approved): standard lead wall, guide:'unlock' lands in Kit as src-gate-unlock + sms-consent-clean. Finish screen pitches the on-demand AEO Workshop, evergreen with no end date (Phil, 2026-10-11). Private and unlisted.",
       "gated": true
     },
     {

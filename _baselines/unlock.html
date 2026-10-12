@@ -399,7 +399,6 @@ p.lead a,p.sub a,.cap a{color:var(--red);font-weight:700}
 /* the lead wall (same as the aiagent reference build) */
 .gatewrap{background:radial-gradient(130% 100% at 50% 0%, #35353a 0%, #232326 45%, #141416 100%)}
 /* the AEO Workshop offer on the finish screen (content from the botcheck #offer card) */
-.offer[hidden],.closeswap[hidden]{display:none!important}
 .offer{margin-top:20px;background:rgba(0,0,0,.2);border:1px solid rgba(246,198,39,.42);border-radius:16px;padding:22px 20px 20px;text-align:left}
 .offer .ce{font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);margin-bottom:7px}
 .offer h3.oh{font-family:'SUPR',sans-serif;font-weight:700;text-transform:uppercase;color:#fff;font-size:27px;line-height:1.02;letter-spacing:.005em;margin-bottom:12px;text-wrap:balance}
@@ -453,7 +452,7 @@ body.readall .toolpick{display:none}
   .stat{background:#fff!important;border:1px solid #bbb!important}
   .stat p.sn{color:#8a6d00!important}
   .stats{page-break-inside:avoid!important}
-  .cta,.offer,.closeswap{display:none!important}
+  .cta,.offer{display:none!important}
 }
 </style>
 <style>/* SUPR K fix: the font's K reads as H. The real letter stays in the text; a clean K is painted over it. Wraps come from tools/supr-k.cjs. */.k{-webkit-text-fill-color:transparent;background:linear-gradient(currentColor,currentColor) no-repeat .02em 0/.34em .7em;-webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 49 100' preserveAspectRatio='none'><path d='M0 0H17V40L31 0H49L33 46L49 100H31L17 58V100H0Z'/></svg>") no-repeat .02em 0/.34em .7em;mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 49 100' preserveAspectRatio='none'><path d='M0 0H17V40L31 0H49L33 46L49 100H31L17 58V100H0Z'/></svg>") no-repeat .02em 0/.34em .7em}body.ed [data-e]:focus .k{-webkit-text-fill-color:currentColor;background:none;-webkit-mask:none;mask:none}@media print{.k{-webkit-print-color-adjust:exact;print-color-adjust:exact}}</style>
@@ -716,10 +715,8 @@ Each question should dig deep enough to help you later write clear, specific, hu
           <div data-e="finish.recap-6"><span class="c">&#10003;</span> Step 4: Head-to-Head &middot; prefer</div>
           <div data-e="finish.recap-7"><span class="c">&#10003;</span> Step 5: Footprint &middot; trust</div>
         </div>
-        <!-- SOP section 0: a priced offer on a guide needs an end date. The offer shows until 2026-10-14T00:00:00-07:00
-             (the day after the talk); from then on the standard close shows instead. To run the offer longer,
-             set the same new date on data-until (here) and data-from (the standard close below). -->
-        <div class="offer" id="offer" data-until="2026-10-14T00:00:00-07:00">
+        <!-- The AEO Workshop offer is evergreen (on-demand product): no end date, by Phil's call on 2026-10-11. -->
+        <div class="offer" id="offer">
           <div class="ce" data-e="finish.cta-ce-1">The AEO Workshop</div>
           <h3 class="oh" data-e="finish.h3-1">Want to do this together, step by&nbsp;step?</h3>
           <p class="lead" data-e="finish.lead-2">The AEO Workshop is a recorded, on demand workshop where I build the whole system on a real business while you build yours. You get three&nbsp;things:</p>
@@ -742,14 +739,6 @@ Each question should dig deep enough to help you later write clear, specific, hu
             <a class="more" id="moreBtn" href="https://training.philstringer.com/aeo-workshop?utm_source=unlock&amp;utm_medium=guide&amp;utm_campaign=zillow-unlock-2026">See everything that is inside</a>
           </div>
           <p class="sub fineprint" data-e="finish.sub-8"><b>Not technical?</b> That is who this was built for. If you can copy, paste and click what I click, you can do&nbsp;this.</p>
-        </div>
-        <div class="closeswap" data-from="2026-10-14T00:00:00-07:00" hidden>
-        <div class="cta">
-          <div class="ce" data-e="finish.cta-ce-2">Free Trainings</div>
-          <h3 data-e="finish.h3-5">Want to go deeper with AI?</h3>
-          <p data-e="finish.cta-p-1">I teach this stuff step by step. All my trainings are waiting for&nbsp;you.</p>
-          <a class="ctabtn" href="https://training.philstringer.com" target="_blank" rel="noopener" data-e="finish.cta-btn-1">Watch my free trainings &rarr;</a>
-        </div>
         </div>
         <p class="sub" style="text-align:center;margin-top:14px" data-e="finish.sub-9">More step-by-steps at <a href="https://stringersteps.com" style="color:var(--red);font-weight:700">stringersteps.com</a></p>
       </section>
@@ -878,14 +867,6 @@ Each question should dig deep enough to help you later write clear, specific, hu
 })();
 </script>
 
-<!-- ===== OFFER END DATE: the offer shows until its data-until date, then the standard close (data-from) takes over ===== -->
-<script>
-(function(){
-  var now=Date.now();
-  document.querySelectorAll('[data-until]').forEach(function(el){var t=Date.parse(el.getAttribute('data-until'));if(t&&now>=t)el.hidden=true;});
-  document.querySelectorAll('[data-from]').forEach(function(el){var t=Date.parse(el.getAttribute('data-from'));if(t)el.hidden=now<t;});
-})();
-</script>
 
 <script>
 (function(){
